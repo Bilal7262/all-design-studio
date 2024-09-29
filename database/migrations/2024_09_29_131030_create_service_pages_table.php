@@ -33,7 +33,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign key constraint for blogger_id (assuming it references an existing table)
-            $table->foreign('blogger_id')->references('id')->on('bloggers')->onDelete('cascade');
+            // $table->foreign('blogger_id')->references('id')->on('bloggers')->onDelete('cascade');
         });
     }
 
