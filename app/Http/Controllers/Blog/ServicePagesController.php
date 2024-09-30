@@ -16,7 +16,7 @@ class ServicePagesController extends Controller
         $length = isset($filters['length']) ? $filters['length'] : 25;
 
         $query = ServicePage::where('page_type', $request->page_type);
-        
+
 
         if (isset($filters['status'])) {
             $query->where('status', $filters['status']);
@@ -91,14 +91,14 @@ class ServicePagesController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            "site_url"          => "required",
+            // "site_url"          => "required",
             "page_type"         => "required",
             // "blogger_id"         => "required",
           ]);
-  
+
           try{
             // $s3Prefix = $request->page_type .'/'. (isset($request->parent) ? $request->parent['page_slug'] .'/' : '') . $request->page_slug;
-  
+
         // $image_name = '';
         //Upload Cover Image to S3 Bucket
         // if(isset($request->image_id)) {
@@ -115,13 +115,13 @@ class ServicePagesController extends Controller
         //         // $image_name = $s3Prefix.'/'.$temp_image->name;
         //         // Set Asset Url
         //         $image_name = '';
-                
+
         //         $image_name = env('ASSET_URL').$s3Prefix.'/' . $temp_image->name;
 
         //     }
         //     $request->merge(['image' => $image_name]);
         // }
-  
+
           $service = ServicePage::create($request->all());
             return response()->json([
                 'status' => 200,
@@ -134,18 +134,18 @@ class ServicePagesController extends Controller
                 'message' => $e->getMessage()
             ],500);
           }
-  
-    }  
+
+    }
     public function delete_page($id){
         $page = NewServicePage::find($id);
-    
+
         if(!$page){
           return response()->json([
               'status' => 404,
               'message' => 'Not found!',
           ],404);
         }
-    
+
         // if ($page->expert) {
         //     $page->expert->writers()->detach();
         //     $page->expert->delete();
@@ -193,8 +193,8 @@ class ServicePagesController extends Controller
         // if ($page->cta) {
         //     $page->cta->delete();
         // }
-    
-    
+
+
         // $this->remove_file($page->image);
         $page->delete();
         return response()->json([
