@@ -16,14 +16,14 @@ class AuthController extends Controller
         // Validate the request data
         $request->validate([
             'name' => 'required|string|max:255',
-            'user_name' => 'required|string|max:255|unique:page_users',
+            'email' => 'required|string|max:255|unique:page_users',
             'password' => 'required|string|min:8',
         ]);
 
         // Create the user
         $user = PageUser::create([
             'name' => $request->name,
-            'user_name' => $request->user_name,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
             'pass' => $request->password,
         ]);
@@ -44,12 +44,12 @@ class AuthController extends Controller
     {
         // Validate login credentials
         $request->validate([
-            'user_name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
             'password' => 'required|string|min:8',
         ]);
 
         // Check the user's credentials
-        $user = PageUser::where('user_name', $request->user_name)->first();
+        $user = PageUser::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json(['message' => 'Invalid user name or password'], 401);
