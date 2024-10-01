@@ -42,7 +42,7 @@ class SnippetController extends Controller
             'heading' => $validatedData['heading'],
             'description' => $validatedData['description'],
             'price' => $validatedData['price'],
-            'icon' => $iconPath, // Store the icon path
+            'icon' => \Storage::url($iconPath), // Store the icon path
             'icon_alt' => $validatedData['icon_alt'],
             'discount_tag' => $validatedData['discount_tag'],
             'site_url' => $validatedData['site_url'],
