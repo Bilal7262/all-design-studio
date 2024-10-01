@@ -28,6 +28,7 @@ class SnippetController extends Controller
             'site_url' => 'nullable|string',
             'page_slug' => 'nullable|string',
             'usps_length' => 'required|integer|min:0',
+            'service_id'=>'required|exists:service_pages,id'
         ]);
 
         // Handle icon upload
@@ -35,6 +36,7 @@ class SnippetController extends Controller
 
         // Create the Snippet
         $snippet = Snippet::create([
+            'service_id'=>$request->service_id,
             'service_type' => $validatedData['service_type'],
             'card_type' => $validatedData['card_type'],
             'heading' => $validatedData['heading'],
