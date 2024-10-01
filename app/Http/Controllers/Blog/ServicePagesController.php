@@ -202,4 +202,8 @@ class ServicePagesController extends Controller
           'message' => 'successfully deleted',
         ]);
     }
+
+    public function showPage(Request $request){
+
+    }
 }

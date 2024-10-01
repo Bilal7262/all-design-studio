@@ -18,7 +18,9 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 Route::group(['prefix' => 'new-service-pages'], function () {
     Route::post('get',[ServicePagesController::class,'getPages']);
+    Route::get('show',[ServicePagesController::class,'showPage']);
     Route::post('validate-slug',[ServicePagesController::class,'validateSlug']);
     Route::post('add',[ServicePagesController::class,'store']);
     Route::get('delete-page/{id}',[ServicePagesController::class,'delete_page']);
 });
+
