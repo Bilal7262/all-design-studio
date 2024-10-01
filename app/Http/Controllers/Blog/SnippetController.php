@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Snippet;
+use Illuminate\Support\Facades\Storage;
 class SnippetController extends Controller
 {
     public function index()
@@ -42,7 +43,7 @@ class SnippetController extends Controller
             'heading' => $validatedData['heading'],
             'description' => $validatedData['description'],
             'price' => $validatedData['price'],
-            'icon' => \Storage::url($iconPath), // Store the icon path
+            'icon' => Storage::url($iconPath), // Store the icon path
             'icon_alt' => $validatedData['icon_alt'],
             'discount_tag' => $validatedData['discount_tag'],
             'site_url' => $validatedData['site_url'],
@@ -96,8 +97,8 @@ class SnippetController extends Controller
         // Handle icon update if a new file is provided
         if ($request->hasFile('icon')) {
             // Delete the old icon if exists
-            if ($snippet->icon && \Storage::disk('public')->exists($snippet->icon)) {
-                \Storage::disk('public')->delete($snippet->icon);
+            if ($snippet->icon && Storage::disk('public')->exists($snippet->icon)) {
+                Storage::disk('public')->delete($snippet->icon);
             }
 
             // Store new icon
@@ -135,8 +136,8 @@ class SnippetController extends Controller
         $snippet = Snippet::findOrFail($id);
 
         // Delete the icon if exists
-        if ($snippet->icon && \Storage::disk('public')->exists($snippet->icon)) {
-            \Storage::disk('public')->delete($snippet->icon);
+        if ($snippet->icon && Storage::disk('public')->exists($snippet->icon)) {
+            Storage::disk('public')->delete($snippet->icon);
         }
 
         // Delete related USPs
