@@ -26,7 +26,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         Route::post('add', [SnippetController::class, 'store']);
         Route::get('{id}', [SnippetController::class, 'show']);
         Route::put('{id}', [SnippetController::class, 'update']);
-        Route::delete('{id}', [SnippetController::class, 'destroy']);
+        Route::get('delete/{id}', [SnippetController::class, 'destroy']);
     });
 });
 
