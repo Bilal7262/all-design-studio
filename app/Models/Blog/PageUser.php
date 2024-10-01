@@ -15,7 +15,7 @@ class PageUser extends Model
     // Allow mass assignment of these fields
     protected $fillable = [
         'name',
-        'user_name',
+        'email',
         'password',
         'pass'
     ];
