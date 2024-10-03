@@ -91,7 +91,7 @@ class ServicePagesController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            // "site_url"          => "required",
+            "site_url"          => "required",
             "page_type"         => "required",
             // "blogger_id"         => "required",
           ]);
@@ -204,6 +204,12 @@ class ServicePagesController extends Controller
     }
 
     public function showPage(Request $request){
+        $page = ServicePage::with('snippets')->where('page_slug', $request->page_slug)->first();
+        return response()->json([
+            'status' => 200,
+            'message' => 'Successfully fetched',
+            'page' => $page
+        ], 200);
 
     }
 }

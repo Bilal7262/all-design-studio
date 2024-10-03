@@ -16,6 +16,7 @@ class ServicePage extends Model
         'meta_title',
         'meta_description',
         'breadcrumb_schema',
+        'site_url',
         // 'image',
         // 'image_name',
         // 'alt_text',

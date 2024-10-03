@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('page_type');
             $table->string('title');
             $table->string('page_slug');
+            $table->string('site_url');
             $table->string('meta_title');
             $table->text('meta_description')->nullable();
             $table->text('breadcrumb_schema')->nullable();
