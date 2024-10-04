@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Snippet;
+use App\Models\Blog\Snippet;
 use Illuminate\Support\Facades\Storage;
 class SnippetController extends Controller
 {

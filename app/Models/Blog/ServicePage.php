@@ -31,4 +31,9 @@ class ServicePage extends Model
 
     protected $hidden = ['image_id', 'image_name'];
 
+    public function snippets()
+    {
+        return $this->hasMany(Snippet::class, 'service_id', 'id');
+    }
+
 }
