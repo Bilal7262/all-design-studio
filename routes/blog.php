@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -23,6 +23,12 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::post('validate-slug',[ServicePagesController::class,'validateSlug']);
     Route::post('add',[ServicePagesController::class,'store']);
     Route::get('delete-page/{id}',[ServicePagesController::class,'delete_page']);
+
+
+    Route::get('images/add',[ServiceImageController::class,'store']);
+
+
+
     Route::group(['prefix' => 'snippets'], function () {
         Route::post('add', [SnippetController::class, 'store']);
         Route::get('{id}', [SnippetController::class, 'show']);
