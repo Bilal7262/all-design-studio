@@ -25,7 +25,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::get('delete-page/{id}',[ServicePagesController::class,'delete_page']);
 
 
-    Route::get('images/add',[ServiceImageController::class,'store']);
+    Route::post('images/add',[ServiceImageController::class,'store']);
 
 
 
