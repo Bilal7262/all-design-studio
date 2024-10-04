@@ -33,7 +33,17 @@ class SnippetController extends Controller
         ]);
 
         // Handle icon upload
-        $iconPath = $request->file('icon')->store('icons', 'public');
+        
+        $service = ServicePage::where('id',$validatedData['service_id'])->first();
+        if ($request->hasFile('icon')) {
+               
+            // Define the storage path
+            $storagePath = "service-pages/{$service->page_slug}";
+
+            // Use the helper function to store the icon and handle old icon deletion
+            $validatedData['icon'] = storeBinaryFile($request->file('icon'), $storagePath);
+           
+        }
 
         // Create the Snippet
         $snippet = Snippet::create([
@@ -43,7 +53,7 @@ class SnippetController extends Controller
             'heading' => $validatedData['heading'],
             'description' => $validatedData['description'],
             'price' => $validatedData['price'],
-            'icon' => Storage::url($iconPath), // Store the icon path
+            'icon' => $validatedData['icon'], // Store the icon path
             'icon_alt' => $validatedData['icon_alt'],
             'discount_tag' => $validatedData['discount_tag'],
             'site_url' => $validatedData['site_url'],
@@ -96,14 +106,13 @@ class SnippetController extends Controller
 
         // Handle icon update if a new file is provided
         if ($request->hasFile('icon')) {
-            // Delete the old icon if exists
-            if ($snippet->icon && Storage::disk('public')->exists($snippet->icon)) {
-                Storage::disk('public')->delete($snippet->icon);
-            }
+               
+            // Define the storage path
+            $storagePath = "service-pages/{$service->page_slug}";
 
-            // Store new icon
-            $iconPath = $request->file('icon')->store('icons', 'public');
-            $validatedData['icon'] = $iconPath;
+            // Use the helper function to store the icon and handle old icon deletion
+            $validatedData['icon'] = storeBinaryFile($request->file('icon'), $storagePath);
+           
         }
 
         // Update the snippet
@@ -134,11 +143,6 @@ class SnippetController extends Controller
     {
         // Find the snippet by id
         $snippet = Snippet::findOrFail($id);
-
-        // Delete the icon if exists
-        if ($snippet->icon && Storage::disk('public')->exists($snippet->icon)) {
-            Storage::disk('public')->delete($snippet->icon);
-        }
 
         // Delete related USPs
         $snippet->snippetUsps()->delete();

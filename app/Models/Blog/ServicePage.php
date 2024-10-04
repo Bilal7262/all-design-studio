@@ -35,5 +35,9 @@ class ServicePage extends Model
     {
         return $this->hasOne(Snippet::class, 'service_id', 'id')->with('usps');
     }
+    public function images()
+    {
+        return $this->hasMany(ServiceImage::class);
+    }
 
 }
