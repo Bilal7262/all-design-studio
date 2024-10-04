@@ -10,7 +10,7 @@ class SnippetController extends Controller
 {
     public function index()
     {
-        $snippets = Snippet::with('snippetUsps')->get();
+        $snippets = Snippet::with('usps')->get();
         return response()->json($snippets);
     }
 
@@ -66,20 +66,20 @@ class SnippetController extends Controller
         for ($i = 0; $i < $uspsLength; $i++) {
             $uspKey = 'usp_' . $i;
             if ($request->has($uspKey)) {
-                $snippet->snippetUsps()->create([
+                $snippet->usps()->create([
                     'usp' => $request->input($uspKey),
                 ]);
             }
         }
 
         // Return the newly created snippet along with its USPs
-        return response()->json($snippet->load('snippetUsps'), 201);
+        return response()->json($snippet->load('usps'), 201);
     }
 
     public function show($id)
     {
         // Fetch snippet by ID with its related USPs
-        $snippet = Snippet::with('snippetUsps')->findOrFail($id);
+        $snippet = Snippet::with('susps')->findOrFail($id);
         return response()->json($snippet);
     }
 
@@ -123,20 +123,20 @@ class SnippetController extends Controller
         $uspsLength = $request->input('usps_length', 0);
 
         // Delete old USPs
-        $snippet->snippetUsps()->delete();
+        $snippet->usps()->delete();
 
         // Add new USPs
         for ($i = 0; $i < $uspsLength; $i++) {
             $uspKey = 'usp_' . $i;
             if ($request->has($uspKey)) {
-                $snippet->snippetUsps()->create([
+                $snippet->usps()->create([
                     'usp' => $request->input($uspKey),
                 ]);
             }
         }
 
         // Return the updated snippet along with its USPs
-        return response()->json($snippet->load('snippetUsps'), 200);
+        return response()->json($snippet->load('usps'), 200);
     }
 
 
@@ -146,7 +146,7 @@ class SnippetController extends Controller
         $snippet = Snippet::findOrFail($id);
 
         // Delete related USPs
-        $snippet->snippetUsps()->delete();
+        $snippet->usps()->delete();
 
         // Delete the snippet itself
         $snippet->delete();
