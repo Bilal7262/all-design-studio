@@ -23,7 +23,7 @@ class Snippet extends Model
         'page_slug'
     ];
 
-    public function snippetUsps()
+    public function usps()
     {
         return $this->hasMany(SnippetUsp::class);
     }

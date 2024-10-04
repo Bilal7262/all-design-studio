@@ -33,7 +33,7 @@ class ServicePage extends Model
 
     public function snippet()
     {
-        return $this->hasOne(Snippet::class, 'service_id', 'id');
+        return $this->hasOne(Snippet::class, 'service_id', 'id')->with('usps');
     }
 
 }
