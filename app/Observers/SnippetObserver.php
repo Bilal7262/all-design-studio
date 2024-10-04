@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Snippet;
+use App\Models\Blog\Snippet;
 
 class SnippetObserver
 {

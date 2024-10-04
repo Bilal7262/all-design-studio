@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\ServiceImage;
+use App\Models\Blog\ServiceImage;
 
 class ServiceImageObserver
 {
