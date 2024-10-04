@@ -136,6 +136,60 @@ class ServicePagesController extends Controller
           }
 
     }
+
+
+    public function update($id,Request $request){
+        $request->validate([
+            "site_url"          => "required",
+            "page_type"         => "required",
+            "blogger_id"         => "required|integer",
+          ]);
+  
+        // try{
+  
+  
+        // $image_name = '';
+        // //Upload Cover Image to S3 Bucket
+        // if(isset($request->image_id)) {
+        //     $s3Prefix = $request->page_type .'/'. (isset($request->parent) ? $request->parent['page_slug'] .'/' : '') . $request->page_slug;
+        //     // Get Image name from Temp Images
+        //     $temp_image = Pages_Temp_Files::select('name')->find($request->image_id);
+        //     // Move Temp Images to Property Images folder (S3 Bucket)
+        //     $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
+        //     //Upload Original and Thumbnail images
+        //     if (File::exists($src_img)) {
+        //         Storage::disk('s3')->put('/' .$s3Prefix.'/'. $temp_image->name, fopen($src_img, 'r+'), 'public');
+        //         // File::delete($src_img);
+        //         $temp_image->destroy($request->image_id);
+        //         // $image_name = $s3Prefix.'/'.$temp_image->name;
+        //         // Set Asset Url
+        //         $image_name = '';
+        //         $sites      = $this->PagesHelper->getSites();
+        //         if(isset($request->site_url) && $sites[$request->site_url]) {
+        //             $image_name = $sites[$request->site_url]['assetsUrl'] . '/' .$s3Prefix.'/' . $temp_image->name;
+        //         } else {
+        //             $image_name = 'https://assets.myperfectwords.com/'.$s3Prefix.'/' . $temp_image->name;
+        //         }
+        //     }
+        //     $request->merge(['image' => $image_name]);
+        // }
+  
+          NewServicePage::find($id)->update($request->all());
+  
+  
+          return response()->json([
+              'status' => 200,
+              'message' => 'succesfully updated',
+              'service' =>  NewServicePage::find($id)
+          ]);
+          // }catch(\Exception $e){
+          //   return response()->json([
+          //       'status' => 500,
+          //       'message' => $e->getMessage()
+          //   ],500);
+          // }
+  
+    }
     public function delete_page($id){
         $page = NewServicePage::find($id);
 
