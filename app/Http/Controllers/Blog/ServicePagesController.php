@@ -191,7 +191,7 @@ class ServicePagesController extends Controller
   
     }
     public function delete_page($id){
-        $page = NewServicePage::find($id);
+        $page = ServicePage::find($id);
 
         if(!$page){
           return response()->json([

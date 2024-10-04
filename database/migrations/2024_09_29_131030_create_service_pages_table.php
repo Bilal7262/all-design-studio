@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('banner_button_text')->nullable();
             $table->string('banner_button_link')->nullable();
             $table->float('aggregate_rating')->nullable();
-            $table->string('status')->default('inactive');
+            $table->enum('status', ['Draft', 'Pending', 'Active'])->default('Draft');
             $table->timestamps();
 
             // Foreign key constraint for blogger_id (assuming it references an existing table)
