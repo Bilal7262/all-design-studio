@@ -204,7 +204,7 @@ class ServicePagesController extends Controller
     }
 
     public function showPage(Request $request){
-        $page = ServicePage::with('snippets')->where('page_slug', $request->page_slug)->first();
+        $page = ServicePage::with('snippets')->where('id', $request->id)->first();
         return response()->json([
             'status' => 200,
             'message' => 'Successfully fetched',
