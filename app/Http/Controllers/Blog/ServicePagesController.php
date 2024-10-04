@@ -174,13 +174,13 @@ class ServicePagesController extends Controller
         //     $request->merge(['image' => $image_name]);
         // }
   
-          NewServicePage::find($id)->update($request->all());
+          ServicePage::find($id)->update($request->all());
   
   
           return response()->json([
               'status' => 200,
               'message' => 'succesfully updated',
-              'service' =>  NewServicePage::find($id)
+              'service' =>  ServicePage::find($id)
           ]);
           // }catch(\Exception $e){
           //   return response()->json([
