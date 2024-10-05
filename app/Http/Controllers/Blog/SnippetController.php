@@ -96,7 +96,6 @@ class SnippetController extends Controller
             'heading' => 'required|string',
             'description' => 'required|string',
             'price' => 'required|string',
-            'icon' => 'nullable|string|file|mimes:jpeg,jpg,png,svg,gif', // Handling the binary icon
             'icon_alt' => 'required|string',
             'discount_tag' => 'nullable|string',
             'site_url' => 'nullable|string',
@@ -104,7 +103,6 @@ class SnippetController extends Controller
             'usps_length' => 'required|integer|min:0',
         ]);
 
-        unset($validatedData['icon']); 
         // Handle icon update if a new file is provided
         if ($request->hasFile('icon')) {
                
