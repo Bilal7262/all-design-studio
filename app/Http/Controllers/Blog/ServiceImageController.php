@@ -39,7 +39,7 @@ class ServiceImageController extends Controller
     {
         $validatedData = $request->validate([
             'service_page_id' => 'required|exists:service_pages,id',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,webp',
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,webp,svg',
             'image_alt' => 'nullable|string',
         ]);
 

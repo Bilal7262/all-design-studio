@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('service_images', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('service_page_id'); // Foreign key to service_pages
             $table->binary('image'); // Store the image in binary format
