@@ -136,6 +136,23 @@ class SnippetController extends Controller
         // Return the updated snippet along with its USPs
         return response()->json($snippet->load('usps'), 200);
     }
+    public function store_usps(Request $request)
+    {
+
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'usp' => 'required|string',
+            'snippet_id' => 'required|exists:snippets,id'
+        ]);
+
+        
+        // Update the snippet
+        $usp = SnippetUsp::create($validatedData);
+
+        return response()->json(['message' => "usp created successfully", 'usp'=>$usp], 201);
+    }
+
+
     public function update_usps(Request $request, $id)
     {
         // Find the snippet by id
@@ -148,9 +165,23 @@ class SnippetController extends Controller
 
         
         // Update the snippet
-        $$usp->update($validatedData);
+        $usp->update($validatedData);
 
-        return response()->json(['message' => "usp updated successfully", 'usp'=>$usp], 200);
+        return response()->json(['message' => "usp updated successfully", 'usp'=>SnippetUsp::findOrFail($id)], 200);
+    }
+
+    public function delete_usps($id)
+    {
+        // Find the snippet by id
+        $usp = SnippetUsp::findOrFail($id);
+
+        
+
+        
+        // Update the snippet
+        $usp->delete();
+
+        return response()->json(['message' => "usp deleted successfully"], 200);
     }
     
 
