@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Blog\{Snippet, ServicePage};
+use App\Models\Blog\{Snippet, ServicePage, SnippetUsp};
 use Illuminate\Support\Facades\Storage;
 class SnippetController extends Controller
 {
@@ -136,6 +136,23 @@ class SnippetController extends Controller
         // Return the updated snippet along with its USPs
         return response()->json($snippet->load('usps'), 200);
     }
+    public function update_usps(Request $request, $id)
+    {
+        // Find the snippet by id
+        $usp = SnippetUsp::findOrFail($id);
+
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'usp' => 'required|string'
+        ]);
+
+        
+        // Update the snippet
+        $$usp->update($validatedData);
+
+        return response()->json(['message' => "usp updated successfully", 'usp'=>$usp], 200);
+    }
+    
 
 
     public function destroy($id)

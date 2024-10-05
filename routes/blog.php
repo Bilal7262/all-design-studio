@@ -37,6 +37,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         Route::post('add', [SnippetController::class, 'store']);
         Route::get('{id}', [SnippetController::class, 'show']);
         Route::put('{id}', [SnippetController::class, 'update']);
+        Route::put('usps/{id}', [SnippetController::class, 'update_usps']);
         Route::get('delete/{id}', [SnippetController::class, 'destroy']);
     });
 });
