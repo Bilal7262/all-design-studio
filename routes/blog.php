@@ -31,6 +31,12 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::post('images/{image_id}/update',[ServiceImageController::class,'update']);
     Route::get('images/{image_id}/delete',[ServiceImageController::class,'destroy']);
 
+    Route::get('features/{service_id}/index',[ServiceImageController::class,'index']);
+    Route::post('features/add',[ServiceImageController::class,'store']);
+    Route::get('features/{feature_id}/show',[ServiceImageController::class,'show']);
+    Route::post('features/{feature_id}/update',[ServiceImageController::class,'update']);
+    Route::get('features/{feature_id}/delete',[ServiceImageController::class,'destroy']);
+
 
 
     Route::group(['prefix' => 'snippets'], function () {

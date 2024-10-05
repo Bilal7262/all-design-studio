@@ -40,4 +40,9 @@ class ServicePage extends Model
         return $this->hasMany(ServiceImage::class);
     }
 
+    public function feature()
+    {
+        return $this->hasOne(ServiceFeature::class);
+    }
+
 }

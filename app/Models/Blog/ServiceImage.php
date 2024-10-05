@@ -18,4 +18,5 @@ class ServiceImage extends Model
     {
         return $this->belongsTo(ServicePage::class);
     }
+    
 }
