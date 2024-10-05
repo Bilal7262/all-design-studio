@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceFeatureController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -31,11 +31,11 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::post('images/{image_id}/update',[ServiceImageController::class,'update']);
     Route::get('images/{image_id}/delete',[ServiceImageController::class,'destroy']);
 
-    Route::get('features/{service_id}/index',[ServiceFeatureController::class,'index']);
-    Route::post('features/add',[ServiceFeatureController::class,'store']);
-    Route::get('features/{feature_id}/show',[ServiceFeatureController::class,'show']);
-    Route::post('features/{feature_id}/update',[ServiceFeatureController::class,'update']);
-    Route::get('features/{feature_id}/delete',[ServiceFeatureController::class,'destroy']);
+    Route::get('banner/{service_id}/index',[ServiceBannerController::class,'index']);
+    Route::post('banner/add',[ServiceBannerController::class,'store']);
+    Route::get('banner/{banner_id}/show',[ServiceBannerController::class,'show']);
+    Route::post('banner/{banner_id}/update',[ServiceBannerController::class,'update']);
+    Route::get('banner/{banner_id}/delete',[ServiceBannerController::class,'destroy']);
 
 
 

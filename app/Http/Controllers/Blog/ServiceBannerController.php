@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Blog\ServiceFeature;
+use App\Models\Blog\ServiceBanner;
 
-class ServiceFeatureController extends Controller
+class ServiceBannerController extends Controller
 {
     public function index($service_id)
     {
-        $serviceFeatures = ServiceFeature::where('service_page_id',$service_id)->get();
+        $serviceBanners = ServiceBanner::where('service_page_id',$service_id)->get();
         return response()->json([
             'message'=>'fetched successfully',
-            'feature'=>$serviceFeatures,
+            'banner'=>$serviceBanners,
             'status'=>200
         ],200);
     }
@@ -33,28 +33,28 @@ class ServiceFeatureController extends Controller
             'service_page_id' => 'required|exists:service_pages,id',
         ]);
 
-        $serviceFeature = ServiceFeature::create($validatedData);
+        $serviceBanner = ServiceBanner::create($validatedData);
         return response()->json([
             'message'=>'created successfully',
-            'feature'=>$serviceFeature,
+            'banner'=>$serviceBanner,
             'status'=>201
         ],201);
     }
 
-    public function show($feature_id)
+    public function show($banner_id)
     {
-        $serviceFeature = ServiceFeature::whereId($feature_id)->first();
+        $serviceBanner = ServiceBanner::whereId($banner_id)->first();
         
         return response()->json([
             'message'=>'fetched successfully',
-            'feature'=>$serviceFeature,
+            'banner'=>$serviceBanner,
             'status'=>200
         ],200);
     }
 
-    public function update(Request $request, $feature_id)
+    public function update(Request $request, $banner_id)
     {
-        $serviceFeature = ServiceFeature::whereId($feature_id)->first();
+        $serviceBanner = ServiceBanner::whereId($banner_id)->first();
 
         $validatedData = $request->validate([
             'heading' => 'sometimes|string',
@@ -68,18 +68,18 @@ class ServiceFeatureController extends Controller
             'button_link' => 'sometimes|string',
         ]);
 
-        $serviceFeature->update($validatedData);
+        $serviceBanner->update($validatedData);
         return response()->json([
             'message'=>'updated successfully',
-            'feature'=>$serviceFeature,
+            'banner'=>$serviceBanner,
             'status'=>200
         ],200);
     }
 
-    public function destroy($feature_id)
+    public function destroy($banner_id)
     {
-        $serviceFeature = ServiceFeature::whereId($feature_id);
-        $serviceFeature->delete();
+        $serviceBanner = ServiceBanner::whereId($banner_id);
+        $serviceBanner->delete();
         
         return response()->json([
             'message'=>'deleted successfully',
