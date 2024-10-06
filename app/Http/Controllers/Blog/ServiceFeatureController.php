@@ -60,7 +60,7 @@ class ServiceFeatureController extends Controller
         ]);
      }
 
-    public function update_benifit($id, Request $request){
+    public function update_benefit($id, Request $request){
         $feature_benefit = ServiceFeatureBenefit::find($id);
   
         $benefit = [
