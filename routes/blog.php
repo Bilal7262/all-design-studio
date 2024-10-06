@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -38,7 +38,6 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::get('banner/{banner_id}/delete',[ServiceBannerController::class,'destroy']);
 
 
-
     Route::group(['prefix' => 'snippets'], function () {
         Route::post('add', [SnippetController::class, 'store']);
         Route::get('{id}', [SnippetController::class, 'show']);
@@ -48,6 +47,14 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         Route::get('usps/{id}/delete', [SnippetController::class, 'delete_usps']);
         Route::get('delete/{id}', [SnippetController::class, 'destroy']);
     });
+
+
+    Route::post('feature', [ServiceFeatureController::class, 'store']);
+    Route::post('feature/update-benifit/{$id}', [ServiceFeatureController::class, 'update_benifit']);
+    Route::post('feature/{id}/delete', [ServiceFeatureController::class, 'destroy_feature']);
+    Route::post('feature/benifit/{id}/delete', [ServiceFeatureController::class, 'destroy_benefit-']);
+
+
 });
 
 

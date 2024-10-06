@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('service_features', function (Blueprint $table) {
+        Schema::create('service_feature_benefits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_page_id')->constrained('service_pages')->onDelete('cascade');
+            $table->foreignId('service_feature_id')->constrained('service_features')->onDelete('cascade');
             $table->string('heading');
             $table->string('sub_heading')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('icon_alt')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('service_features');
+        Schema::dropIfExists('service_feature_benefits');
     }
 };

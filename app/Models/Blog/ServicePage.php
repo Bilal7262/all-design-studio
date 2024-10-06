@@ -45,4 +45,9 @@ class ServicePage extends Model
         return $this->hasOne(ServiceBanner::class);
     }
 
+    public function feature()
+    {
+        return $this->hasOne(ServiceFeature::class)->with('benefits');
+    }
+
 }

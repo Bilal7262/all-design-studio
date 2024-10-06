@@ -27,7 +27,6 @@ class ServiceBannerController extends Controller
             'feature2' => 'required|string',
             'feature3' => 'required|string',
             'feature4' => 'required|string',
-            'price' => 'required|numeric',
             'button_text' => 'required|string',
             'button_link' => 'required|string',
             'service_page_id' => 'required|exists:service_pages,id',
@@ -63,7 +62,6 @@ class ServiceBannerController extends Controller
             'feature2' => 'sometimes|string',
             'feature3' => 'sometimes|string',
             'feature4' => 'sometimes|string',
-            'price' => 'sometimes|numeric',
             'button_text' => 'sometimes|string',
             'button_link' => 'sometimes|string',
         ]);
@@ -78,7 +76,7 @@ class ServiceBannerController extends Controller
 
     public function destroy($banner_id)
     {
-        $serviceBanner = ServiceBanner::whereId($banner_id);
+        $serviceBanner = ServiceBanner::whereId($banner_id)->first();
         $serviceBanner->delete();
         
         return response()->json([
