@@ -29,7 +29,7 @@ class ServiceFeatureController extends Controller
         $feature['heading'] = $data['heading'];
         $feature['sub_heading'] = $data['sub_heading'];
         $feature['service_page_id'] = $data['service_page_id'];
-        $feature= PageService::create($feature);
+        $feature= ServiceFeature::create($feature);
 
 
         // and so on...
