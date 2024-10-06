@@ -86,6 +86,7 @@ class ServiceFeatureController extends Controller
 
     public function update_benefit($id, Request $request){
         $feature_benefit = ServiceFeatureBenefit::with('feature.servicePage')->whereId($id)->first();
+        return $feature_benefit;
         $service = null;
         if ($feature_benefit->feature && $feature_benefit->feature->servicePage) {
           $service = $feature_benefit->feature->servicePage;
