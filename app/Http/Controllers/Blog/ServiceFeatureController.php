@@ -46,7 +46,7 @@ class ServiceFeatureController extends Controller
                 $storagePath = "service-pages/{$service->page_slug}/feature";
                 $benefit['icon'] = storeBinaryFile($request->file('benefit_'.$i.'_icon'), $storagePath);
             }
-          $feature->benifits()->create($benefit);
+            $feature->benefits()->create($benefit);
         }
 
         // You can then perform any further operations you need with the data
