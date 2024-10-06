@@ -86,7 +86,13 @@ class ServiceFeatureController extends Controller
 
     public function update_benefit($id, Request $request){
         $feature_benefit = ServiceFeatureBenefit::find($id);
-        $service = $feature_benefit->feature->servicePage;
+        $service = null;
+        if ($feature_benefit->feature && $feature_benefit->feature->servicePage) {
+          $service = $feature_benefit->feature->servicePage;
+      } else {
+          // Handle the null case, e.g., throw an exception or return a response
+          return response()->json(['error' => 'Feature or service page not found.'], 404);
+      }
   
         $benefit = [
           'heading' => isset($request->heading) ? $request->heading : $feature_benefit->heading,
