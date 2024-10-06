@@ -52,7 +52,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::post('feature', [ServiceFeatureController::class, 'store']);
     Route::get('feature/{id}/delete', [ServiceFeatureController::class, 'destroy_feature']);
     Route::post('feature/benefit', [ServiceFeatureController::class, 'store_benefit']);
-    Route::put('feature/update-benefit/{$id}', [ServiceFeatureController::class, 'update_benefit']);
+    Route::put('feature/update-benefit/{id}', [ServiceFeatureController::class, 'update_benefit']);
     Route::get('feature/benefit/{id}/delete', [ServiceFeatureController::class, 'destroy_benefit']);
 
 
