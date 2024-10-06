@@ -63,7 +63,7 @@ class ServiceFeatureController extends Controller
     
     
      public function store_benefit(Request $request){
-        $feature = ServiceFeature::find($id);
+        $feature = ServiceFeature::whereId($request->service_feature_id)->first();
         $service = $feature->servicePage;
   
         $benefit = [
