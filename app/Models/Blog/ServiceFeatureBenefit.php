@@ -15,6 +15,6 @@ class ServiceFeatureBenefit extends Model
 
     public function feature()
     {
-        return $this->belongsTo(ServiceFeature::class);
+        return $this->belongsTo(ServiceFeature::class,'service_feature_id','id');
     }
 }
