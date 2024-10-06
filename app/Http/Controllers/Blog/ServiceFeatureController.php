@@ -58,7 +58,31 @@ class ServiceFeatureController extends Controller
           'message' => 'succesfully created',
           'feature' =>  ServiceFeature::with('benefits')->where('id',$feature->id)->first()
         ]);
-     }
+    }
+
+    
+    
+     public function store_benefit(Request $request){
+        $feature = ServiceFeature::find($id);
+        $service = $feature->servicePage;
+  
+        $benefit = [
+          'service_feature_id'=> isset($request->service_feature_id) ? $request->service_feature_id : null,  
+          'heading' => isset($request->heading) ? $request->heading : null,
+          'sub_heading' => isset($request->sub_heading) ? $request->sub_heading : null,
+          'icon_alt' => isset($request->icon_alt) ? $request->icon_alt : null,
+        ];
+        if ($request->hasFile('icon')) {
+            $storagePath = "service-pages/{$service->page_slug}/feature";
+            $benefit['icon'] = storeBinaryFile($request->file('icon'), $storagePath);
+        }
+        $feature_benefit = ServiceFeatureBenefit::create($benefit);
+        return response()->json([
+          'status' => 201,
+          'message' => 'succesfully updated',
+          'benifit' =>  $feature_benefit
+        ],201);
+    }
 
     public function update_benefit($id, Request $request){
         $feature_benefit = ServiceFeatureBenefit::find($id);
