@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\ServiceFeatureBenefit;
+use App\Models\Blog\ServiceFeatureBenefit;
 
 class ServiceFeatureBenefitObserver
 {
