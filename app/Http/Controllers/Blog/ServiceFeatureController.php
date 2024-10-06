@@ -33,7 +33,7 @@ class ServiceFeatureController extends Controller
 
 
         // and so on...
-
+        $service = $feature->servicePage;
         // Handle the uploaded files
         for ($i = 0; $i < $request->benefits_length; $i++) {
            
@@ -62,6 +62,7 @@ class ServiceFeatureController extends Controller
 
     public function update_benefit($id, Request $request){
         $feature_benefit = ServiceFeatureBenefit::find($id);
+        $service = $feature_benefit->feature->servicePage;
   
         $benefit = [
           'heading' => isset($request->heading) ? $request->heading : $feature_benefit->heading,
