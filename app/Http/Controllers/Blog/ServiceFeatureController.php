@@ -35,7 +35,7 @@ class ServiceFeatureController extends Controller
         // and so on...
 
         // Handle the uploaded files
-        for ($i = 0; $i < $request->feature_count; $i++) {
+        for ($i = 0; $i < $request->benefits_length; $i++) {
            
             $benefit = [
               'heading' => isset($data['benefit_'.$i.'_heading']) ? $data['benefit_'.$i.'_heading'] : null,
