@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -54,6 +54,12 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::post('feature/benefit', [ServiceFeatureController::class, 'store_benefit']);
     Route::put('feature/update-benefit/{id}', [ServiceFeatureController::class, 'update_benefit']);
     Route::get('feature/benefit/{id}/delete', [ServiceFeatureController::class, 'destroy_benefit']);
+
+    Route::post('order', [OrderController::class, 'store']); // Store new ServiceOrder with steps
+    Route::get('order/{id}/delete', [OrderController::class, 'destroy_order']); // Delete ServiceOrder
+    Route::post('order/step', [OrderController::class, 'store_step']); // Store new ServiceOrderStep
+    Route::put('order/update-step/{id}', [OrderController::class, 'update_step']); // Update ServiceOrderStep
+    Route::get('order/step/{id}/delete', [OrderController::class, 'destroy_step']); // Delete ServiceOrderStep
 
 
 });

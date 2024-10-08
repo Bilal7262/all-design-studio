@@ -50,4 +50,9 @@ class ServicePage extends Model
         return $this->hasOne(ServiceFeature::class)->with('benefits');
     }
 
+    public function orders()
+    {
+        return $this->hasMany(ServiceOrder::class)->with('steps');
+    }
+
 }
