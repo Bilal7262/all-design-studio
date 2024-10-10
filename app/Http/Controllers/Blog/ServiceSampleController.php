@@ -93,8 +93,8 @@ class ServiceSampleController extends Controller
     
             // If a new image is uploaded, handle the file update
             if ($request->hasFile('image')) {
-                $storagePath = "service-pages/{$service->page_slug}/sample";
-                $logo_data['image'] = storeBinaryFile($request->file('image'), $storagePath);
+              $storagePath = "service-pages/{$service->page_slug}/sample";
+              $logo_data['image'] = storeBinaryFile($request->file('image'), $storagePath);
             }
     
             // Update the logo with the new data
