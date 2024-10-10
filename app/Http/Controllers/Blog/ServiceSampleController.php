@@ -59,7 +59,7 @@ class ServiceSampleController extends Controller
 
     public function store_logo(Request $request){
         $sample = ServiceSample::whereId($request->service_sample_id)->first();
-        return $sample;
+
         $service = $sample->servicePage;
   
         $logo = [
