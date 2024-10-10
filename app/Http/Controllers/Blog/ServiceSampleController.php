@@ -57,38 +57,80 @@ class ServiceSampleController extends Controller
         ]);
     }
 
-    public function store_logo(Request $request){
+    public function store_logo(Request $request)
+    {
+        // Find the sample first
         $sample = ServiceSample::whereId($request->service_sample_id)->first();
-
+    
+        // Check if sample is found
+        if (!$sample) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Service sample not found',
+            ], 404);
+        }
+    
         $service = $sample->servicePage;
-  
+    
+        // Check if an update is required (i.e., request contains 'id')
+        if (isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null') {
+            $logo = ServiceSampleLogo::whereId($request->id)->first();
+    
+            if (!$logo) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Logo not found',
+                ], 404);
+            }
+    
+            // Prepare updated data
+            $logo_data = [
+                'service_sample_id' => $request->service_sample_id ?? $logo->service_sample_id,
+                'name' => $request->name ?? $logo->name,
+                'category_id' => $request->category_id ?? $logo->category_id,
+                'image_alt' => $request->image_alt ?? $logo->image_alt,
+            ];
+    
+            // If a new image is uploaded, handle the file update
+            if ($request->hasFile('image')) {
+                $storagePath = "service-pages/{$service->page_slug}/sample";
+                $logo_data['image'] = storeBinaryFile($request->file('image'), $storagePath);
+            }
+    
+            // Update the logo with the new data
+            $logo->update($logo_data);
+    
+            return response()->json([
+                'status' => 200,
+                'message' => 'Successfully updated',
+                'logo' => $logo,
+            ]);
+        }
+    
+        // If no 'id' is provided, it is a create request
         $logo = [
-          'service_sample_id'=> isset($request->service_sample_id) ? $request->service_sample_id : null,  
-          'name' => isset($request->name) ? $request->name : null,
-          'category_id' => isset($request->category_id) ? $request->category_id : null,
-          'image_alt' => isset($request->image_alt) ? $request->image_alt : null,
+            'service_sample_id' => $request->service_sample_id ?? null,
+            'name' => $request->name ?? null,
+            'category_id' => $request->category_id ?? null,
+            'image_alt' => $request->image_alt ?? null,
         ];
+    
+        // Handle file upload for new logo
         if ($request->hasFile('image')) {
             $storagePath = "service-pages/{$service->page_slug}/sample";
             $logo['image'] = storeBinaryFile($request->file('image'), $storagePath);
         }
-        if(isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null'){
-          
-            $logo= ServiceSampleLogo::whereId($request->id)->first();
     
-            return response()->json([
-              'status' => 200,
-              'message' => 'succesfully updated',
-              'logo' =>  ServiceSampleLogo::where('id',$request->id)->first()
-            ]);
-        }
+        // Create new logo entry
         $sample_logo = ServiceSampleLogo::create($logo);
+    
         return response()->json([
-          'status' => 201,
-          'message' => 'succesfully created',
-          'benifit' =>  $sample_logo
-        ],201);
+            'status' => 201,
+            'message' => 'Successfully created',
+            'logo' => $sample_logo,
+        ], 201);
     }
+    
 
     public function destroy_sample($id)
     {
