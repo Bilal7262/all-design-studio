@@ -66,10 +66,10 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::get('sample_categories', [ServiceSampleCategoryController::class, 'index']); 
     Route::post('sample_categories', [ServiceSampleCategoryController::class, 'store']);
 
-    Route::post('sample', [ServiceFeatureController::class, 'store']);
-    Route::get('sample/{id}/delete', [ServiceFeatureController::class, 'destroy_sample']);
-    Route::post('sample/logo', [ServiceFeatureController::class, 'store_logo']);
-    Route::get('sample/logo/{id}/delete', [ServiceFeatureController::class, 'destroy_logo']);
+    Route::post('sample', [ServiceSampleController::class, 'store']);
+    Route::get('sample/{id}/delete', [ServiceSampleController::class, 'destroy_sample']);
+    Route::post('sample/logo', [ServiceSampleController::class, 'store_logo']);
+    Route::get('sample/logo/{id}/delete', [ServiceSampleController::class, 'destroy_logo']);
 
 
 });
