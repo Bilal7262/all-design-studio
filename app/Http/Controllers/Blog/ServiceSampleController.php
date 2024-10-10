@@ -143,7 +143,7 @@ class ServiceSampleController extends Controller
         ],204);
     }
 
-    public function destroy_benefit($id)
+    public function destroy_logo($id)
     {
         $logo = ServiceSampleLogo::whereId($id)->first();
         $logo->delete();
