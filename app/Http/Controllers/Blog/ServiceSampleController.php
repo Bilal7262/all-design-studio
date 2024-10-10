@@ -24,7 +24,7 @@ class ServiceSampleController extends Controller
 
 
         // Now you can access individual elements from the array like this
-        $sample['name'] = $data['name'];
+        $sample['heading'] = $data['heading'];
         $sample['service_page_id'] = $data['service_page_id'];
         $sample= ServiceSample::create($sample);
 
