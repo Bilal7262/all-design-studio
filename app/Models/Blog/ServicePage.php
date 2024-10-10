@@ -57,7 +57,7 @@ class ServicePage extends Model
 
     public function sample()
     {
-        return $this->belongsTo(ServiceSample::class, 'service_page_id','id')->with('logos');
+        return $this->hasOne(ServiceSample::class, 'service_page_id','id')->with('logos');
     }
 
 }
