@@ -23,6 +23,6 @@ class ServiceSample extends Model
     // Relationship with ServicePage
     public function servicePage()
     {
-        return $this->belongsTo(ServicePage::class, 'service_page_id');
+        return $this->belongsTo(ServicePage::class, 'service_page_id','id');
     }
 }
