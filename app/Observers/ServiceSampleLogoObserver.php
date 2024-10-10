@@ -19,9 +19,12 @@ class ServiceSampleLogoObserver
      */
     public function updated(ServiceSampleLogo $serviceSampleLogo): void
     {
-        if (!is_null($serviceSampleLogo->image) && !empty($serviceSampleLogo->image)) {
-            // Remove the old file if the image is valid
-            removeOldFile($serviceSampleLogo->image);
+        if ($serviceSampleLogo->isDirty('image')) {
+            // Get the previous value of the 'image'
+            $oldIconPath = $serviceSampleLogo->getOriginal('image');
+            
+            // You can now use this old icon path for further processing (e.g., deleting the old file)
+            removeOldFile($oldIconPath);
         }
     }
 
