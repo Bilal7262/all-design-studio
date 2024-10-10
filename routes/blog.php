@@ -61,6 +61,11 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::put('order/update-step/{id}', [OrderController::class, 'update_step']); // Update ServiceOrderStep
     Route::get('order/step/{id}/delete', [OrderController::class, 'destroy_step']); // Delete ServiceOrderStep
 
+    
+    
+    Route::get('sample_categories', [ServiceSampleCategoryController::class, 'index']); 
+    Route::post('sample_categories', [ServiceSampleCategoryController::class, 'store']);
+
 
 });
 
