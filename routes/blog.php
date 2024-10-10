@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
