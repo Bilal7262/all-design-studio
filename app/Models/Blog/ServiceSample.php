@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceSample extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'heading',
         'service_page_id',
@@ -23,6 +23,6 @@ class ServiceSample extends Model
     // Relationship with ServicePage
     public function servicePage()
     {
-        return $this->belongsTo(ServicePage::class);
+        return $this->belongsTo(ServicePage::class, 'service_page_id');
     }
 }
