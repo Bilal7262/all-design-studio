@@ -55,4 +55,9 @@ class ServicePage extends Model
         return $this->hasMany(ServiceOrder::class)->with('steps');
     }
 
+    public function sample()
+    {
+        return $this->belongsTo(ServiceSample::class, 'service_page_id','id')->with('logos');
+    }
+
 }
