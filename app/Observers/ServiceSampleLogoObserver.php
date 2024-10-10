@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\ServiceSampleLogo;
+use App\Models\Blog\ServiceSampleLogo;
 
 class ServiceSampleLogoObserver
 {
