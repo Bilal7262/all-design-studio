@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Models\Blog\{Snippet, ServiceImage, ServiceFeatureBenefit};
-use App\Observers\{SnippetObserver, ServiceImageObserver, ServiceFeatureBenefitObserver};
+use App\Models\Blog\{Snippet, ServiceImage, ServiceFeatureBenefit, ServiceSampleLogo};
+use App\Observers\{SnippetObserver, ServiceImageObserver, ServiceFeatureBenefitObserver, ServiceSampleLogoObserver};
 
 
 class AppServiceProvider extends ServiceProvider
@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
         Snippet::observe(SnippetObserver::class);
         ServiceImage::observe(ServiceImageObserver::class);
         ServiceFeatureBenefit::observe(ServiceFeatureBenefitObserver::class);
+        ServiceSampleLogo::observe(ServiceSampleLogoObserver::class);
     }
 }

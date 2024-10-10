@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -65,6 +65,11 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     
     Route::get('sample_categories', [ServiceSampleCategoryController::class, 'index']); 
     Route::post('sample_categories', [ServiceSampleCategoryController::class, 'store']);
+
+    Route::post('sample', [ServiceFeatureController::class, 'store']);
+    Route::get('sample/{id}/delete', [ServiceFeatureController::class, 'destroy_sample']);
+    Route::post('sample/logo', [ServiceFeatureController::class, 'store_logo']);
+    Route::get('sample/logo/{id}/delete', [ServiceFeatureController::class, 'destroy_logo']);
 
 
 });
