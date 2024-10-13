@@ -60,4 +60,14 @@ class ServicePage extends Model
         return $this->hasOne(ServiceSample::class, 'service_page_id','id')->with('logos');
     }
 
+    public function pricing()
+    {
+        return $this->hasOne(ServicePrice::class, 'service_page_id','id')->with('cards');
+    }
+
+    public function testimonial()
+    {
+        return $this->hasOne(ServicePage::class, 'service_page_id','id')->with('reviews');
+    }
+
 }

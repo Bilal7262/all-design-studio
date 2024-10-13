@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -88,6 +88,23 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         
         // Delete a specific card
         Route::delete('/card/{id}/delete', [ServicePriceController::class, 'destroy_card']);
+    });
+
+    Route::prefix('testimonial')->group(function () {
+        // Create or update service price
+        Route::post('/', [ServiceTestimonialController::class, 'store']);
+        
+        // Create a new review for a service price
+        Route::post('/review', [ServiceTestimonialController::class, 'store_review']);
+        
+        // Update a specific review
+        Route::put('/review/{id}', [ServiceTestimonialController::class, 'update_review']);
+        
+        // Delete a service price
+        Route::delete('/{id}/delete', [ServiceTestimonialController::class, 'destroy_testimonial']);
+        
+        // Delete a specific review
+        Route::delete('/review/{id}/delete', [ServiceTestimonialController::class, 'destroy_review']);
     });
 });
 

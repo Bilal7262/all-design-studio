@@ -18,7 +18,7 @@ class ServicePrice extends Model
      */
     public function servicePage()
     {
-        return $this->belongsTo(ServicePage::class);
+        return $this->belongsTo(ServicePage::class, 'service_page_id','id');
     }
 
     /**
