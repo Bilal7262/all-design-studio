@@ -67,7 +67,7 @@ class ServicePage extends Model
 
     public function testimonial()
     {
-        return $this->hasOne(ServicePage::class, 'service_page_id','id')->with('reviews');
+        return $this->hasOne(ServiceTestimonial::class, 'service_page_id','id')->with('reviews');
     }
 
 }
