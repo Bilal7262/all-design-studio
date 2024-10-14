@@ -60,7 +60,7 @@ class ServiceFaqController extends Controller
         }
     
         $question = [
-            'service_testimonial_id' => $request->service_testimonial_id ?? null,
+            'service_faq_id' => $request->service_faq_id ?? null,
             'answer' => $request->answer ?? null,
             'text' => $request->text ?? null
         ];
