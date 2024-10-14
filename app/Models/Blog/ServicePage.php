@@ -77,7 +77,7 @@ class ServicePage extends Model
 
     public function seo()
     {
-        return $this->hasOne(ServiceSco::class, 'service_page_id','id');
+        return $this->hasOne(ServiceSeo::class, 'service_page_id','id');
     }
 
     public function cta()
