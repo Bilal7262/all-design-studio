@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -125,6 +125,35 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         // Delete a specific question
         Route::delete('/question/{id}/delete', [ServiceFaqController::class, 'destroy_question']);
     });
+
+    
+
+    Route::prefix('sco')->group(function () {
+        // Create or update service price
+        Route::post('/', [ServiceSeoController::class, 'store']);
+        
+        // Update a specific question
+        Route::put('/{id}', [ServiceSeoController::class, 'update']);
+        
+        // Delete a service price
+        Route::delete('/{id}/delete', [ServiceSeoController::class, 'destroy']);
+
+    });
+
+    
+
+    Route::prefix('cta')->group(function () {
+        // Create or update service price
+        Route::post('/', [ServiceCtaController::class, 'store']);
+        
+        // Update a specific question
+        Route::put('/{id}', [ServiceCtaController::class, 'update']);
+        
+        // Delete a service price
+        Route::delete('/{id}/delete', [ServiceCtaController::class, 'destroy']);
+
+    });
+    
 });
 
 

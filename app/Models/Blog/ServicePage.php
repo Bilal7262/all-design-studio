@@ -75,4 +75,14 @@ class ServicePage extends Model
         return $this->hasOne(ServiceFaq::class, 'service_page_id','id')->with('questions');
     }
 
+    public function seo()
+    {
+        return $this->hasOne(ServiceSco::class, 'service_page_id','id');
+    }
+
+    public function cta()
+    {
+        return $this->hasOne(ServiceCta::class, 'service_page_id','id');
+    }
+
 }

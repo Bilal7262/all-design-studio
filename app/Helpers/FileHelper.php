@@ -44,3 +44,24 @@ if (!function_exists('removeOldFile')) {
         }
     }
 }
+
+if (!function_exists('trim_root_html')) {
+    /**
+     * Remove specific HTML tags and return trimmed content.
+     *
+     * @param string $html The input HTML content
+     * @return string|null Trimmed content or null if empty
+     */
+    function trim_root_html($html) {
+        // Remove specified root HTML elements
+        $desc = trim(str_replace(['<!DOCTYPE html>', '<html>', '<head>', '</head>', '<body>', '</body>', '</html>'], '', $html), " \t\n\r\0\x0B");
+        
+        // Check if the resulting content is empty or equivalent to 'null'
+        if (empty($desc) || strtolower($desc) === 'null') {
+            return null;
+        }
+
+        return $desc;
+    }
+}
+
