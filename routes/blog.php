@@ -128,7 +128,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
 
     
 
-    Route::prefix('sco')->group(function () {
+    Route::prefix('seo')->group(function () {
         // Create or update service price
         Route::post('/', [ServiceSeoController::class, 'store']);
         
@@ -136,7 +136,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         Route::put('/{id}', [ServiceSeoController::class, 'update']);
         
         // Delete a service price
-        Route::delete('/{id}/delete', [ServiceSeoController::class, 'destroy']);
+        Route::get('/{id}/delete', [ServiceSeoController::class, 'destroy']);
 
     });
 
@@ -150,7 +150,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         Route::put('/{id}', [ServiceCtaController::class, 'update']);
         
         // Delete a service price
-        Route::delete('/{id}/delete', [ServiceCtaController::class, 'destroy']);
+        Route::get('/{id}/delete', [ServiceCtaController::class, 'destroy']);
 
     });
     
