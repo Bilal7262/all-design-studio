@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -105,6 +105,25 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         
         // Delete a specific review
         Route::delete('/review/{id}/delete', [ServiceTestimonialController::class, 'destroy_review']);
+    });
+
+    
+
+    Route::prefix('faq')->group(function () {
+        // Create or update service price
+        Route::post('/', [ServiceFaqController::class, 'store']);
+        
+        // Create a new question for a service price
+        Route::post('/question', [ServiceFaqController::class, 'store_question']);
+        
+        // Update a specific question
+        Route::put('/question/{id}', [ServiceFaqController::class, 'update_question']);
+        
+        // Delete a service price
+        Route::delete('/{id}/delete', [ServiceFaqController::class, 'destroy_faq']);
+        
+        // Delete a specific question
+        Route::delete('/question/{id}/delete', [ServiceFaqController::class, 'destroy_question']);
     });
 });
 

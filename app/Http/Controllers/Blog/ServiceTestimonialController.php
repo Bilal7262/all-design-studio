@@ -56,10 +56,10 @@ class ServiceTestimonialController extends Controller
 
     public function store_review(Request $request)
     {
-        // Find the price first
-        $testimonial = ServiceTestimonial::whereId($request->service_price_id)->first();
+        // Find the testimonial first
+        $testimonial = ServiceTestimonial::whereId($request->service_testimonial_id)->first();
     
-        // Check if price is found
+        // Check if testimonial is found
         if (!$testimonial) {
             return response()->json([
                 'status' => 404,
