@@ -85,4 +85,9 @@ class ServicePage extends Model
         return $this->hasOne(ServiceCta::class, 'service_page_id','id');
     }
 
+    public function interlinking()
+    {
+        return $this->hasOne(ServiceInterlinking::class, 'service_page_id','id')->with('services');
+    }
+
 }

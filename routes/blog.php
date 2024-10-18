@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController};
+use App\Http\Controllers\Blog\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController, ServiceInterlinkingController};
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -152,6 +152,24 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         // Delete a service price
         Route::get('/{id}/delete', [ServiceCtaController::class, 'destroy']);
 
+    });
+
+    Route::prefix('interlinking')->group(function () {
+    
+        // Create or Update Interlinking
+        Route::post('/', [ServiceInterlinkingController::class, 'store']);
+    
+        // Create Service under an Interlinking
+        Route::post('/service', [ServiceInterlinkingController::class, 'store_service']);
+    
+        // Update a specific Interlinking Service
+        Route::post('/service/{id}', [ServiceInterlinkingController::class, 'update_card']);
+    
+        // Delete an Interlinking by ID
+        Route::get('/{id}/delete', [ServiceInterlinkingController::class, 'destroy_interlinking']);
+    
+        // Delete an Interlinking Service by ID
+        Route::get('/service/{id}/delete', [ServiceInterlinkingController::class, 'destroy_interlinking_service']);
     });
     
 });
