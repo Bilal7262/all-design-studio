@@ -175,7 +175,7 @@ Route::group(['prefix' => 'new-service-pages'], function () {
 });
 
 Route::prefix('public')->group(function () {
-    Route::post('/all', [PublicController::class, 'all_service_pages']);
+    Route::get('/all', [PublicController::class, 'all_service_pages']);
     
     Route::get('/service-page/{slug}', [PublicController::class, 'get_details']);
 
