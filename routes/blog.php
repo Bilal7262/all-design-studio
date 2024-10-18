@@ -179,7 +179,7 @@ Route::prefix('public')->group(function () {
     
     Route::get('/service-page/{slug}', [PublicController::class, 'get_details']);
 
-    Route::get('/site_map', [PublicController::class, 'site_map']);
+    Route::get('/sitemap', [PublicController::class, 'site_map']);
 
 });
 
