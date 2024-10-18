@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PublicController extends Controller
 {
     public function get_details($slug){
-        $page = ServicePage::with('snippet','images','banner','feature','orders','sample','pricing','testimonial','faq','seo','cta','interlinking')->where('slug', $slug)->first();
+        $page = ServicePage::with('snippet','images','banner','feature','orders','sample','pricing','testimonial','faq','seo','cta','interlinking')->where('page_slug', $slug)->first();
         if($page){
             return response()->json([
                 'status' => 200,

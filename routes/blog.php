@@ -179,7 +179,7 @@ Route::prefix('public')->group(function () {
     Route::post('/snippets', [PublicController::class, 'snippets']);
     
     // Update a specific question
-    Route::get('/page/{slug}', [PublicController::class, 'get_details']);
+    Route::get('/service-page/{slug}', [PublicController::class, 'get_details']);
 
 });
 
