@@ -175,11 +175,11 @@ Route::group(['prefix' => 'new-service-pages'], function () {
 });
 
 Route::prefix('public')->group(function () {
-    // Create or update service price
-    Route::post('/snippets', [PublicController::class, 'snippets']);
+    Route::post('/all', [PublicController::class, 'all_service_pages']);
     
-    // Update a specific question
     Route::get('/service-page/{slug}', [PublicController::class, 'get_details']);
+
+    Route::get('/site_map', [PublicController::class, 'site_map']);
 
 });
 
