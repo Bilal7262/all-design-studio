@@ -36,7 +36,7 @@ class ServiceInterlinkingController extends Controller
         for ($i = 0; $i < $request->services_length; $i++) {
            
             $interlinking_service = [
-              'test' => isset($data['service_'.$i.'_text']) ? $data['service_'.$i.'_text'] : null,
+              'text' => isset($data['service_'.$i.'_text']) ? $data['service_'.$i.'_text'] : null,
               'link' => isset($data['service_'.$i.'_link']) ? $data['service_'.$i.'_link'] : null,
               'image_alt' => isset($data['service_'.$i.'_image_alt']) ? $data['service_'.$i.'_image_alt'] : null
             ];
