@@ -33,9 +33,9 @@ class ServiceInterlinkingServiceObserver
      */
     public function deleted(ServiceInterlinkingService $serviceInterlinkingService): void
     {
-        if (!is_null($$serviceInterlinkingService->image) && !empty($$serviceInterlinkingService->image)) {
+        if (!is_null($serviceInterlinkingService->image) && !empty($serviceInterlinkingService->image)) {
             // Remove the old file if the image is valid
-            removeOldFile($$serviceInterlinkingService->image);
+            removeOldFile($serviceInterlinkingService->image);
         }
     }
 
