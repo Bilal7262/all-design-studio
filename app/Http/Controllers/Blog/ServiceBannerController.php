@@ -29,6 +29,7 @@ class ServiceBannerController extends Controller
             'feature4' => 'required|string',
             'button_text' => 'required|string',
             'button_link' => 'required|string',
+            'price' => 'required',
             'service_page_id' => 'required|exists:service_pages,id',
         ]);
 
@@ -64,6 +65,7 @@ class ServiceBannerController extends Controller
             'feature4' => 'sometimes|string',
             'button_text' => 'sometimes|string',
             'button_link' => 'sometimes|string',
+            'price' => 'required',
         ]);
 
         $serviceBanner->update($validatedData);
