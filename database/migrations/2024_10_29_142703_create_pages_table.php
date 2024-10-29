@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id(); // id column with auto increment
             $table->unsignedInteger('blogger_id')->nullable()->index()->comment("Id of the blog's writer from 'blogs_users' TBL");
             $table->unsignedBigInteger('writer_id')->nullable();
