@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Service\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController, ServiceInterlinkingController,PublicController};
 use App\Http\Controllers\Blog\{
-    BlogController, PageController, TempImagesController,
+    BlogController, PageController, TempImageController,
     WritersController, SnippetsController, TempFilesController
 };
 // Route::get('/user', function (Request $request) {
@@ -220,7 +220,7 @@ Route::group(['prefix'=>'blogs'], function(){
         });
 
         // Temporary Files and Images Routes
-        Route::post('temp-images', [TempImagesController::class, 'store']);
+        Route::post('temp-images', [TempImageController::class, 'store']);
         Route::post('upload-pdf', [TempFilesController::class, 'uploadPdf']);
         Route::post('upload-content-image', [TempFilesController::class, 'uploadContentImage']);
 
