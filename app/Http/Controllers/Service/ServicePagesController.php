@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -144,10 +144,10 @@ class ServicePagesController extends Controller
             "page_type"         => "required",
             "blogger_id"         => "required|integer",
           ]);
-  
+
         // try{
-  
-  
+
+
         // $image_name = '';
         // //Upload Cover Image to S3 Bucket
         // if(isset($request->image_id)) {
@@ -173,10 +173,10 @@ class ServicePagesController extends Controller
         //     }
         //     $request->merge(['image' => $image_name]);
         // }
-  
+
           ServicePage::find($id)->update($request->all());
-  
-  
+
+
           return response()->json([
               'status' => 200,
               'message' => 'succesfully updated',
@@ -188,7 +188,7 @@ class ServicePagesController extends Controller
           //       'message' => $e->getMessage()
           //   ],500);
           // }
-  
+
     }
     public function delete_page($id){
         $page = ServicePage::find($id);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -44,7 +44,7 @@ class ServiceBannerController extends Controller
     public function show($banner_id)
     {
         $serviceBanner = ServiceBanner::whereId($banner_id)->first();
-        
+
         return response()->json([
             'message'=>'fetched successfully',
             'banner'=>$serviceBanner,
@@ -80,7 +80,7 @@ class ServiceBannerController extends Controller
     {
         $serviceBanner = ServiceBanner::whereId($banner_id)->first();
         $serviceBanner->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204

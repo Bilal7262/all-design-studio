@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -44,7 +44,7 @@ class ServiceImageController extends Controller
         ]);
 
         $service = ServicePage::where('id', $validatedData['service_page_id'])->first();
-        
+
         if ($request->hasFile('image')) {
             $storagePath = "service-pages/{$service->page_slug}";
             $validatedData['image'] = storeBinaryFile($request->file('image'), $storagePath);

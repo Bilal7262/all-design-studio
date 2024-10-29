@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -24,7 +24,7 @@ class ServiceCtaController extends Controller
     public function update($id, Request $request)
     {
         // Get all request data
-        
+
         $cta = ServiceCta::find($id);
 
         if (!$cta) {
@@ -48,7 +48,7 @@ class ServiceCtaController extends Controller
     public function destroy($id)
     {
         // Get all request data
-        
+
         $cta = ServiceCta::find($id);
 
         if (!$cta) {
@@ -57,7 +57,7 @@ class ServiceCtaController extends Controller
                 'message' => 'Service cta not found',
             ], 404);
         }
-        
+
         $cta->delete();
 
         // Return a JSON response

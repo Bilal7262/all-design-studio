@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class ServiceTestimonialController extends Controller
         $data = $request->all();
 
         if(isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null'){
-          
+
             $testimonial= ServiceTestimonial::find($request->id)->update($request->all());
 
             return response()->json([
@@ -58,7 +58,7 @@ class ServiceTestimonialController extends Controller
     {
         // Find the testimonial first
         $testimonial = ServiceTestimonial::whereId($request->service_testimonial_id)->first();
-    
+
         // Check if testimonial is found
         if (!$testimonial) {
             return response()->json([
@@ -66,11 +66,11 @@ class ServiceTestimonialController extends Controller
                 'message' => 'Service Testimonial not found',
             ], 404);
         }
-    
+
         $service = $testimonial->servicePage;
-    
-        
-    
+
+
+
         // If no 'id' is provided, it is a create request
         $review = [
             'service_testimonial_id' => $request->service_testimonial_id ?? null,
@@ -78,10 +78,10 @@ class ServiceTestimonialController extends Controller
             'occupation' => $request->occupation ?? null,
             'text' => $request->text ?? null
         ];
-    
+
         // Create new card entry
         $testimonial_review = ServiceTestimonialReview::create($review);
-    
+
         return response()->json([
             'status' => 201,
             'message' => 'Successfully created',
@@ -91,9 +91,9 @@ class ServiceTestimonialController extends Controller
 
     public function update_review($id, Request $request)
     {
-        
-       
-    
+
+
+
         // Check if an update is required (i.e., request contains 'id')
 
         $review = ServiceTestimonialReview::whereId($request->id)->first();
@@ -105,7 +105,7 @@ class ServiceTestimonialController extends Controller
             ], 404);
         }
 
-        
+
 
         // Update the card with the new data
         $review->update($request->all());
@@ -116,16 +116,16 @@ class ServiceTestimonialController extends Controller
             'review' => $review,
         ]);
     }
-    
-        
 
-    
+
+
+
 
     public function destroy_testimonial($id)
     {
         $service_testimonial = ServiceTestimonial::whereId($id)->first();
         $service_testimonial->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204
@@ -136,7 +136,7 @@ class ServiceTestimonialController extends Controller
     {
         $review =ServiceTestimonialReview::whereId($id)->first();
         $review->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204

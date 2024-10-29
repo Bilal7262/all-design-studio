@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -33,16 +33,16 @@ class SnippetController extends Controller
         ]);
 
         // Handle icon upload
-        
+
         $service = ServicePage::where('id',$validatedData['service_id'])->first();
         if ($request->hasFile('icon')) {
-               
+
             // Define the storage path
             $storagePath = "service-pages/{$service->page_slug}";
 
             // Use the helper function to store the icon and handle old icon deletion
             $validatedData['icon'] = storeBinaryFile($request->file('icon'), $storagePath);
-           
+
         }
 
         // Create the Snippet
@@ -105,13 +105,13 @@ class SnippetController extends Controller
 
         // Handle icon update if a new file is provided
         if ($request->hasFile('icon')) {
-               
+
             // Define the storage path
             $storagePath = "service-pages/{$service->page_slug}";
 
             // Use the helper function to store the icon and handle old icon deletion
             $validatedData['icon'] = storeBinaryFile($request->file('icon'), $storagePath);
-           
+
         }
 
         // Update the snippet
@@ -145,7 +145,7 @@ class SnippetController extends Controller
             'snippet_id' => 'required|exists:snippets,id'
         ]);
 
-        
+
         // Update the snippet
         $usp = SnippetUsp::create($validatedData);
 
@@ -163,7 +163,7 @@ class SnippetController extends Controller
             'usp' => 'required|string'
         ]);
 
-        
+
         // Update the snippet
         $usp->update($validatedData);
 
@@ -175,15 +175,15 @@ class SnippetController extends Controller
         // Find the snippet by id
         $usp = SnippetUsp::findOrFail($id);
 
-        
 
-        
+
+
         // Update the snippet
         $usp->delete();
 
         return response()->json(['message' => "usp deleted successfully"], 200);
     }
-    
+
 
 
     public function destroy($id)

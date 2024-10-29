@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class ServiceInterlinkingController extends Controller
         $data = $request->all();
 
         if(isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null'){
-          
+
             $interlinking= ServiceInterlinking::find($request->id)->update($request->all());
 
             return response()->json([
@@ -34,7 +34,7 @@ class ServiceInterlinkingController extends Controller
         $service = $interlinking->servicePage;
         // Handle the uploaded files
         for ($i = 0; $i < $request->services_length; $i++) {
-           
+
             $interlinking_service = [
               'text' => isset($data['service_'.$i.'_text']) ? $data['service_'.$i.'_text'] : null,
               'link' => isset($data['service_'.$i.'_link']) ? $data['service_'.$i.'_link'] : null,
@@ -62,7 +62,7 @@ class ServiceInterlinkingController extends Controller
     {
         // Find the price first
         $interlinking = ServiceInterlinking::whereId($request->service_interlinking_id)->first();
-    
+
         // Check if price is found
         if (!$interlinking) {
             return response()->json([
@@ -70,11 +70,11 @@ class ServiceInterlinkingController extends Controller
                 'message' => 'Service interlink not found',
             ], 404);
         }
-    
+
         $service = $interlinking->servicePage;
-    
-        
-    
+
+
+
         // If no 'id' is provided, it is a create request
         $interlinking_service = [
             'service_interlinking_id' => $request->service_interlinking_id ?? null,
@@ -82,16 +82,16 @@ class ServiceInterlinkingController extends Controller
             'link' => $request->link ?? null,
             'image_alt' => $request->image_alt ?? null,
         ];
-    
+
         // Handle file upload for new card
         if ($request->hasFile('image')) {
             $storagePath = "service-pages/{$service->page_slug}/interlink-service";
             $interlinking_service['image'] = storeBinaryFile($request->file('image'), $storagePath);
         }
-    
+
         // Create new card entry
         $interlinking_service = ServiceInterlinkingService::create($interlinking_service);
-    
+
         return response()->json([
             'status' => 201,
             'message' => 'Successfully created',
@@ -103,7 +103,7 @@ class ServiceInterlinkingController extends Controller
     {
         // Find the price first
         $interlinking = ServiceInterlinking::whereId($request->service_interlinking_id)->first();
-    
+
         // Check if price is found
         if (!$interlinking) {
             return response()->json([
@@ -111,9 +111,9 @@ class ServiceInterlinkingController extends Controller
                 'message' => 'Service Price not found',
             ], 404);
         }
-    
-       
-    
+
+
+
         // Check if an update is required (i.e., request contains 'id')
 
         $interlinking_service = ServiceInterlinkingService::whereId($request->id)->first();
@@ -149,16 +149,16 @@ class ServiceInterlinkingController extends Controller
             'interlinking_service' => $interlinking_service,
         ]);
     }
-    
-        
 
-    
+
+
+
 
     public function destroy_interlinking($id)
     {
         $service_interlinking = ServiceInterlinking::whereId($id)->first();
         $service_interlinking->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204
@@ -169,7 +169,7 @@ class ServiceInterlinkingController extends Controller
     {
         $interlinking_service =ServiceInterlinkingService::whereId($id)->first();
         $interlinking_service->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204

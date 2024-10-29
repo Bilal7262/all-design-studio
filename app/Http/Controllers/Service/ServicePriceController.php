@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class ServicePriceController extends Controller
         $data = $request->all();
 
         if(isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null'){
-          
+
             $price= ServicePrice::find($request->id)->update($request->all());
 
             return response()->json([
@@ -34,7 +34,7 @@ class ServicePriceController extends Controller
         $service = $price->servicePage;
         // Handle the uploaded files
         for ($i = 0; $i < $request->cards_length; $i++) {
-           
+
             $card = [
               'price' => isset($data['card_price_'.$i]) ? $data['card_price_'.$i] : null,
               'heading' => isset($data['card_heading_'.$i]) ? $data['card_heading_'.$i] : null,
@@ -63,7 +63,7 @@ class ServicePriceController extends Controller
     {
         // Find the price first
         $price = ServicePrice::whereId($request->service_price_id)->first();
-    
+
         // Check if price is found
         if (!$price) {
             return response()->json([
@@ -71,11 +71,11 @@ class ServicePriceController extends Controller
                 'message' => 'Service Price not found',
             ], 404);
         }
-    
+
         $service = $price->servicePage;
-    
-        
-    
+
+
+
         // If no 'id' is provided, it is a create request
         $card = [
             'service_price_id' => $request->service_price_id ?? null,
@@ -84,16 +84,16 @@ class ServicePriceController extends Controller
             'description' => $request->description ?? null,
             'image_alt' => $request->image_alt ?? null,
         ];
-    
+
         // Handle file upload for new card
         if ($request->hasFile('image')) {
             $storagePath = "service-pages/{$service->page_slug}/price";
             $card['image'] = storeBinaryFile($request->file('image'), $storagePath);
         }
-    
+
         // Create new card entry
         $price_card = ServicePriceCard::create($card);
-    
+
         return response()->json([
             'status' => 201,
             'message' => 'Successfully created',
@@ -105,7 +105,7 @@ class ServicePriceController extends Controller
     {
         // Find the price first
         $price = ServicePrice::whereId($request->service_price_id)->first();
-    
+
         // Check if price is found
         if (!$price) {
             return response()->json([
@@ -113,9 +113,9 @@ class ServicePriceController extends Controller
                 'message' => 'Service Price not found',
             ], 404);
         }
-    
-       
-    
+
+
+
         // Check if an update is required (i.e., request contains 'id')
 
         $card = ServicePriceCard::whereId($request->id)->first();
@@ -152,16 +152,16 @@ class ServicePriceController extends Controller
             'card' => $card,
         ]);
     }
-    
-        
 
-    
+
+
+
 
     public function destroy_price($id)
     {
         $service_price = ServicePrice::whereId($id)->first();
         $service_price->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204
@@ -172,7 +172,7 @@ class ServicePriceController extends Controller
     {
         $card =ServicePriceCard::whereId($id)->first();
         $card->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204

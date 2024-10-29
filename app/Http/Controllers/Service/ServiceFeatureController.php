@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,12 +9,12 @@ use App\Models\Blog\{ServiceFeature, ServiceFeatureBenefit};
 class ServiceFeatureController extends Controller
 {
 
-    
+
     public function store(Request $request){
         $data = $request->all();
 
         if(isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null'){
-          
+
         $feature= ServiceFeature::find($request->id)->update($request->all());
 
         return response()->json([
@@ -36,7 +36,7 @@ class ServiceFeatureController extends Controller
         $service = $feature->servicePage;
         // Handle the uploaded files
         for ($i = 0; $i < $request->benefits_length; $i++) {
-           
+
             $benefit = [
               'heading' => isset($data['benefit_'.$i.'_heading']) ? $data['benefit_'.$i.'_heading'] : null,
               'sub_heading' => isset($data['benefit_'.$i.'_sub_heading']) ? $data['benefit_'.$i.'_sub_heading'] : null,
@@ -60,14 +60,14 @@ class ServiceFeatureController extends Controller
         ]);
     }
 
-    
-    
+
+
      public function store_benefit(Request $request){
         $feature = ServiceFeature::whereId($request->service_feature_id)->first();
         $service = $feature->servicePage;
-  
+
         $benefit = [
-          'service_feature_id'=> isset($request->service_feature_id) ? $request->service_feature_id : null,  
+          'service_feature_id'=> isset($request->service_feature_id) ? $request->service_feature_id : null,
           'heading' => isset($request->heading) ? $request->heading : null,
           'sub_heading' => isset($request->sub_heading) ? $request->sub_heading : null,
           'icon_alt' => isset($request->icon_alt) ? $request->icon_alt : null,
@@ -93,7 +93,7 @@ class ServiceFeatureController extends Controller
           // Handle the null case, e.g., throw an exception or return a response
           return response()->json(['error' => 'Feature or service page not found.'], 404);
       }
-  
+
         $benefit = [
           'heading' => isset($request->heading) ? $request->heading : $feature_benefit->heading,
           'sub_heading' => isset($request->sub_heading) ? $request->sub_heading : $feature_benefit->sub_heading,
@@ -115,7 +115,7 @@ class ServiceFeatureController extends Controller
     {
         $servicefeature = ServiceFeature::whereId($id)->first();
         $servicefeature->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204
@@ -126,7 +126,7 @@ class ServiceFeatureController extends Controller
     {
         $benefit = ServiceFeatureBenefit::whereId($id);
         $benefit->delete();
-        
+
         return response()->json([
             'message'=>'deleted successfully',
             'status'=>204

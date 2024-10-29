@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ class OrderController extends Controller
         $orderData['service_page_id'] = $data['service_page_id'];
         $order = ServiceOrder::create($orderData);
 
-        
+
         for ($i = 0; $i < $request->steps_length; $i++) {
             $step = [
                 'name' => $data['step_'.$i.'_name'] ?? null,

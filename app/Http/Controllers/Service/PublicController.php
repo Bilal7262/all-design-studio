@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blog;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,14 +10,14 @@ class PublicController extends Controller
 {
     public function all_service_pages(){
         $pages = ServicePage::with('snippet')->where('status', 'Active')->get();
-        
+
         return response()->json([
             'status' => 200,
             'message' => 'Successfully fetched',
             'pages' => $pages
         ], 200);
-        
-        
+
+
 
     }
     public function get_details($slug){
@@ -34,19 +34,19 @@ class PublicController extends Controller
                 'message' => 'Not Found!',
             ], 404);
         }
-        
+
 
     }
     public function site_map(){
         $pages = ServicePage::select('id','page_slug','status')->where('status', 'Active')->get();
-        
+
         return response()->json([
             'status' => 200,
             'message' => 'Successfully fetched',
             'pages' => $pages
         ], 200);
-        
-        
+
+
 
     }
 }
