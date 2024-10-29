@@ -67,7 +67,7 @@ return new class extends Migration
             $table->timestamps(); // created_at and updated_at
 
             // Indexes
-            $table->foreign('blogger_id')->references('id')->on('blogs_users')->onDelete('set null');
+            // $table->foreign('blogger_id')->references('id')->on('blogs_users')->onDelete('set null');
         });
     }
 
