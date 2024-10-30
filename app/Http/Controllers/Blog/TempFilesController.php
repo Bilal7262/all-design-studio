@@ -54,7 +54,7 @@ class TempFilesController extends Controller
         //     $url = $sites[$request->site_url]['assetsUrl'] . '/' .$s3Prefix.'/' . $input['name'];
         // } else {
             // return $url = Storage::disk('s3')->url($filePath);
-            $url = 'https://s3.amazonaws.com/assets.pakistansweethome.org.pk/'.$s3Prefix.'/' . $input['name'];
+            $url = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $input['name'];
         // }
         return response()->json([
             'url' => $url,
@@ -107,7 +107,7 @@ class TempFilesController extends Controller
         //     $url = $sites[$request->site_url]['assetsUrl'] . '/' .$s3Prefix.'/' . $input['name'];
         // } else {
             // return $url = Storage::disk('s3')->url($filePath);
-            $url = 'https://s3.amazonaws.com/assets.pakistansweethome.org.pk/'.$s3Prefix.'/' . $input['name'];
+            $url = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $input['name'];
         // }
 
             return response()->json([

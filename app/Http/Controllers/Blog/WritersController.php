@@ -112,7 +112,7 @@ class WritersController extends Controller
                 // if(isset($request->site_url) && $sites[$request->site_url]) {
                 //     $image_name = $sites[$request->site_url]['assetsUrl'] . '/writers/' . $temp_image->name;
                 // } else {
-                    $image_name = 'https://s3.amazonaws.com/assets.pakistansweethome.org.pk/writers/' . $temp_image->name;
+                    $image_name = 'https://all-design-studio.s3.us-east-1.amazonaws.com/writers/' . $temp_image->name;
                     // $image_name = Storage::disk('s3')->url($filePath);
                 // }
             }
@@ -156,7 +156,7 @@ class WritersController extends Controller
                     // if(isset($request->site_url) && $sites[$request->site_url]) {
                         // $image_name = $sites[$request->site_url]['assetsUrl'] . '/writers/' . $temp_image->name;
                     // } else {
-                        $image_name = 'https://s3.amazonaws.com/assets.pakistansweethome.org.pk/writers/' . $temp_image->name;
+                        $image_name = 'https://all-design-studio.s3.us-east-1.amazonaws.com/writers/' . $temp_image->name;
                     // }
                 }
                 $request->merge(['profile_image' => $image_name]);
