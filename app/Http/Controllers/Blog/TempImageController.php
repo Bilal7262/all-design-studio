@@ -44,7 +44,7 @@ class TempImageController extends Controller
         return response()->json(['temp_image' => $temp_image], 200);
     }
 
-    private function generateFileName($originalName)
+    private function generateFileName($originalName): string
     {
         $nameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
         $nameWithoutExtension = Str::slug($nameWithoutExtension);

@@ -37,7 +37,7 @@ if (!function_exists('removeOldFile')) {
     {
         // Convert the public URL to the relative storage path
         $old_file_path = str_replace('/storage/', '', parse_url($old_file, PHP_URL_PATH));
-    
+
         // Use Laravel's storage facade to check existence and delete the file
         if (Storage::exists($old_file_path)) {
             Storage::delete($old_file_path);
@@ -55,7 +55,7 @@ if (!function_exists('trim_root_html')) {
     function trim_root_html($html) {
         // Remove specified root HTML elements
         $desc = trim(str_replace(['<!DOCTYPE html>', '<html>', '<head>', '</head>', '<body>', '</body>', '</html>'], '', $html), " \t\n\r\0\x0B");
-        
+
         // Check if the resulting content is empty or equivalent to 'null'
         if (empty($desc) || strtolower($desc) === 'null') {
             return null;
