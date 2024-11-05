@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use App\Models\Blogs\PagesTempFile;
 
 class TempImageController extends Controller
@@ -52,14 +53,23 @@ class TempImageController extends Controller
         return $fileName;
     }
 
+    // private function convertToWebP($destinationPath, $fileName)
+    // {
+    //     $webpFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
+    //     $webpPath = $destinationPath . '/' . $webpFileName;
+
+    //     $image = imagecreatefromstring(file_get_contents($destinationPath . '/' . $fileName));
+    //     imagewebp($image, $webpPath, 80);
+
+    //     imagedestroy($image);
+    // }
     private function convertToWebP($destinationPath, $fileName)
     {
         $webpFileName = pathinfo($fileName, PATHINFO_FILENAME) . '.webp';
         $webpPath = $destinationPath . '/' . $webpFileName;
 
-        $image = imagecreatefromstring(file_get_contents($destinationPath . '/' . $fileName));
-        imagewebp($image, $webpPath, 80);
-
-        imagedestroy($image);
+        // Use Intervention Image to open and save the image as WebP
+        $image = Image::make($destinationPath . '/' . $fileName);
+        $image->encode('webp', 80)->save($webpPath);
     }
 }
