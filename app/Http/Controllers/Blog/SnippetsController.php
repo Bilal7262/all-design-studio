@@ -20,10 +20,7 @@ class SnippetsController extends Controller
         ]);
         // $snippets = Pages_Snippets::get();
         $snippets = PagesSnippet::where('page_id',$request->page_id)->get();
-        return response()->json([
-            'status'=>200,
-            'snippetes'=>$snippets,
-        ]);
+        return $snippets;
     }
 
     public function store(Request $request)
