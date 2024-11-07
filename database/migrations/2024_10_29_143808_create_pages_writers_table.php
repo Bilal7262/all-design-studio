@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pages_writers', function (Blueprint $table) {
+            $table->id(); // Primary key (int) with auto-increment
             $table->string('site_name', 250)->nullable(); // Site name, nullable
             $table->string('site_url', 250)->index(); // Site URL, indexed
             $table->string('slug', 256); // Slug, non-nullable
