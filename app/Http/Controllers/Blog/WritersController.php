@@ -147,17 +147,15 @@ class WritersController extends Controller
                 // $src_img = public_path('/uploads/blogs/temp/') . $temp_image->name;
                 // $src_thumb = public_path('/uploads/blogs/temp/') . "thumbnail-" . $temp_image->name;
                 $src_img = Storage::disk('s3')->url('uploads/blogs/temp/' . $temp_image->name);
-                if (File::exists($src_img)) {
-                    Storage::disk('s3')->put('/writers/' . $temp_image->name, fopen($src_img, 'r+'));
-                    File::delete($src_img);
-                   // Set Asset Url
-                    $image_name = '';
-                    // $sites      = $this->PagesHelper->getSites();
-                    // if(isset($request->site_url) && $sites[$request->site_url]) {
-                        // $image_name = $sites[$request->site_url]['assetsUrl'] . '/writers/' . $temp_image->name;
-                    // } else {
-                        $image_name = 'https://all-design-studio.s3.us-east-1.amazonaws.com/writers/' . $temp_image->name;
-                    // }
+                if (Storage::disk('s3')->exists($src_img)) {
+                    // Copy the image to the new location on S3
+                    Storage::disk('s3')->copy($src_img, 'writers/' . $temp_image->name);
+
+                    // Delete the temp image from the temp folder on S3
+                    Storage::disk('s3')->delete($src_img);
+
+                    // Set Asset URL
+                    $image_name = 'https://all-design-studio.s3.us-east-1.amazonaws.com/writers/' . $temp_image->name;
                 }
                 $request->merge(['profile_image' => $image_name]);
             }
