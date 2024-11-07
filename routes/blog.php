@@ -192,7 +192,7 @@ Route::group(['prefix'=>'blogs'], function(){
             // Additional Page Operations
             Route::post('change-status', [PageController::class, 'changeStatus']);
             Route::post('schedule-publishing', [PageController::class, 'schedulePublishing']);
-            Route::get('delete/{id}', [PageController::class, 'destroy']);
+            Route::delete('delete/{id}', [PageController::class, 'destroy']);
             Route::post('validate-slug', [PageController::class, 'validateSlug']);
             Route::post('add', [PageController::class, 'store']);
             Route::post('update/{id}', [PageController::class, 'update']);
