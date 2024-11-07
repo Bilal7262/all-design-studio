@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pages_pages_writers_name', function (Blueprint $table) {
+        Schema::create('pages_pages_writers', function (Blueprint $table) {
             $table->id(); // id, Primary key with auto-increment
             $table->bigInteger('page_id')->index(); // page_id, indexed, not nullable
             $table->bigInteger('writer_id')->nullable()->index(); // writer_id, indexed, nullable
