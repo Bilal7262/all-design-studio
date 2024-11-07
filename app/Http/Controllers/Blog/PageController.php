@@ -346,31 +346,28 @@ class PageController extends Controller
 
         $image_name = '';
         //Upload Cover Image to S3 Bucket
+
         if($request->image_id) {
             // Get Image name from Temp Images
             $temp_image = PagesTempFile::select('name')->find($request->image_id);
 
             // Move Temp Images to Property Images folder (S3 Bucket)
-            $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
+            // $src_img = public_path('/uploads/blogs/temp/') . $temp_image->name;
+            // $src_thumb = public_path('/uploads/blogs/temp/') . "thumbnail-" . $temp_image->name;
+            $src_img = 'uploads/blogs/temp/' . $temp_image->name;
 
-            //Upload Original and Thumbnail images
-            if (File::exists($src_img)) {
-                $filePath =  Storage::disk('s3')->put('/' .$s3Prefix.'/'. $temp_image->name, fopen($src_img, 'r+'));
-                // File::delete($src_img);
+            // return $src_img;
+            // $Storage::disk('s3')->exists('uploads/blogs/temp/' . $temp_image->name);
+            if (Storage::disk('s3')->exists($src_img)) {
+                // Copy the image to the new location on S3
+                // return "abnc";
+                Storage::disk('s3')->copy($src_img, 'writers/' . $temp_image->name);
 
-                $temp_image->destroy($request->image_id);
+                // Delete the temp image from the temp folder on S3
+                Storage::disk('s3')->delete($src_img);
 
-                // $image_name = $s3Prefix.'/'.$temp_image->name;
-
-                // Set Asset Url
-                $image_name = '';
-                // $sites      = $this->PagesHelper->getSites();
-                // if(isset($request->site_url) && $sites[$request->site_url]) {
-                    // $image_name = $sites[$request->site_url]['assetsUrl'] . '/' .$s3Prefix.'/' . $temp_image->name;
-                // } else {
-                    // $image_name = Storage::disk('s3')->url($filePath);
-                    $image_name = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $temp_image->name;
-                // }
+                // Set Asset URL
+                $image_name = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'. $s3Prefix.'/' . $temp_image->name;
             }
             $request->merge(['image' => $image_name]);
         }
