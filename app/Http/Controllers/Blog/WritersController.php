@@ -149,6 +149,7 @@ class WritersController extends Controller
                 $src_img = Storage::disk('s3')->url('uploads/blogs/temp/' . $temp_image->name);
                 if (Storage::disk('s3')->exists($src_img)) {
                     // Copy the image to the new location on S3
+                    return "abnc";
                     Storage::disk('s3')->copy($src_img, 'writers/' . $temp_image->name);
 
                     // Delete the temp image from the temp folder on S3
