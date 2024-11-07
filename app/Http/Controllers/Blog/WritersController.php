@@ -102,12 +102,15 @@ class WritersController extends Controller
             $temp_image = PagesTempFile::select('name')->find($request->image_id);
 
             // Move Temp Images to Property Images folder (S3 Bucket)
-            // $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
-            $src_img = Storage::disk('s3')->url('uploads/blogs/temp/' . $temp_image->name);
-            $image_name = '';
-            // return File::exists($src_img);
+            // $src_img = public_path('/uploads/blogs/temp/') . $temp_image->name;
+            // $src_thumb = public_path('/uploads/blogs/temp/') . "thumbnail-" . $temp_image->name;
+            $src_img = 'uploads/blogs/temp/' . $temp_image->name;
+
+            // return $src_img;
+            // $Storage::disk('s3')->exists('uploads/blogs/temp/' . $temp_image->name);
             if (Storage::disk('s3')->exists($src_img)) {
                 // Copy the image to the new location on S3
+                // return "abnc";
                 Storage::disk('s3')->copy($src_img, 'writers/' . $temp_image->name);
 
                 // Delete the temp image from the temp folder on S3
@@ -118,7 +121,6 @@ class WritersController extends Controller
             }
             $request->merge(['profile_image' => $image_name]);
         }
-
         // Add Category
         $writer = PagesWriter::create($request->all());
 
