@@ -131,9 +131,9 @@ class WritersController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        // ]);
 
         $writers = PagesWriter::findOrFail($id);
 
