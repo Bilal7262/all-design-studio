@@ -144,9 +144,9 @@ class WritersController extends Controller
                 $temp_image = PagesTempFile::select('name')->find($request->image_id);
 
                 // Move Temp Images to Property Images folder (S3 Bucket)
-                $src_img = public_path('/uploads/blogs/temp/') . $temp_image->name;
+                // $src_img = public_path('/uploads/blogs/temp/') . $temp_image->name;
                 // $src_thumb = public_path('/uploads/blogs/temp/') . "thumbnail-" . $temp_image->name;
-
+                $src_img = Storage::disk('s3')->url('uploads/blogs/temp/' . $temp_image->name);
                 if (File::exists($src_img)) {
                     Storage::disk('s3')->put('/writers/' . $temp_image->name, fopen($src_img, 'r+'));
                     File::delete($src_img);
