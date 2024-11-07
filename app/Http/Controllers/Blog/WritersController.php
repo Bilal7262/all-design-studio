@@ -105,7 +105,7 @@ class WritersController extends Controller
             // $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
             $src_img = Storage::disk('s3')->url('uploads/blogs/temp/' . $temp_image->name);
             $image_name = '';
-            return File::exists($src_img);
+            // return File::exists($src_img);
             if (File::exists($src_img)) {
                 $filePath=Storage::disk('s3')->put('/writers/' . $temp_image->name, fopen($src_img, 'r+'));
                 File::delete($src_img);
