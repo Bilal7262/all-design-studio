@@ -440,7 +440,8 @@ class PageController extends Controller
             }
 
             //Move Temp Images to  (S3 Bucket)
-            $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
+            // $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
+            $src_img = Storage::disk('s3')->url('uploads/blogs/temp/'.$temp_image->name);
             if (File::exists($src_img)) {
 
                 // Set Asset Url
