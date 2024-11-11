@@ -435,19 +435,21 @@ class PageController extends Controller
             $temp_image = PagesTempFile::select('name')->find($request->image_id);
 
             //Delete PNG/JPG image from S3 bucket
-            if(Storage::disk('s3')->exists('/'.$s3Prefix.'/'.$image)) {
-                Storage::disk('s3')->delete('/'.$s3Prefix.'/'.$image);
+            if(Storage::disk('s3')->exists('/uploads/blogs/temp/'.$image)) {
+                Storage::disk('s3')->delete('/uploads/blogs/temp/'.$image);
             }
 
             // $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
             $src_img = Storage::disk('s3')->url('uploads/blogs/temp/'.$temp_image->name);
+            Storage::disk('s3')->put('/'.$s3Prefix.'/' . $temp_image->name, fopen($src_img, 'r+'));
             $image = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $temp_image->name;
             if (File::exists($src_img)) {
-                Storage::disk('s3')->put('/'.$s3Prefix.'/' . $temp_image->name, fopen($src_img, 'r+'));
                 $temp_image->destroy($request->image_id);
             }
 
         }
+
+
 
         $pageEstimatedWords = str_word_count($request->title_paragraph)
                              + str_word_count($request->writer_paragraph)
