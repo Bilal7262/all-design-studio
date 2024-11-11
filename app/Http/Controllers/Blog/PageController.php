@@ -431,25 +431,31 @@ class PageController extends Controller
 
         $s3Prefix = $request->page_type .'/'. (isset($request->parent) ? $request->parent['page_slug'] .'/' : '') . $request->page_slug;
 
-        if($request->image_id) {
+        if ($request->image_id) {
             $temp_image = PagesTempFile::select('name')->find($request->image_id);
 
-            // Delete PNG/JPG image from S3 bucket
-            if (Storage::disk('s3')->exists('/uploads/blogs/temp/'.$temp_image->name)) {
-                Storage::disk('s3')->delete('/uploads/blogs/temp/'.$temp_image->name);
+            if ($temp_image && Storage::disk('s3')->exists('uploads/blogs/temp/' . $temp_image->name)) {
+                // Retrieve the file content from S3
+                $fileContent = Storage::disk('s3')->get('uploads/blogs/temp/' . $temp_image->name);
+
+                // Store the file in the new location on S3
+                Storage::disk('s3')->put($s3Prefix . '/' . $temp_image->name, $fileContent);
+
+                // Generate the new image URL
+                $image = 'https://all-design-studio.s3.us-east-1.amazonaws.com/' . $s3Prefix . '/' . $temp_image->name;
+
+                // Delete the original file from the temp location in S3
+                Storage::disk('s3')->delete('uploads/blogs/temp/' . $temp_image->name);
+
+                // Delete the temporary image file record in the database
+                $temp_image->delete();
+            } else {
+                // Handle the case where the file is missing or doesn't exist
+                // You could log an error or return an error message here
+                \Log::error("File not found in S3 for image ID: " . $request->image_id);
             }
-
-            // Retrieve the file content from S3
-            $fileContent = Storage::disk('s3')->get('uploads/blogs/temp/'.$temp_image->name);
-
-            // Store the file in the new location on S3
-            Storage::disk('s3')->put($s3Prefix . '/' . $temp_image->name, $fileContent);
-
-            $image = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $temp_image->name;
-
-            // Delete the temporary image file record
-            $temp_image->delete();
         }
+
 
 
 
