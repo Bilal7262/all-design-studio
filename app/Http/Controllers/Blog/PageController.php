@@ -442,8 +442,7 @@ class PageController extends Controller
             //Move Temp Images to  (S3 Bucket)
             $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
             if (File::exists($src_img)) {
-                $filePath=Storage::disk('s3')->put('/'.$s3Prefix.'/' . $temp_image->name, fopen($src_img, 'r+'));
-                $temp_image->destroy($request->image_id);
+
                 // Set Asset Url
                 $image = '';
                 // $sites      = $this->PagesHelper->getSites();
@@ -453,6 +452,9 @@ class PageController extends Controller
                     // $image = Storage::disk('s3')->url($filePath);
                     $image = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $temp_image->name;
                 // }
+
+                Storage::disk('s3')->put('/'.$s3Prefix.'/' . $temp_image->name, fopen($src_img, 'r+'));
+                $temp_image->destroy($request->image_id);
             }
 
         }
