@@ -434,20 +434,23 @@ class PageController extends Controller
         if($request->image_id) {
             $temp_image = PagesTempFile::select('name')->find($request->image_id);
 
-            //Delete PNG/JPG image from S3 bucket
-            if(Storage::disk('s3')->exists('/uploads/blogs/temp/'.$image)) {
-                Storage::disk('s3')->delete('/uploads/blogs/temp/'.$image);
+            // Delete PNG/JPG image from S3 bucket
+            if (Storage::disk('s3')->exists('/uploads/blogs/temp/'.$temp_image->name)) {
+                Storage::disk('s3')->delete('/uploads/blogs/temp/'.$temp_image->name);
             }
 
-            // $src_img = public_path('/uploads/blogs/temp/').$temp_image->name;
-            $src_img = Storage::disk('s3')->url('uploads/blogs/temp/'.$temp_image->name);
-            Storage::disk('s3')->put('/'.$s3Prefix.'/' . $temp_image->name, fopen($src_img, 'r+'));
+            // Retrieve the file content from S3
+            $fileContent = Storage::disk('s3')->get('uploads/blogs/temp/'.$temp_image->name);
+
+            // Store the file in the new location on S3
+            Storage::disk('s3')->put($s3Prefix . '/' . $temp_image->name, $fileContent);
+
             $image = 'https://all-design-studio.s3.us-east-1.amazonaws.com/'.$s3Prefix.'/' . $temp_image->name;
-            if (File::exists($src_img)) {
-                $temp_image->destroy($request->image_id);
-            }
 
+            // Delete the temporary image file record
+            $temp_image->delete();
         }
+
 
 
 
