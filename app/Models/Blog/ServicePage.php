@@ -47,12 +47,22 @@ class ServicePage extends Model
 
     public function feature()
     {
-        return $this->hasOne(ServiceFeature::class)->with('benefits');
+        return $this->hasOne(ServiceFeature::class)->with('benefits')->whereIsNull('type');
+    }
+
+    public function feature_clone()
+    {
+        return $this->hasOne(ServiceFeature::class)->with('benefits')->where('type','clone');
     }
 
     public function orders()
     {
-        return $this->hasMany(ServiceOrder::class)->with('steps');
+        return $this->hasMany(ServiceOrder::class)->with('steps')->whereIsNull('type');
+    }    
+
+    public function orders_clone()
+    {
+        return $this->hasMany(ServiceOrder::class)->with('steps')->where('type','clone');
     }
 
     public function sample()

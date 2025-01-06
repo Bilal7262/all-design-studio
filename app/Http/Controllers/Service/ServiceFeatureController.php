@@ -15,13 +15,13 @@ class ServiceFeatureController extends Controller
 
         if(isset($request->id) && $request->id != null && $request->id != '' && $request->id != 'null'){
 
-        $feature= ServiceFeature::find($request->id)->update($request->all());
+          $feature= ServiceFeature::find($request->id)->update($request->all());
 
-        return response()->json([
-          'status' => 200,
-          'message' => 'succesfully updated',
-          'feature' =>  ServiceFeature::with('benefits')->where('id',$request->id)->first()
-        ]);
+          return response()->json([
+            'status' => 200,
+            'message' => 'succesfully updated',
+            'feature' =>  ServiceFeature::with('benefits')->where('id',$request->id)->first()
+          ]);
         }
 
 
@@ -29,6 +29,8 @@ class ServiceFeatureController extends Controller
         $feature['heading'] = $data['heading'];
         $feature['sub_heading'] = $data['sub_heading'];
         $feature['service_page_id'] = $data['service_page_id'];
+        $feature['type'] = $data['type']??null;
+        $feature['order'] = $data['order']??0;
         $feature= ServiceFeature::create($feature);
 
 

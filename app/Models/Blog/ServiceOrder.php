@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceOrder extends Model
 {
     use HasFactory;
-    protected $fillable = ['heading', 'sub_heading', 'button_text', 'button_link', 'service_page_id'];
+    protected $fillable = [
+        'heading', 'sub_heading', 'button_text', 'button_link', 'service_page_id','type','order'
+    ];
 
     public function steps()
     {
