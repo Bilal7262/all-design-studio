@@ -21,7 +21,7 @@ class PublicController extends Controller
 
     }
     public function get_details($slug){
-        $page = ServicePage::with('snippet','images','banner','feature','feature_clone','orders','orders_clone','sample','pricing','testimonial','faq','seo','cta','interlinking')->where('page_slug', $slug)->where('status', 'Active')->first();
+        $page = ServicePage::with('snippet','images','banner','feature','feature_clone','orders','orders_clone','sample','pricing','testimonial','faq','seo','cta','interlinking','design')->where('page_slug', $slug)->where('status', 'Active')->first();
         if($page){
             return response()->json([
                 'status' => 200,

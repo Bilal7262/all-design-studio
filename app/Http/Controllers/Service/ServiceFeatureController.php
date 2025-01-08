@@ -27,7 +27,7 @@ class ServiceFeatureController extends Controller
 
         // Now you can access individual elements from the array like this
         $feature['heading'] = $data['heading'];
-        $feature['sub_heading'] = $data['sub_heading'];
+        $feature['sub_heading'] = $data['sub_heading']??null;
         $feature['service_page_id'] = $data['service_page_id'];
         $feature['type'] = $data['type']??null;
         $feature['order'] = $data['order']??0;

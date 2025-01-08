@@ -100,4 +100,9 @@ class ServicePage extends Model
         return $this->hasOne(ServiceInterlinking::class, 'service_page_id','id')->with('services');
     }
 
+    public function design()
+    {
+        return $this->hasOne(ServiceDesign::class, 'service_page_id','id')->with('categories');
+    }
+
 }

@@ -26,7 +26,7 @@ class ServiceTestimonialController extends Controller
 
         // Now you can access individual elements from the array like this
         $testimonial['heading'] = $data['heading'];
-        $testimonial['sub_heading'] = $data['sub_heading'];
+        $testimonial['sub_heading'] = $data['sub_heading']??null;
         $testimonial['service_page_id'] = $data['service_page_id'];
         $testimonial['order'] = $data['order'];
         $testimonial = ServiceTestimonial::create($testimonial);

@@ -175,6 +175,25 @@ Route::group(['prefix' => 'new-service-pages'], function () {
         Route::get('/service/{id}/delete', [ServiceInterlinkingController::class, 'destroy_interlinking_service']);
     });
 
+
+    Route::prefix('design')->group(function () {
+
+        // Create or Update Interlinking
+        Route::post('/', [ServiceInterlinkingController::class, 'store']);
+
+        // Create Service under an Interlinking
+        Route::post('/category', [ServiceInterlinkingController::class, 'store_category']);
+
+        // Update a specific Interlinking Service
+        Route::put('/category/{id}', [ServiceInterlinkingController::class, 'update_category']);
+
+        // Delete an Interlinking by ID
+        Route::get('/{id}/delete', [ServiceInterlinkingController::class, 'destroy_design']);
+
+        // Delete an Interlinking Service by ID
+        Route::get('/category/{id}/delete', [ServiceInterlinkingController::class, 'destroy_design_category']);
+    });
+
 });
 
 

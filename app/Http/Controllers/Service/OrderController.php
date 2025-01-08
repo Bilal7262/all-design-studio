@@ -24,9 +24,9 @@ class OrderController extends Controller
         }
 
         $orderData['heading'] = $data['heading'];
-        $orderData['sub_heading'] = $data['sub_heading'];
-        $orderData['button_text'] = $data['button_text'];
-        $orderData['button_link'] = $data['button_link'];
+        $orderData['sub_heading'] = $data['sub_heading']??null;
+        $orderData['button_text'] = $data['button_text']??null;
+        $orderData['button_link'] = $data['button_link']??null;
         $orderData['service_page_id'] = $data['service_page_id'];
         $orderData['type'] = $data['type']??null;
         $orderData['order'] = $data['order']??0;
