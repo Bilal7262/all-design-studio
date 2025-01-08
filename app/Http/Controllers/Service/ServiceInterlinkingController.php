@@ -25,7 +25,7 @@ class ServiceInterlinkingController extends Controller
 
         // Now you can access individual elements from the array like this
         $interlinking['heading'] = $data['heading'];
-        $interlinking['sub_heading'] = $data['sub_heading'];
+        $interlinking['sub_heading'] = $data['sub_heading']??null;
         $interlinking['service_page_id'] = $data['service_page_id'];
         $interlinking['order'] = $data['order'];
         $interlinking = ServiceInterlinking::create($interlinking);
