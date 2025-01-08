@@ -27,6 +27,7 @@ class ServicePriceController extends Controller
         // Now you can access individual elements from the array like this
         $price['heading'] = $data['heading'];
         $price['service_page_id'] = $data['service_page_id'];
+        $price['order'] = $data['order'];
         $price = ServicePrice::create($price);
 
 

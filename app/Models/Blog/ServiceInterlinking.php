@@ -11,7 +11,8 @@ class ServiceInterlinking extends Model
     protected $fillable = [
         'service_page_id', 
         'heading', 
-        'sub_heading'
+        'sub_heading',
+        'order'
     ];
 
     /**

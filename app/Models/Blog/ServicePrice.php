@@ -11,6 +11,7 @@ class ServicePrice extends Model
     protected $fillable = [
         'heading', 
         'service_page_id',
+        'order'
     ];
 
     /**

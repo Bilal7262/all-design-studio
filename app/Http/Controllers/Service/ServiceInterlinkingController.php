@@ -27,6 +27,7 @@ class ServiceInterlinkingController extends Controller
         $interlinking['heading'] = $data['heading'];
         $interlinking['sub_heading'] = $data['sub_heading'];
         $interlinking['service_page_id'] = $data['service_page_id'];
+        $interlinking['order'] = $data['order'];
         $interlinking = ServiceInterlinking::create($interlinking);
 
 

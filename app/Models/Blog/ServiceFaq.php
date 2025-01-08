@@ -11,6 +11,7 @@ class ServiceFaq extends Model
     protected $fillable = [
         'service_page_id',
         'heading',
+        'order'
     ];
 
     public function questions()

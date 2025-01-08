@@ -26,6 +26,7 @@ class ServiceFaqController extends Controller
         // Now you can access individual elements from the array like this
         $faq['heading'] = $data['heading'];
         $faq['service_page_id'] = $data['service_page_id'];
+        $faq['order'] = $data['order'];
         $faq = ServiceFaq::create($faq);
 
 

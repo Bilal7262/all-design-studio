@@ -12,7 +12,8 @@ class ServiceSeo extends Model
     protected $fillable = [
         'service_page_id',
         'heading',
-        'description'
+        'description',
+        'order'
     ];
 
     // Relationship with ServicePage

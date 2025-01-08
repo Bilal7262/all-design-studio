@@ -13,7 +13,8 @@ class ServiceCta extends Model
         'service_page_id',
         'heading',
         'button_text',
-        'button_link'
+        'button_link',
+        'order'
     ];
 
     // Relationship with ServicePage

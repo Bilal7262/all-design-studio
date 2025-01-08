@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceTestimonial extends Model
 {
     use HasFactory;protected $fillable = [
-        'service_page_id', 'heading', 'sub_heading'
+        'service_page_id', 'heading', 'sub_heading','order'
     ];
 
     /**

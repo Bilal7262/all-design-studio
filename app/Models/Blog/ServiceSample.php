@@ -12,6 +12,7 @@ class ServiceSample extends Model
     protected $fillable = [
         'heading',
         'service_page_id',
+        'order'
     ];
 
     // Relationship with ServiceSampleLogo

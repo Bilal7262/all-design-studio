@@ -28,6 +28,7 @@ class ServiceTestimonialController extends Controller
         $testimonial['heading'] = $data['heading'];
         $testimonial['sub_heading'] = $data['sub_heading'];
         $testimonial['service_page_id'] = $data['service_page_id'];
+        $testimonial['order'] = $data['order'];
         $testimonial = ServiceTestimonial::create($testimonial);
 
 
