@@ -47,7 +47,7 @@ class ServicePage extends Model
 
     public function feature()
     {
-        return $this->hasOne(ServiceFeature::class)->with('benefits')->whereIsNull('type');
+        return $this->hasOne(ServiceFeature::class)->with('benefits')->whereNull('type');
     }
 
     public function feature_clone()
@@ -57,7 +57,7 @@ class ServicePage extends Model
 
     public function orders()
     {
-        return $this->hasMany(ServiceOrder::class)->with('steps')->whereIsNull('type');
+        return $this->hasMany(ServiceOrder::class)->with('steps')->whereNull('type');
     }    
 
     public function orders_clone()
