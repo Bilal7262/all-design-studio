@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Service\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController, ServiceInterlinkingController,PublicController};
+use App\Http\Controllers\Service\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController, ServiceInterlinkingController,ServiceDesignController,PublicController};
 use App\Http\Controllers\Blog\{
     BlogController, PageController, TempImageController,
     WritersController, SnippetsController, TempFilesController
@@ -179,19 +179,19 @@ Route::group(['prefix' => 'new-service-pages'], function () {
     Route::prefix('design')->group(function () {
 
         // Create or Update Interlinking
-        Route::post('/', [ServiceInterlinkingController::class, 'store']);
+        Route::post('/', [ServiceDesignController::class, 'store']);
 
         // Create Service under an Interlinking
-        Route::post('/category', [ServiceInterlinkingController::class, 'store_category']);
+        Route::post('/category', [ServiceDesignController::class, 'store_category']);
 
         // Update a specific Interlinking Service
-        Route::put('/category/{id}', [ServiceInterlinkingController::class, 'update_category']);
+        Route::put('/category/{id}', [ServiceDesignController::class, 'update_category']);
 
         // Delete an Interlinking by ID
-        Route::get('/{id}/delete', [ServiceInterlinkingController::class, 'destroy_design']);
+        Route::get('/{id}/delete', [ServiceDesignController::class, 'destroy_design']);
 
         // Delete an Interlinking Service by ID
-        Route::get('/category/{id}/delete', [ServiceInterlinkingController::class, 'destroy_design_category']);
+        Route::get('/category/{id}/delete', [ServiceDesignController::class, 'destroy_design_category']);
     });
 
 });
