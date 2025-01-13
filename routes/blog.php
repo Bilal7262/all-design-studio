@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Service\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController, ServiceInterlinkingController,ServiceDesignController,PublicController};
+use App\Http\Controllers\Service\{AuthController,ServicePagesController,SnippetController, ServiceImageController, ServiceBannerController, ServiceFeatureController, OrderController, ServiceSampleCategoryController, ServiceSampleController, ServicePriceController, ServiceTestimonialController, ServiceFaqController, ServiceSeoController, ServiceCtaController, ServiceInterlinkingController,ServiceDesignControllerr
+,PublicController};
 use App\Http\Controllers\Blog\{
     BlogController, PageController, TempImageController,
     WritersController, SnippetsController, TempFilesController

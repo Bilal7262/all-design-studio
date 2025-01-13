@@ -36,7 +36,7 @@ class ServiceDesignController extends Controller
         // and so on...
         $service = $design->servicePage;
         // Handle the uploaded files
-        for ($i = 0; $i < $request->services_length; $i++) {
+        for ($i = 0; $i < $request->categories_length; $i++) {
 
             $design_category = [
               'name' => isset($data['category_'.$i.'_name']) ? $data['category_'.$i.'_name'] : null,
