@@ -81,9 +81,9 @@ class ServiceDesignController extends Controller
         // If no 'id' is provided, it is a create request
         $design_category = [
             'service_design_id' => $request->service_design_id ?? null,
-            'name' => $request->text ?? null,
-            'desc' => $request->link ?? null,
-            'alt_text' => $request->image_alt ?? null,
+            'name' => $request->name ?? null,
+            'desc' => $request->desc ?? null,
+            'alt_text' => $request->alt_text ?? null,
         ];
 
         // Handle file upload for new card
