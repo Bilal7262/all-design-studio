@@ -107,7 +107,7 @@ class SnippetController extends Controller
         if ($request->hasFile('icon')) {
 
             // Define the storage path
-            $storagePath = "service-pages/{$service->page_slug}";
+            $storagePath = "service-pages/{$snippet->service->page_slug}";
 
             // Use the helper function to store the icon and handle old icon deletion
             $validatedData['icon'] = storeBinaryFile($request->file('icon'), $storagePath);
@@ -136,6 +136,8 @@ class SnippetController extends Controller
         // Return the updated snippet along with its USPs
         return response()->json($snippet->load('usps'), 200);
     }
+
+    
     public function store_usps(Request $request)
     {
 

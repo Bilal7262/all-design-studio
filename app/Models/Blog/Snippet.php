@@ -23,6 +23,11 @@ class Snippet extends Model
         'page_slug'
     ];
 
+    public function service()
+    {
+        return $this->belongsTo(Snippet::class, 'service_id', 'id');
+    }
+
     public function usps()
     {
         return $this->hasMany(SnippetUsp::class);
