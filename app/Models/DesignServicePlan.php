@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class DesignServicePlan extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['design_service_id', 'duration_days', 'price', 'features'];
+
+    public function service()
+    {
+        return $this->belongsTo(DesignService::class);
+    }
 }
