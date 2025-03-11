@@ -12,7 +12,7 @@ class DesignServiceController extends Controller
         // Validate the request payload
         $validator = Validator::make($request->all(), [
             'service' => 'required|string|exists:design_services,name',
-            'additional_service' => 'nullable|string|exists:design_services,name|different:service',
+            'additional_service' => 'nullable|string|exists:design_services,name|different:design_services',
         ]);
 
         if ($validator->fails()) {
