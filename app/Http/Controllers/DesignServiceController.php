@@ -50,7 +50,7 @@ class DesignServiceController extends Controller
                     'days' => max($servicePlan->duration_days, $additionalServicePlan->duration_days),
                     'price' => $servicePlan->price + $additionalServicePlan->price,
                     'details' => [
-                        $serviceName => [$servicePlan->features],
+                        $service->label => [$servicePlan->features],
                         $additionalServiceName => [$additionalServicePlan->features],
                     ],
                 ];
@@ -62,7 +62,7 @@ class DesignServiceController extends Controller
                     'days' => $plan->duration_days,
                     'price' => $plan->price,
                     'details' => [
-                        $serviceName => [$plan->features],
+                        $service->label => [$plan->features],
                     ],
                 ];
             }
