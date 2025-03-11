@@ -11,8 +11,8 @@ class DesignServiceController extends Controller
     {
         // Validate the request payload
         $validator = Validator::make($request->all(), [
-            'service' => 'required|string|exists:services,service_name',
-            'additional_service' => 'nullable|string|exists:services,service_name|different:service',
+            'service' => 'required|string|exists:services,name',
+            'additional_service' => 'nullable|string|exists:services,name|different:service',
         ]);
 
         if ($validator->fails()) {
@@ -25,7 +25,7 @@ class DesignServiceController extends Controller
         $additionalServiceName = $request->input('additional_service');
 
         // Fetch the primary service and its plans
-        $service = Service::where('service_name', $serviceName)->with('plans')->first();
+        $service = DesignService::where('name', $serviceName)->with('plans')->first();
         $servicePlans = $service->plans;
 
         // Initialize response array
@@ -33,7 +33,7 @@ class DesignServiceController extends Controller
 
         if ($additionalServiceName) {
             // Fetch the additional service and its plans
-            $additionalService = Service::where('service_name', $additionalServiceName)
+            $additionalService = DesignService::where('name', $additionalServiceName)
                 ->with('plans')
                 ->first();
             $additionalServicePlans = $additionalService->plans;
