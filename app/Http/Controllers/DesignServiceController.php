@@ -11,8 +11,8 @@ class DesignServiceController extends Controller
     {
         // Validate the request payload
         $validator = Validator::make($request->all(), [
-            'service' => 'required|string|exists:design_services,name',
-            'additional_service' => 'nullable|string|exists:design_services,name|different:service',
+            'service' => 'required|string|exists:services,service_name',
+            'additional_service' => 'nullable|string|exists:services,service_name|different:service',
         ]);
 
         if ($validator->fails()) {
@@ -25,40 +25,48 @@ class DesignServiceController extends Controller
         $additionalServiceName = $request->input('additional_service');
 
         // Fetch the primary service and its plans
-        $service = DesignService::where('name', $serviceName)->with('plans')->first();
+        $service = Service::where('service_name', $serviceName)->with('plans')->first();
         $servicePlans = $service->plans;
 
-        // Initialize response data
-        $maxDays = $servicePlans->max('duration_days');
-        $totalPrice = $servicePlans->sum('price');
-        $details = [
-            $serviceName => $servicePlans->pluck('features')->toArray(),
-        ];
+        // Initialize response array
+        $response = [];
 
-        // If additional_service is provided, include its plans
         if ($additionalServiceName) {
-            $additionalService = DesignService::where('name', $additionalServiceName)
+            // Fetch the additional service and its plans
+            $additionalService = Service::where('service_name', $additionalServiceName)
                 ->with('plans')
                 ->first();
             $additionalServicePlans = $additionalService->plans;
 
-            // Update max days if additional service has a longer duration
-            $additionalMaxDays = $additionalServicePlans->max('duration_days');
-            $maxDays = max($maxDays, $additionalMaxDays);
+            // Determine the number of pairs (minimum of the two plan counts)
+            $pairCount = min($servicePlans->count(), $additionalServicePlans->count());
 
-            // Add additional service price to total
-            $totalPrice += $additionalServicePlans->sum('price');
+            // Build response by pairing plans
+            for ($i = 0; $i < $pairCount; $i++) {
+                $servicePlan = $servicePlans[$i];
+                $additionalServicePlan = $additionalServicePlans[$i];
 
-            // Add additional service features to details
-            $details[$additionalServiceName] = $additionalServicePlans->pluck('features')->toArray();
+                $response[] = [
+                    'days' => max($servicePlan->duration_days, $additionalServicePlan->duration_days),
+                    'price' => $servicePlan->price + $additionalServicePlan->price,
+                    'details' => [
+                        $serviceName => [$servicePlan->features],
+                        $additionalServiceName => [$additionalServicePlan->features],
+                    ],
+                ];
+            }
+        } else {
+            // If no additional_service, return each plan of the primary service individually
+            foreach ($servicePlans as $plan) {
+                $response[] = [
+                    'days' => $plan->duration_days,
+                    'price' => $plan->price,
+                    'details' => [
+                        $serviceName => [$plan->features],
+                    ],
+                ];
+            }
         }
-
-        // Build the response
-        $response = [
-            'days' => $maxDays,
-            'price' => $totalPrice,
-            'details' => $details,
-        ];
 
         return response()->json($response, 200);
     }
