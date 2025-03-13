@@ -24,6 +24,7 @@ class User extends Authenticatable
         'phone',
         'otp',
         'otp_expires_at',
+        'is_verified'
     ];
 
     /**
