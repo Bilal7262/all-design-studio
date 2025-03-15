@@ -50,6 +50,7 @@ class AuthController extends Controller
             return response()->json([
                 'message' => 'User registered successfully. Please verify your email with OTP.',
                 'user' => $user,
+                'token' => $user->createToken('auth_token')->plainTextToken,
                 'otp' => $otp, // For testing; remove in production
             ], 201);
         }
