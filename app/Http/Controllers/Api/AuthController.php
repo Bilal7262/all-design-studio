@@ -130,7 +130,6 @@ class AuthController extends Controller
     public function verifyOtp(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|exists:users,email',
             'otp' => 'required|string|size:6',
         ]);
 
@@ -138,7 +137,7 @@ class AuthController extends Controller
             return response()->json(['error' => $validator->errors()->first()], 400);
         }
 
-        $user = User::where('email', $request->email)->first();
+        $user = auth()->user();
 
         if ($user->otp !== $request->otp) {
             return response()->json(['error' => 'Invalid OTP'], 400);
