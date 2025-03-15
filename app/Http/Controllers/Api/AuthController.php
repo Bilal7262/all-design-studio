@@ -163,7 +163,7 @@ class AuthController extends Controller
     // Helper method to generate and send OTP
     private function generateOtp(User $user)
     {
-        $otp = rand(100000, 999999); // 6-digit OTP
+        $otp = rand(1000, 9999); // 4-digit OTP
         $expiresAt = now()->addMinutes(10); // OTP valid for 10 minutes
 
         $user->update([
