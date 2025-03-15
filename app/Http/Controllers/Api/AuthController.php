@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
 
         $user = User::where('email', $request->email)->first();
-        if($user){
+        if($user && $user->is_verified == 0){
             $otp = $this->generateOtp($user);
             return response()->json([
                 'message' => 'User registered successfully. Please verify your email with OTP.',
