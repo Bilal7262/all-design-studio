@@ -156,6 +156,7 @@ class AuthController extends Controller
         ]);
 
         return response()->json([
+            'user' => $user,
             'message' => 'OTP verified successfully. Account is now active.',
         ], 200);
     }
