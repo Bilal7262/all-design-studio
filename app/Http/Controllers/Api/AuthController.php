@@ -114,7 +114,7 @@ class AuthController extends Controller
     }
 
     // Send OTP API
-    public function sendOtp(Request $request)
+    public function sendOtp()
     {
         $user = auth()->user();
         // Generate and send OTP
