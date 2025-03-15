@@ -14,33 +14,46 @@ class AuthController extends Controller
 {
     public function signup(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|max:15|unique:users',
-            'password' => 'required|string|min:8',
-            'confirm_password' => 'required|string|same:password',
-        ]);
 
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()->first()], 400);
+        $user = User::where('email', $request->email)->first();
+        if($user){
+            $otp = $this->generateOtp($user);
+            return response()->json([
+                'message' => 'User registered successfully. Please verify your email with OTP.',
+                'user' => $user,
+                'otp' => $otp, // For testing; remove in production
+            ], 201);
         }
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'password' => Hash::make($request->password),
-        ]);
-
-        // Generate and send OTP
-        $otp = $this->generateOtp($user);
-
-        return response()->json([
-            'message' => 'User registered successfully. Please verify your email with OTP.',
-            'user' => $user,
-            'otp' => $otp, // For testing; remove in production
-        ], 201);
+        else{
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'phone' => 'required|string|max:15|unique:users',
+                'password' => 'required|string|min:8',
+                'confirm_password' => 'required|string|same:password',
+            ]);
+    
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()->first()], 400);
+            }
+    
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->password),
+            ]);
+    
+            // Generate and send OTP
+            $otp = $this->generateOtp($user);
+    
+            return response()->json([
+                'message' => 'User registered successfully. Please verify your email with OTP.',
+                'user' => $user,
+                'otp' => $otp, // For testing; remove in production
+            ], 201);
+        }
+      
     }
 
     // Login API
