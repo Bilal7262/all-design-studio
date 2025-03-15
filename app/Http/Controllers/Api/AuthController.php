@@ -81,7 +81,13 @@ class AuthController extends Controller
         $user = Auth::user();
 
         if (!$user->is_verified) {
-            return response()->json(['error' => 'Email not verified. Please verify your email.'], 403);
+            $otp = $this->generateOtp($user);
+            return response()->json([
+                'message' => 'Please verify your email with OTP',
+                'user' => $user,
+                'token' => $user->createToken('auth_token')->plainTextToken,
+                'otp' => $otp, // For testing; remove in production
+            ], 201);
         }
 
         $token = $user->createToken('auth_token')->plainTextToken;
