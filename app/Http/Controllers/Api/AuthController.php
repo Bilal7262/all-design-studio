@@ -32,6 +32,8 @@ class AuthController extends Controller
                 'phone' => 'required|string|max:15|unique:users',
                 'password' => 'required|string|min:8',
                 'confirm_password' => 'required|string|same:password',
+            ],[
+                'email.unique' => 'User already exists please login',
             ]);
     
             if ($validator->fails()) {
