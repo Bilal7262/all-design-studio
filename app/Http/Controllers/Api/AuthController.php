@@ -116,16 +116,7 @@ class AuthController extends Controller
     // Send OTP API
     public function sendOtp(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|string|email|exists:users,email',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()->first()], 400);
-        }
-
-        $user = User::where('email', $request->email)->first();
-
+        $user = auth()->user();
         // Generate and send OTP
         $otp = $this->generateOtp($user);
 
