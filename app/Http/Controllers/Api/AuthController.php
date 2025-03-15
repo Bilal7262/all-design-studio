@@ -130,7 +130,7 @@ class AuthController extends Controller
     public function verifyOtp(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'otp' => 'required|string|size:6',
+            'otp' => 'required|string|size:4',
         ]);
 
         if ($validator->fails()) {
