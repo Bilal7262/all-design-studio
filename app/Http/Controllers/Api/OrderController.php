@@ -52,6 +52,7 @@ class OrderController extends Controller
                 ], 400);
             }
         }
+        $order = Order::create($orderData);
         // TODO: Save order to database and handle file uploads
         return response()->json([
             'message' => 'Order created successfully',
