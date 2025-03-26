@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DesignServiceController;
-use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\{AuthController,OrderController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
@@ -22,4 +22,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/send-otp', [AuthController::class, 'sendOtp']);
     Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
+
+    Route::post('/order', [OrderController::class, 'createOrder']);
 });
