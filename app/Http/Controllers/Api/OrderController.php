@@ -34,21 +34,25 @@ class OrderController extends Controller
             'service' => 'Design Service',
             'additional_service' => 'Additional Service',
         ]);
-
         // Create order with validated data
         $orderData = $request->only(array_keys($rules));
         
         if($request->price){
-            $service = DesignService::where('name',$request->service)->first();
-            $servicePlan = DesignServicePlan::where('price',$request->price)->where('duration_days',$request->delivery)->first();
-            if(!$servicePlan){
+            $flag = false;
+            $servicePlans = getServicePlans($request->service,$request->additional_service);
+            foreach($servicePlans as $servicePlan){
+                if($servicePlan['price'] == $request->price){
+                    $flag = true;
+                    break;
+                }
+            }
+            if(!$flag){
                 return response()->json([
                     'error' => 'Invalid price',
                 ], 400);
             }
         }
         // TODO: Save order to database and handle file uploads
-        
         return response()->json([
             'message' => 'Order created successfully',
             'data' => $orderData

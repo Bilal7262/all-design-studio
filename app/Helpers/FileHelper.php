@@ -65,3 +65,52 @@ if (!function_exists('trim_root_html')) {
     }
 }
 
+if(!function_exists('getServicePlans')){
+    function getServicePlans($serviceName,$additionalServiceName){
+        $service = DesignService::where('name', $serviceName)->with('plans')->first();
+        $servicePlans = $service->plans;
+
+        // Initialize response array
+        $response = [];
+
+        if ($additionalServiceName) {
+            // Fetch the additional service and its plans
+            $additionalService = DesignService::where('name', $additionalServiceName)
+                ->with('plans')
+                ->first();
+            $additionalServicePlans = $additionalService->plans;
+
+            // Determine the number of pairs (minimum of the two plan counts)
+            $pairCount = min($servicePlans->count(), $additionalServicePlans->count());
+
+            // Build response by pairing plans
+            for ($i = 0; $i < $pairCount; $i++) {
+                $servicePlan = $servicePlans[$i];
+                $additionalServicePlan = $additionalServicePlans[$i];
+
+                $response[] = [
+                    'days' => max($servicePlan->duration_days, $additionalServicePlan->duration_days),
+                    'price' => $servicePlan->price + $additionalServicePlan->price,
+                    'details' => [
+                        $service->label => [$servicePlan->features],
+                        $additionalServiceName => [$additionalServicePlan->features],
+                    ],
+                ];
+            }
+        } else {
+            // If no additional_service, return each plan of the primary service individually
+            foreach ($servicePlans as $plan) {
+                $response[] = [
+                    'days' => $plan->duration_days,
+                    'price' => $plan->price,
+                    'details' => [
+                        $service->label => [$plan->features],
+                    ],
+                ];
+            }
+        }
+
+        return $response;
+    }
+}
+
