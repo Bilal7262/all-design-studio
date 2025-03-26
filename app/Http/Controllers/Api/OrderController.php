@@ -39,7 +39,7 @@ class OrderController extends Controller
         
         if($price){
             $service = DesignService::where('name',$request->service)->first();
-            $servicePlan = DesignServicePlan::where('price',$request->price)->first();
+            $servicePlan = DesignServicePlan::where('price',$request->price)->where('duration_days',$request->delivery)->first();
             if(!$servicePlan){
                 return response()->json([
                     'error' => 'Invalid price',
