@@ -34,10 +34,9 @@ class OrderController extends Controller
             'service' => 'Design Service',
             'additional_service' => 'Additional Service',
         ]);
-        $request['user_id'] = auth()->user()->id;
         // Create order with validated data
         $orderData = $request->only(array_keys($rules));
-        
+        $orderData['user_id'] = auth()->user()->id;
         if($request->price){
             $flag = false;
             $servicePlans = getServicePlans($request->service,$request->additional_service);
