@@ -53,6 +53,40 @@ class OrderController extends Controller
             }
         }
         $order = Order::create($orderData);
+
+        $orderFiles = [];
+        foreach($request->file('image_*') as $image){
+            $orderFiles[] = [
+                'order_id' => $order->id,
+                'file_path' => $image->store('orders'),
+                'file_type' => 'image',
+                'file_name' => $image->getClientOriginalName(),
+                'file_size' => $image->getSize(),
+                'file_url' => $image->getUrl(),
+            ];
+        }
+        foreach($request->file('inspiration_file_*') as $inspirationFile){
+            $orderFiles[] = [
+                'order_id' => $order->id,
+                'file_path' => $inspirationFile->store('orders'),
+                'file_type' => 'inspiration',
+                'file_name' => $inspirationFile->getClientOriginalName(),
+                'file_size' => $inspirationFile->getSize(),
+                'file_url' => $inspirationFile->getUrl(),
+            ];
+        }
+        foreach($request->file('font_file_*') as $fontFile){
+            $orderFiles[] = [
+                'order_id' => $order->id,
+                'file_path' => $fontFile->store('orders'),
+                'file_type' => 'font',
+                'file_name' => $fontFile->getClientOriginalName(),
+                'file_size' => $fontFile->getSize(),
+                'file_url' => $fontFile->getUrl(),
+            ];
+        }
+        OrderFile::insert($orderFiles);
+
         // TODO: Save order to database and handle file uploads
         return response()->json([
             'message' => 'Order created successfully',
