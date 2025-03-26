@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\DesignService;
 if (!function_exists('storeBinaryFile')) {
     /**
      * Store the binary file in the specified path and return the publicly accessible URL.
