@@ -56,7 +56,7 @@ class OrderController extends Controller
         // TODO: Save order to database and handle file uploads
         return response()->json([
             'message' => 'Order created successfully',
-            'data' => $orderData
+            'data' => $order
         ], 201);
     }
 }
