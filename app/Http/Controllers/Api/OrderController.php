@@ -37,7 +37,7 @@ class OrderController extends Controller
         // Create order with validated data
         $orderData = $request->only(array_keys($rules));
         
-        if($price){
+        if($request->price){
             $service = DesignService::where('name',$request->service)->first();
             $servicePlan = DesignServicePlan::where('price',$request->price)->where('duration_days',$request->delivery)->first();
             if(!$servicePlan){
