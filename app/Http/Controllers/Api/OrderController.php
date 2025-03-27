@@ -168,5 +168,11 @@ class OrderController extends Controller
         $order->delete();
         return response()->json(['message' => 'Order deleted successfully'], 200);
     }
+
+    public function getOrderById($id)
+    {
+        $order = Order::with('files')->find($id);
+        return response()->json(['data' => $order], 200);
+    }
 }
 
