@@ -178,7 +178,16 @@ class OrderController extends Controller
     public function updateOrder(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        $order->update($request->validated());
+        
+        // Get only the fields that are present and not null in the request
+        $updateData = array_filter($request->all(), function($value) {
+            return $value !== null && $value !== '';
+        });
+        
+        // Only update if there are valid fields to update
+        if (!empty($updateData)) {
+            $order->update($updateData);
+        }
         
         // Reload the model to get fresh data with any relationships
         $order = $order->fresh('files');
