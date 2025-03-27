@@ -119,9 +119,33 @@ class OrderController extends Controller
     {
         $perPage = $request->input('length', 15);
         $page = $request->input('cursor', 1);
+        $search = $request->input('search');
+        $status = $request->input('status');
         
-        $orders = Order::where('user_id', auth()->user()->id)
-            ->with('files')
+        $query = Order::where('user_id', auth()->user()->id);
+        
+        // Apply search filter
+        if ($search) {
+            $query->where(function($q) use ($search) {
+                $q->where('brand_name', 'like', "%{$search}%")
+                  ->orWhere('description', 'like', "%{$search}%")
+                  ->orWhere('service', 'like', "%{$search}%")
+                  ->orWhere('additional_service', 'like', "%{$search}%")
+                  ->orWhere('price', 'like', "%{$search}%")
+                  ->orWhere('purpose', 'like', "%{$search}%")
+                  ->orWhere('brand_name', 'like', "%{$search}%")
+                  ->orWhere('size', 'like', "%{$search}%")
+                  ->orWhere('design_usage', 'like', "%{$search}%")
+                  ->orWhere('id', 'like', "%{$search}%");
+            });
+        }
+        
+        // Apply status filter
+        if ($status) {
+            $query->where('status', $status);
+        }
+        
+        $orders = $query->with('files')
             ->latest()
             ->paginate($perPage, ['*'], 'page', $page);
             
