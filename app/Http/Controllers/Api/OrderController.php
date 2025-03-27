@@ -203,7 +203,7 @@ class OrderController extends Controller
                 // Delete existing image files of this type
                 \App\Models\OrderFile::where('order_id', $order->id)
                     ->where('file_type', 'image')
-                    ->where('file_name', 'like', "image_$i%")
+                    // ->where('file_name', 'like', "image_$i%")
                     ->delete();
                 
                 $image = $request->file($fileKey);
@@ -225,7 +225,7 @@ class OrderController extends Controller
                 // Delete existing inspiration files of this type
                 \App\Models\OrderFile::where('order_id', $order->id)
                     ->where('file_type', 'inspiration')
-                    ->where('file_name', 'like', "inspiration_file_$i%")
+                    // ->where('file_name', 'like', "inspiration_file_$i%")
                     ->delete();
                 
                 $inspirationFile = $request->file($fileKey);
@@ -247,7 +247,7 @@ class OrderController extends Controller
                 // Delete existing font files of this type
                 \App\Models\OrderFile::where('order_id', $order->id)
                     ->where('file_type', 'font')
-                    ->where('file_name', 'like', "font_file_$i%")
+                    // ->where('file_name', 'like', "font_file_$i%")
                     ->delete();
                 
                 $fontFile = $request->file($fileKey);
