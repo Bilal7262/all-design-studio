@@ -189,6 +189,60 @@ class OrderController extends Controller
             $order->update($updateData);
         }
         
+        $orderFiles = [];
+        
+        // Handle image files
+        for ($i = 1; $i <= 5; $i++) {
+            $fileKey = "image_$i";
+            if ($request->hasFile($fileKey)) {
+                $image = $request->file($fileKey);
+                $orderFiles[] = [
+                    'order_id' => $order->id,
+                    'file_path' => $image->store('orders'),
+                    'file_type' => 'image',
+                    'file_name' => $image->getClientOriginalName(),
+                    'file_size' => $image->getSize(),
+                    'file_url' => storeBinaryFile($image, 'orders'),
+                ];
+            }
+        }
+        
+        // Handle inspiration files
+        for ($i = 1; $i <= 5; $i++) {
+            $fileKey = "inspiration_file_$i";
+            if ($request->hasFile($fileKey)) {
+                $inspirationFile = $request->file($fileKey);
+                $orderFiles[] = [
+                    'order_id' => $order->id,
+                    'file_path' => $inspirationFile->store('orders'),
+                    'file_type' => 'inspiration',
+                    'file_name' => $inspirationFile->getClientOriginalName(),
+                    'file_size' => $inspirationFile->getSize(),
+                    'file_url' => storeBinaryFile($inspirationFile, 'orders'),
+                ];
+            }
+        }
+        
+        // Handle font files
+        for ($i = 1; $i <= 5; $i++) {
+            $fileKey = "font_file_$i";
+            if ($request->hasFile($fileKey)) {
+                $fontFile = $request->file($fileKey);
+                $orderFiles[] = [
+                    'order_id' => $order->id,
+                    'file_path' => $fontFile->store('orders'),
+                    'file_type' => 'font',
+                    'file_name' => $fontFile->getClientOriginalName(),
+                    'file_size' => $fontFile->getSize(),
+                    'file_url' => storeBinaryFile($fontFile, 'orders'),
+                ];
+            }
+        }
+        
+        if (!empty($orderFiles)) {
+            \App\Models\OrderFile::insert($orderFiles);
+        }
+        
         // Reload the model to get fresh data with any relationships
         $order = $order->fresh('files');
         
