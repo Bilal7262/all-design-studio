@@ -111,7 +111,7 @@ class OrderController extends Controller
 
         return response()->json([
             'message' => 'Order created successfully',
-            'data' => $order
+            'data' => $order->load('files')
         ], 201);
     }
 }
