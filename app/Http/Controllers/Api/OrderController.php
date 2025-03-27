@@ -179,7 +179,14 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
         $order->update($request->validated());
-        return response()->json(['message' => 'Order updated successfully', 'data' => $order], 200);
+        
+        // Reload the model to get fresh data with any relationships
+        $order = $order->fresh('files');
+        
+        return response()->json([
+            'message' => 'Order updated successfully', 
+            'data' => $order
+        ], 200);
     }
 }
 
