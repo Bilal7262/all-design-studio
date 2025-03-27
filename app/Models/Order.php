@@ -30,4 +30,9 @@ class Order extends Model
     {
         return $this->belongsTo(DesignServicePlan::class);
     }
+
+    public function files()
+    {
+        return $this->hasMany(OrderFile::class, 'order_id', 'id');
+    }
 }
