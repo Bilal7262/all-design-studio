@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/send-otp', [AuthController::class, 'sendOtp']);
     Route::post('/verify-otp', [AuthController::class, 'verifyOtp']);
     Route::post('/order', [OrderController::class, 'createOrder']);
+    Route::get('/delete-order/{id}', [OrderController::class, 'deleteOrder']);
     Route::post('/orders', [OrderController::class, 'getOrders']);
     Route::post('/order/{id}', [OrderController::class, 'getOrderById']);
 });
