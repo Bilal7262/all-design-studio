@@ -117,9 +117,24 @@ class OrderController extends Controller
 
     public function getOrders(Request $request)
     {
-        $orders = Order::where('user_id', auth()->user()->id)->get();
+        $perPage = $request->input('length', 15);
+        $page = $request->input('cursor', 1);
+        
+        $orders = Order::where('user_id', auth()->user()->id)
+            ->with('files')
+            ->latest()
+            ->paginate($perPage, ['*'], 'page', $page);
+            
         return response()->json([
-            'data' => $orders
+            'data' => $orders->items(),
+            'pagination' => [
+                'total' => $orders->total(),
+                'per_page' => $orders->perPage(),
+                'current_page' => $orders->currentPage(),
+                'last_page' => $orders->lastPage(),
+                'next_cursor' => $orders->hasMorePages() ? $orders->currentPage() + 1 : null,
+                'prev_cursor' => $orders->currentPage() > 1 ? $orders->currentPage() - 1 : null,
+            ]
         ], 200);
     }
 
