@@ -177,9 +177,9 @@ class OrderController extends Controller
 
     public function updateOrder(Request $request, $id)
     {
-        $order = Order::find($id);
-        $order->update($request->all());
-        return response()->json(['message' => 'Order updated successfully'], 200);
+        $order = Order::findOrFail($id);
+        $order->update($request->validated());
+        return response()->json(['message' => 'Order updated successfully', 'data' => $order], 200);
     }
 }
 
