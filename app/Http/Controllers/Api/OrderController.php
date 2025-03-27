@@ -174,5 +174,12 @@ class OrderController extends Controller
         $order = Order::with('files')->find($id);
         return response()->json(['data' => $order], 200);
     }
+
+    public function updateOrder(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $order->update($request->all());
+        return response()->json(['message' => 'Order updated successfully'], 200);
+    }
 }
 
