@@ -200,6 +200,12 @@ class OrderController extends Controller
         for ($i = 1; $i <= 5; $i++) {
             $fileKey = "image_$i";
             if ($request->hasFile($fileKey)) {
+                // Delete existing image files of this type
+                \App\Models\OrderFile::where('order_id', $order->id)
+                    ->where('file_type', 'image')
+                    ->where('file_name', 'like', "image_$i%")
+                    ->delete();
+                
                 $image = $request->file($fileKey);
                 $orderFiles[] = [
                     'order_id' => $order->id,
@@ -216,6 +222,12 @@ class OrderController extends Controller
         for ($i = 1; $i <= 5; $i++) {
             $fileKey = "inspiration_file_$i";
             if ($request->hasFile($fileKey)) {
+                // Delete existing inspiration files of this type
+                \App\Models\OrderFile::where('order_id', $order->id)
+                    ->where('file_type', 'inspiration')
+                    ->where('file_name', 'like', "inspiration_file_$i%")
+                    ->delete();
+                
                 $inspirationFile = $request->file($fileKey);
                 $orderFiles[] = [
                     'order_id' => $order->id,
@@ -232,6 +244,12 @@ class OrderController extends Controller
         for ($i = 1; $i <= 5; $i++) {
             $fileKey = "font_file_$i";
             if ($request->hasFile($fileKey)) {
+                // Delete existing font files of this type
+                \App\Models\OrderFile::where('order_id', $order->id)
+                    ->where('file_type', 'font')
+                    ->where('file_name', 'like', "font_file_$i%")
+                    ->delete();
+                
                 $fontFile = $request->file($fileKey);
                 $orderFiles[] = [
                     'order_id' => $order->id,
