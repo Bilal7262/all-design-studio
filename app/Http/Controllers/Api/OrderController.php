@@ -180,7 +180,12 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         
         // Get only the fields that are present and not null in the request
-        $updateData = array_filter($request->all(), function($value) {
+        // Filter out file fields from the update data to prevent SQL errors
+        $updateData = array_filter($request->except([
+            'image_1', 'image_2', 'image_3', 'image_4', 'image_5',
+            'inspiration_file_1', 'inspiration_file_2', 'inspiration_file_3', 'inspiration_file_4', 'inspiration_file_5',
+            'font_file_1', 'font_file_2', 'font_file_3', 'font_file_4', 'font_file_5'
+        ]), function($value) {
             return $value !== null && $value !== '';
         });
         
