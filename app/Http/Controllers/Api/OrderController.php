@@ -114,6 +114,14 @@ class OrderController extends Controller
             'data' => $order->load('files')
         ], 201);
     }
-}
 
+    public function getOrders(Request $request)
+    {
+        $orders = Order::where('user_id', auth()->user()->id)->get();
+        return response()->json([
+            'data' => $orders
+        ], 200);
+    }
+
+}
 
