@@ -37,6 +37,7 @@ class OrderController extends Controller
         // Create order with validated data
         $orderData = $request->only(array_keys($rules));
         $orderData['user_id'] = auth()->user()->id;
+        $orderData['status'] = 'pending';
         if($request->price){
             $flag = false;
             $servicePlans = getServicePlans($request->service,$request->additional_service);
