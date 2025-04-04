@@ -29,10 +29,10 @@ class OrderController extends Controller
             'font_file_*' => 'nullable|file',
         ];
 
-        $request->validate($rules, [], [
-            'service' => 'Design Service',
-            'additional_service' => 'Additional Service',
-        ]);
+        // $request->validate($rules, [], [
+        //     'service' => 'Design Service',
+        //     'additional_service' => 'Additional Service',
+        // ]);
         // Create order with validated data
         $orderData = $request->only(array_keys($rules));
         $orderData['user_id'] = auth()->user()->id;
