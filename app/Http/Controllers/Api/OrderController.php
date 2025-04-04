@@ -57,7 +57,7 @@ class OrderController extends Controller
         $orderFiles = [];
         
         // Handle image files
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $fileKey = "image_$i";
             if ($request->hasFile($fileKey)) {
                 $image = $request->file($fileKey);
@@ -73,7 +73,7 @@ class OrderController extends Controller
         }
         
         // Handle inspiration files
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $fileKey = "inspiration_file_$i";
             if ($request->hasFile($fileKey)) {
                 $inspirationFile = $request->file($fileKey);
@@ -89,7 +89,7 @@ class OrderController extends Controller
         }
         
         // Handle font files
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $fileKey = "font_file_$i";
             if ($request->hasFile($fileKey)) {
                 $fontFile = $request->file($fileKey);
