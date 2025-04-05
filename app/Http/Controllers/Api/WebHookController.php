@@ -44,7 +44,7 @@ class WebHookController extends Controller
                 ['id' => $order_id],
                 [
                     'session_id' => $checkoutSessionId,
-                    'payment_status' => $paymentStatus,
+                    'status' => $paymentStatus,
                     'amount_paid' => $amountInDollars,
                     'updated_at' => now()
                 ]
