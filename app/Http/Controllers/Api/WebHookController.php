@@ -12,9 +12,24 @@ class WebHookController extends Controller
     // Get the raw payload and signature header
     $payload = $request->getContent();
     $sigHeader = $request->header('Stripe-Signature');
-
-    // Your Stripe webhook secret (get this from your Stripe dashboard)
     $webhookSecret = env('STRIPE_WEBHOOK_SECRET');
+
+    // Add debugging logs
+    \Log::debug('Webhook received', [
+        'payload' => $payload,
+        'signature' => $sigHeader,
+        'webhook_secret' => $webhookSecret ? 'set' : 'not set'
+    ]);
+
+    if (!$sigHeader) {
+        \Log::error('No Stripe-Signature header present');
+        return response()->json(['error' => 'Missing signature header'], 400);
+    }
+
+    if (!$webhookSecret) {
+        \Log::error('Webhook secret not configured');
+        return response()->json(['error' => 'Webhook secret not configured'], 400);
+    }
 
     try {
         // Verify webhook signature
