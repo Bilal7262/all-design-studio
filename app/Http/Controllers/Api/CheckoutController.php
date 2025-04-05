@@ -24,6 +24,13 @@ class CheckoutController extends Controller
 
         $order = Order::find($request->order_id);
 
+        if ($order->payment_status === 'fully_paid') {
+            return response()->json([
+            'status' => 400,
+            'message' => 'Order is already fully paid.',
+            ]);
+        }
+
         $servicePlans = getPlanPrices($order->service, $order->additional_service,$request->half_pay);
 
         // Find the plan that matches the order price
