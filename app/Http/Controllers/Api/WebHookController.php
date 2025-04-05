@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Order;
 class WebHookController extends Controller
 {
     public function checkoutSessionWebhookHandling(Request $request)
@@ -38,8 +38,8 @@ class WebHookController extends Controller
             $amountInDollars = $amountTotal / 100;
 
             // Find or create your payment record (adjust according to your database schema)
-            $payment = Payment::updateOrCreate(
-                ['checkout_session_id' => $checkoutSessionId],
+            $payment = Order::updateOrCreate(
+                ['id' => $checkoutSessionId],
                 [
                     'payment_status' => $paymentStatus,
                     'amount_paid' => $amountInDollars,
