@@ -65,7 +65,9 @@ class CheckoutController extends Controller
             $session = $this->stripeService->createCheckoutSession(
                 $lineItems,
                 $request->success_url,
-                $request->cancel_url
+                $request->cancel_url,
+                auth()->user()->customer,
+                auth()->user()->email
             );
 
             $order->update([
