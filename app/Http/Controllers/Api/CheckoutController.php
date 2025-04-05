@@ -82,7 +82,7 @@ class CheckoutController extends Controller
             ]);
             return response()->json([
                 'status'=>200,
-                'session' => $session,
+                'session' => $session->url,
             ]);
         } catch (\Exception $e) {
             return response()->json([
