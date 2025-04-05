@@ -13,7 +13,7 @@ class StripeService
         $this->stripe = new StripeClient(config('services.stripe.secret'));
     }
 
-    public function createCheckoutSession(array $lineItems, string $successUrl, string $cancelUrl = null)
+    public function createCheckoutSession(array $lineItems, string $successUrl, string $cancelUrl)
     {
         try {
             $session = $this->stripe->checkout->sessions->create([
