@@ -24,20 +24,49 @@ class CheckoutController extends Controller
 
         $order = Order::find($request->order_id);
 
-        $servicePlans = getPlanPrices($order->service,$order->additional_service);
-        return $servicePlans;
-        $order->price;
+        $servicePlans = getPlanPrices($order->service, $order->additional_service);
+
+        // Find the plan that matches the order price
+        $selectedPlan = null;
+        foreach ($servicePlans as $plan) {
+            if ($plan['price'] == $order->price) {
+                $selectedPlan = $plan;
+                break;
+            }
+        }
+
+        if (!$selectedPlan) {
+            return back()->with('error', 'No matching plan found for the order price');
+        }
+
         try {
-            $lineItems = [
-                [
-                    'price' => 'price_1MotwRLkdIwHu7ixYcPLm5uZ',
-                    'quantity' => 1,
-                ],
-            ];
+            // Create line items using the price IDs from the selected plan
+            $lineItems = [];
+
+            // If there's an additional service, we'll have two price IDs
+            if ($order->additional_service) {
+                $lineItems = [
+                    [
+                        'price' => $selectedPlan['stripe_price_ids'][$order->service], // Primary service price ID
+                        'quantity' => 1,
+                    ],
+                    [
+                        'price' => $selectedPlan['stripe_price_ids'][$order->additional_service], // Additional service price ID
+                        'quantity' => 1,
+                    ],
+                ];
+            } else {
+                $lineItems = [
+                    [
+                        'price' => $selectedPlan['stripe_price_id'], // Single service price ID
+                        'quantity' => 1,
+                    ],
+                ];
+            }
 
             $session = $this->stripeService->createCheckoutSession(
                 $lineItems,
-                'https://example.com/success',
+                'https://example.com/success'
             );
 
             return redirect($session->url);
