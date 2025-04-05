@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Services\StripeService;
 class CheckoutController extends Controller
@@ -17,6 +18,15 @@ class CheckoutController extends Controller
 
     public function createCheckout(Request $request)
     {
+        $request->validate([
+            'order_id' => 'required|integer|exists:orders,id',
+        ]);
+
+        $order = Order::find($request->order_id);
+
+        $servicePlans = getServicePlans($order->service,$order->additional_service);
+        return $servicePlans;
+        $order->price;
         try {
             $lineItems = [
                 [
