@@ -63,6 +63,10 @@ class CheckoutController extends Controller
                     ],
                 ];
             }
+            return response()->json([
+                'status'=>200,
+                'lineItems' => $lineItems,
+            ]);
             $session = $this->stripeService->createCheckoutSession(
                 $lineItems,
                 $request->success_url,
