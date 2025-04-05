@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
         $order = Order::find($request->order_id);
 
-        $servicePlans = getPlanPrices($order->service, $order->additional_service);
+        $servicePlans = getPlanPrices($order->service, $order->additional_service,$request->half_pay);
 
         // Find the plan that matches the order price
         $selectedPlan = null;
