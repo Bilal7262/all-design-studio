@@ -134,23 +134,34 @@ if(!function_exists('getPlanPrices')){
         // Determine the number of pairs (minimum of the two plan counts)
         $pairCount = min($servicePlans->count(), $additionalServicePlans->count());
 
-        // Build response by pairing price IDs
+        // Build response by pairing plans
         for ($i = 0; $i < $pairCount; $i++) {
             $servicePlan = $servicePlans[$i];
             $additionalServicePlan = $additionalServicePlans[$i];
 
             $response[] = [
+                'days' => max($servicePlan->duration_days, $additionalServicePlan->duration_days),
+                'price' => $servicePlan->price + $additionalServicePlan->price,
                 'stripe_price_ids' => [
                     $service->label => $servicePlan->stripe_price_id,
                     $additionalServiceName => $additionalServicePlan->stripe_price_id,
                 ],
+                'details' => [
+                    $service->label => [$servicePlan->features],
+                    $additionalServiceName => [$additionalServicePlan->features],
+                ],
             ];
         }
     } else {
-        // If no additional_service, return each plan's price ID individually
+        // If no additional_service, return each plan of the primary service individually
         foreach ($servicePlans as $plan) {
             $response[] = [
+                'days' => $plan->duration_days,
+                'price' => $plan->price,
                 'stripe_price_id' => $plan->stripe_price_id,
+                'details' => [
+                    $service->label => [$plan->features],
+                ],
             ];
         }
     }
