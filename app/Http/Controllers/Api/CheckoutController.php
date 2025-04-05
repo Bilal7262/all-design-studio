@@ -74,7 +74,8 @@ class CheckoutController extends Controller
                 'session_id' => $session->id,
                 'status' => 'checkout_session_initiated',
             ]);
-            $auth()->user()->update([
+
+            auth()->user()->update([
                 'customer' => $session->customer,
             ]);
             return response()->json([
