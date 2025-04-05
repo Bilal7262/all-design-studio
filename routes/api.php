@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DesignServiceController;
-use App\Http\Controllers\Api\{AuthController,OrderController,CheckoutController};
+use App\Http\Controllers\Api\{AuthController,OrderController,CheckoutController, WebHookController};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
@@ -30,4 +30,7 @@ Route::middleware('auth:sanctum')->group(function(){
 
     Route::post('delete-file-by-id/{orderId}', [OrderController::class, 'deleteFileById']);
     Route::post('checkout-session', [CheckoutController::class,'checkoutSession']);
+
+    //webhook
+    Route::post('checkout-session-webhook-handling', [WebHookController::class,'checkoutSessionWebhookHandling']);
 });

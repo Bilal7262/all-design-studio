@@ -34,7 +34,7 @@ class StripeService
         return $customer->id;
     }
 
-    public function createCheckoutSession(array $lineItems, string $successUrl, string $cancelUrl, $customer = null, $email = null)
+    public function createCheckoutSession(array $lineItems, string $successUrl, string $cancelUrl, $customer = null, $email = null,$order_id, $user_id)
     {
         try {
             $sessionParams = [
@@ -42,6 +42,10 @@ class StripeService
                 'cancel_url' => $cancelUrl,
                 'line_items' => $lineItems,
                 'mode' => 'payment',
+                'metadata' => [
+                    'order_id' => $order_id,
+                    'user_id' => $user_id,
+                ],
             ];
 
             // If customer is provided, use it; otherwise, find or create based on email

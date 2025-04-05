@@ -67,7 +67,9 @@ class CheckoutController extends Controller
                 $request->success_url,
                 $request->cancel_url,
                 auth()->user()->customer,
-                auth()->user()->email
+                auth()->user()->email,
+                $order->id,
+                auth()->user()->id
             );
 
             $order->update([
