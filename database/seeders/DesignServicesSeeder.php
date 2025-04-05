@@ -462,8 +462,15 @@ class DesignServicesSeeder extends Seeder
                     // 'recurring' => 'day', // One-time payment
                 ]);
 
+                $half_price = $this->stripe->prices->create([
+                    'product' => $product->id,
+                    'unit_amount' => ($plan['price'] * 100)/2, // Convert to cents
+                    'currency' => 'usd',
+                    // 'recurring' => 'day', // One-time payment
+                ]);
                 // Add the Stripe price ID to the plan
                 $plan['stripe_price_id'] = $price->id;
+                $plan['stripe_half_price_id']=$half_price->id;
 
             } catch (\Exception $e) {
                 // Log the error and continue with next plan
