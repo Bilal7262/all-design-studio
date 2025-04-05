@@ -13,28 +13,49 @@ class StripeService
         $this->stripe = new StripeClient(config('services.stripe.secret'));
     }
 
-    public function createCheckoutSession(array $lineItems, string $successUrl, string $cancelUrl, $customer = null, $email = null)
-{
-    try {
-        $sessionParams = [
-            'success_url' => $successUrl,
-            'cancel_url' => $cancelUrl,
-            'line_items' => $lineItems,
-            'mode' => 'payment',
-        ];
+    /**
+     * Find or create a customer by email
+     */
+    public function findOrCreateCustomer(string $email): string
+    {
+        // Search for existing customers with this email
+        $customers = $this->stripe->customers->all(['email' => $email, 'limit' => 1]);
 
-        // Conditionally add customer or email to session parameters
-        if ($customer) {
-            $sessionParams['customer'] = $customer; // Use customer ID if provided
-        } elseif ($email) {
-            $sessionParams['customer_email'] = $email; // Use email if customer is null and email is provided
+        if (!empty($customers->data)) {
+            // Return the existing customer's ID
+            return $customers->data[0]->id;
         }
 
-        $session = $this->stripe->checkout->sessions->create($sessionParams);
+        // If no customer exists, create a new one
+        $customer = $this->stripe->customers->create([
+            'email' => $email,
+        ]);
 
-        return $session;
-    } catch (\Exception $e) {
-        throw new \Exception('Error creating checkout session: ' . $e->getMessage());
+        return $customer->id;
     }
-}
+
+    public function createCheckoutSession(array $lineItems, string $successUrl, string $cancelUrl, $customer = null, $email = null)
+    {
+        try {
+            $sessionParams = [
+                'success_url' => $successUrl,
+                'cancel_url' => $cancelUrl,
+                'line_items' => $lineItems,
+                'mode' => 'payment',
+            ];
+
+            // If customer is provided, use it; otherwise, find or create based on email
+            if ($customer) {
+                $sessionParams['customer'] = $customer;
+            } elseif ($email) {
+                $sessionParams['customer'] = $this->findOrCreateCustomer($email);
+            }
+
+            $session = $this->stripe->checkout->sessions->create($sessionParams);
+
+            return $session;
+        } catch (\Exception $e) {
+            throw new \Exception('Error creating checkout session: ' . $e->getMessage());
+        }
+    }
 }
