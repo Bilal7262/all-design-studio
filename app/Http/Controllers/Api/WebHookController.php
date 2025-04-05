@@ -29,6 +29,8 @@ class WebHookController extends Controller
             $session = $event->data->object;
 
             // Extract relevant data
+            $order_id = $session->metadata->order_id; // Assuming you stored order_id in metadata
+            $user_id = $session->metadata->user_id; // Assuming you stored user_id in metadata
             $checkoutSessionId = $session->id;
             $paymentStatus = $session->payment_status;
             $amountTotal = $session->amount_total; // Amount in cents
@@ -38,12 +40,12 @@ class WebHookController extends Controller
             $amountInDollars = $amountTotal / 100;
 
             // Find or create your payment record (adjust according to your database schema)
-            $payment = Order::updateOrCreate(
-                ['id' => $checkoutSessionId],
+            $payment = Order::update(
+                ['id' => $order_id],
                 [
+                    'session_id' => $checkoutSessionId,
                     'payment_status' => $paymentStatus,
                     'amount_paid' => $amountInDollars,
-                    'customer_email' => $customerEmail,
                     'updated_at' => now()
                 ]
             );
