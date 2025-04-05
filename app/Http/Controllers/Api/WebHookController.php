@@ -63,6 +63,9 @@ class WebHookController extends Controller
                 elseif($amountInDollars === $amountTotal){
                     $paymentStatus = 'full_paid';
                 }
+                else{
+                    $paymentStatus = 'unrecognized payment';
+                }
             }
 
             $paymentStatus = $amountInDollars < $order->price ? 'half_paid' : 'full_paid';
