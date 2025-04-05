@@ -66,10 +66,10 @@ class CheckoutController extends Controller
 
             $session = $this->stripeService->createCheckoutSession(
                 $lineItems,
-                $request->success_url ?? url('https::/backned2.alldesignstudio.com'),
+                $request->success_url,
             );
 
-            return redirect($session->url);
+            return redirect($session);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
