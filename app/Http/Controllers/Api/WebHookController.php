@@ -60,7 +60,7 @@ class WebHookController extends Controller
                 if($amountInDollars === ($amountTotal / 2)){
                     $paymentStatus = 'half_paid';
                 }
-                else{
+                elseif($amountInDollars === $amountTotal){
                     $paymentStatus = 'full_paid';
                 }
             }
