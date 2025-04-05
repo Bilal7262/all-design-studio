@@ -69,7 +69,7 @@ class CheckoutController extends Controller
             );
 
             $order->update([
-                'stripe_session_id' => $session->id,
+                'session_id' => $session->id,
                 'status' => 'checkout_session_initiated',
             ]);
             return response()->json([
