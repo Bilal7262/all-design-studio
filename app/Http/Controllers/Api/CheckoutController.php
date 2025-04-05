@@ -69,7 +69,10 @@ class CheckoutController extends Controller
                 $request->success_url,
             );
 
-            return redirect($session);
+            return response()->json([
+                'status'=>200,
+                'sessionId' => $session,
+            ]);
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
         }
