@@ -64,6 +64,7 @@ class CheckoutController extends Controller
                 ];
             }
 
+            return $lineItems;
             $session = $this->stripeService->createCheckoutSession(
                 $lineItems,
                 $request->success_url,
