@@ -143,11 +143,11 @@ if(!function_exists('getPlanPrices')){
                 'days' => max($servicePlan->duration_days, $additionalServicePlan->duration_days),
                 'price' => $servicePlan->price + $additionalServicePlan->price,
                 'stripe_price_ids' => [
-                    $service->label => $servicePlan->stripe_price_id,
+                    $service->name => $servicePlan->stripe_price_id,
                     $additionalServiceName => $additionalServicePlan->stripe_price_id,
                 ],
                 'details' => [
-                    $service->label => [$servicePlan->features],
+                    $service->name => [$servicePlan->features],
                     $additionalServiceName => [$additionalServicePlan->features],
                 ],
             ];

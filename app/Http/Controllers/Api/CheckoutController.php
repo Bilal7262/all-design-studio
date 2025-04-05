@@ -34,7 +34,6 @@ class CheckoutController extends Controller
                 break;
             }
         }
-        return $selectedPlan;
         if (!$selectedPlan) {
             return back()->with('error', 'No matching plan found for the order price');
         }
