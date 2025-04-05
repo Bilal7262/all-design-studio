@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('delete-file-by-id/{orderId}', [OrderController::class, 'deleteFileById']);
     Route::post('checkout-session', [CheckoutController::class,'checkoutSession']);
 
-    //webhook
-    Route::post('checkout-session-webhook-handling', [WebHookController::class,'checkoutSessionWebhookHandling']);
 });
+
+    //webhook
+Route::post('checkout-session-webhook-handling', [WebHookController::class,'checkoutSessionWebhookHandling']);
