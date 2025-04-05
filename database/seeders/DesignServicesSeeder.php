@@ -5,8 +5,15 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Stripe\StripeClient;
 class DesignServicesSeeder extends Seeder
 {
+    private $stripe;
+
+    public function __construct()
+    {
+        $this->stripe = new StripeClient(config('services.stripe.secret'));
+    }
     /**
      * Run the database seeds.
      */
@@ -432,6 +439,38 @@ class DesignServicesSeeder extends Seeder
             ['design_service_id' => 59, 'duration_days' => 5, 'price' => 90, 'features' => '5 unique designs, 5 days, 5 revisions'],
             ['design_service_id' => 59, 'duration_days' => 2, 'price' => 10, 'features' => '1 unique design, 2 days, 2 revisions'],
         ];
+
+
+        // Create Stripe products and prices, then insert with price IDs
+        foreach ($servicePlans as &$plan) {
+            try {
+                // Get the service name for the product
+                $service = $services[$plan['design_service_id'] - 1];
+                $productName = $service['label'] . ' - ' . $plan['features'];
+
+                // Create Stripe Product
+                $product = $this->stripe->products->create([
+                    'name' => $productName,
+                    'description' => "Design service: {$service['label']} ({$plan['duration_days']} days)",
+                ]);
+
+                // Create Stripe Price
+                $price = $this->stripe->prices->create([
+                    'product' => $product->id,
+                    'unit_amount' => $plan['price'] * 100, // Convert to cents
+                    'currency' => 'usd',
+                    'recurring' => null, // One-time payment
+                ]);
+
+                // Add the Stripe price ID to the plan
+                $plan['stripe_price_id'] = $price->id;
+
+            } catch (\Exception $e) {
+                // Log the error and continue with next plan
+                \Log::error("Failed to create Stripe price for plan {$plan['features']}: " . $e->getMessage());
+                $plan['stripe_price_id'] = null;
+            }
+        }
 
         DB::table('design_service_plans')->insert($servicePlans);
     }
