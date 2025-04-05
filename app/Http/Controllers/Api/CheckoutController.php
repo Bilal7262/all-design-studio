@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
         $order = Order::find($request->order_id);
 
-        $servicePlans = getServicePlans($order->service,$order->additional_service);
+        $servicePlans = getPlanPrices($order->service,$order->additional_service);
         return $servicePlans;
         $order->price;
         try {

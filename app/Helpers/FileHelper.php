@@ -114,3 +114,48 @@ if(!function_exists('getServicePlans')){
     }
 }
 
+
+if(!function_exists('getPlanPrices')){
+    function getPlanPrices($serviceName, $additionalServiceName = null)
+{
+    $service = DesignService::where('name', $serviceName)->with('plans')->first();
+    $servicePlans = $service->plans;
+
+    // Initialize response array
+    $response = [];
+
+    if ($additionalServiceName) {
+        // Fetch the additional service and its plans
+        $additionalService = DesignService::where('name', $additionalServiceName)
+            ->with('plans')
+            ->first();
+        $additionalServicePlans = $additionalService->plans;
+
+        // Determine the number of pairs (minimum of the two plan counts)
+        $pairCount = min($servicePlans->count(), $additionalServicePlans->count());
+
+        // Build response by pairing price IDs
+        for ($i = 0; $i < $pairCount; $i++) {
+            $servicePlan = $servicePlans[$i];
+            $additionalServicePlan = $additionalServicePlans[$i];
+
+            $response[] = [
+                'stripe_price_ids' => [
+                    $service->label => $servicePlan->stripe_price_id,
+                    $additionalServiceName => $additionalServicePlan->stripe_price_id,
+                ],
+            ];
+        }
+    } else {
+        // If no additional_service, return each plan's price ID individually
+        foreach ($servicePlans as $plan) {
+            $response[] = [
+                'stripe_price_id' => $plan->stripe_price_id,
+            ];
+        }
+    }
+
+    return $response;
+}
+}
+
