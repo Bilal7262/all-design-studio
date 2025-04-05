@@ -69,7 +69,7 @@ class WebHookController extends Controller
     } catch (\Stripe\Exception\SignatureVerificationException $e) {
         // Invalid signature
         \Log::error('Webhook signature verification failed: ' . $e->getMessage());
-        return response()->json(['error' => 'Invalid signature'], 400);
+        return response()->json(['error' => 'Invalid signature '.$e->getMessage()], 400);
 
     } catch (\Exception $e) {
         // General error handling
