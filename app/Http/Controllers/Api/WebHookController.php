@@ -40,8 +40,11 @@ class WebHookController extends Controller
             $amountInDollars = $amountTotal / 100;
 
             // Find or create your payment record (adjust according to your database schema)
-            $payment = Order::update(
-                ['id' => $order_id],
+            $order = Order::where('id', $order_id)->first();
+            if (!$order) {
+                return response()->json(['error' => 'Order not found'], 404);
+            }
+            $order->update(
                 [
                     'session_id' => $checkoutSessionId,
                     'status' => $paymentStatus,
