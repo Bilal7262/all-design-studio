@@ -18,7 +18,7 @@ class StripeService
         try {
             $session = $this->stripe->checkout->sessions->create([
                 'success_url' => $successUrl,
-                'cancel_url' => $cancelUrl ?? url('/cancel'),
+                'cancel_url' => $cancelUrl,
                 'line_items' => $lineItems,
                 'mode' => 'payment',
             ]);
