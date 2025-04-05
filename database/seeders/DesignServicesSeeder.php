@@ -459,7 +459,7 @@ class DesignServicesSeeder extends Seeder
                     'product' => $product->id,
                     'unit_amount' => $plan['price'] * 100, // Convert to cents
                     'currency' => 'usd',
-                    'recurring' => null, // One-time payment
+                    // 'recurring' => 'day', // One-time payment
                 ]);
 
                 // Add the Stripe price ID to the plan
