@@ -68,6 +68,10 @@ class CheckoutController extends Controller
                 $request->cancel_url
             );
 
+            $order->update([
+                'stripe_session_id' => $session->id,
+                'status' => 'checkout_session_initiated',
+            ]);
             return response()->json([
                 'status'=>200,
                 'sessionId' => $session,
