@@ -47,18 +47,16 @@ class WebHookController extends Controller
             $order_id = $session->metadata->order_id; // Assuming you stored order_id in metadata
             $user_id = $session->metadata->user_id; // Assuming you stored user_id in metadata
             $checkoutSessionId = $session->id;
-            $paymentStatus = $session->payment_status;
             $amountTotal = $session->amount_total; // Amount in cents
             $customerEmail = $session->customer_details->email;
-
             // Convert amount from cents to dollars
             $amountInDollars = $amountTotal / 100;
-
             // Find or create your payment record (adjust according to your database schema)
             $order = Order::where('id', $order_id)->first();
             if (!$order) {
                 return response()->json(['error' => 'Order not found'], 404);
             }
+            $paymentStatus = $amountInDollars < $order->price ? 'half_paid' : 'full_paid';
             $order->update(
                 [
                     'session_id' => $checkoutSessionId,
