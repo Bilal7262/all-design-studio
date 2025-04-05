@@ -116,7 +116,7 @@ if(!function_exists('getServicePlans')){
 
 
 if(!function_exists('getPlanPrices')){
-    function getPlanPrices($serviceName, $additionalServiceName = null)
+    function getPlanPrices($serviceName, $additionalServiceName = null, $halfPay = false)
 {
     $service = DesignService::where('name', $serviceName)->with('plans')->first();
     $servicePlans = $service->plans;
@@ -143,8 +143,8 @@ if(!function_exists('getPlanPrices')){
                 'days' => max($servicePlan->duration_days, $additionalServicePlan->duration_days),
                 'price' => $servicePlan->price + $additionalServicePlan->price,
                 'stripe_price_ids' => [
-                    $service->name => $servicePlan->stripe_price_id,
-                    $additionalServiceName => $additionalServicePlan->stripe_price_id,
+                    $service->name => $halfPay ? $servicePlan->stripe_half_price_id :$servicePlan->stripe_price_id ,
+                    $additionalServiceName => $halfPay ? $additionalServicePlan->stripe_half_price_id: $additionalServicePlan->stripe_price_id,
                 ],
                 'details' => [
                     $service->name => [$servicePlan->features],
