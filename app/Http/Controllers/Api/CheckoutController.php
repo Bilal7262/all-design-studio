@@ -74,7 +74,10 @@ class CheckoutController extends Controller
                 'sessionId' => $session,
             ]);
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+            return response()->json([
+                'status'=>500,
+                'message' => 'Error creating checkout session: ' . $e->getMessage(),
+            ]);
         }
     }
 }
