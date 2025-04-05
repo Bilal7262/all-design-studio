@@ -89,7 +89,7 @@ class WebHookController extends Controller
     } catch (\Exception $e) {
         // General error handling
         \Log::error('Webhook processing failed: ' . $e->getMessage());
-        return response()->json(['error' => 'Webhook processing failed'], 400);
+        return response()->json(['error' => 'Webhook processing failed'. $e->getMessage()], 400);
     }
 }
 }
