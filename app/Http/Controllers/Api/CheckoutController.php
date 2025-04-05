@@ -16,7 +16,7 @@ class CheckoutController extends Controller
         $this->stripeService = $stripeService;
     }
 
-    public function createCheckout(Request $request)
+    public function checkoutSession(Request $request)
     {
         $request->validate([
             'order_id' => 'required|integer|exists:orders,id',
