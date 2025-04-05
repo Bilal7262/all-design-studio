@@ -55,9 +55,9 @@ class OrderController extends Controller
         $order = Order::create($orderData);
 
         $orderFiles = [];
-        
+
         // Handle image files
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $fileKey = "image_$i";
             if ($request->hasFile($fileKey)) {
                 $image = $request->file($fileKey);
@@ -71,9 +71,9 @@ class OrderController extends Controller
                 ];
             }
         }
-        
+
         // Handle inspiration files
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $fileKey = "inspiration_file_$i";
             if ($request->hasFile($fileKey)) {
                 $inspirationFile = $request->file($fileKey);
@@ -87,9 +87,9 @@ class OrderController extends Controller
                 ];
             }
         }
-        
+
         // Handle font files
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $fileKey = "font_file_$i";
             if ($request->hasFile($fileKey)) {
                 $fontFile = $request->file($fileKey);
@@ -103,7 +103,7 @@ class OrderController extends Controller
                 ];
             }
         }
-        
+
         if (!empty($orderFiles)) {
             \App\Models\OrderFile::insert($orderFiles);
         }
@@ -120,9 +120,9 @@ class OrderController extends Controller
         $page = $request->input('cursor', 1);
         $search = $request->input('search');
         $status = $request->input('status');
-        
+
         $query = Order::where('user_id', auth()->user()->id);
-        
+
         // Apply search filter
         if ($search) {
             $query->where(function($q) use ($search) {
@@ -138,16 +138,16 @@ class OrderController extends Controller
                   ->orWhere('id', 'like', "%{$search}%");
             });
         }
-        
+
         // Apply status filter
         if ($status) {
             $query->where('status', $status);
         }
-        
+
         $orders = $query->with('files')
             ->latest()
             ->paginate($perPage, ['*'], 'page', $page);
-            
+
         return response()->json([
             'data' => $orders->items(),
             'pagination' => [
@@ -177,7 +177,7 @@ class OrderController extends Controller
     public function updateOrder(Request $request, $id)
     {
         $order = Order::findOrFail($id);
-        
+
         // Get only the fields that are present and not null in the request
         // Filter out file fields from the update data to prevent SQL errors
         $updateData = array_filter($request->except([
@@ -187,14 +187,14 @@ class OrderController extends Controller
         ]), function($value) {
             return $value !== null && $value !== '';
         });
-        
+
         // Only update if there are valid fields to update
         if (!empty($updateData)) {
             $order->update($updateData);
         }
-        
+
         $orderFiles = [];
-        
+
         // Handle image files
         for ($i = 1; $i <= 5; $i++) {
             $fileKey = "image_$i";
@@ -204,7 +204,7 @@ class OrderController extends Controller
                     ->where('file_type', 'image')
                     // ->where('file_name', 'like', "image_$i%")
                     ->delete();
-                
+
                 $image = $request->file($fileKey);
                 $orderFiles[] = [
                     'order_id' => $order->id,
@@ -216,7 +216,7 @@ class OrderController extends Controller
                 ];
             }
         }
-        
+
         // Handle inspiration files
         for ($i = 1; $i <= 5; $i++) {
             $fileKey = "inspiration_file_$i";
@@ -226,7 +226,7 @@ class OrderController extends Controller
                     ->where('file_type', 'inspiration')
                     // ->where('file_name', 'like', "inspiration_file_$i%")
                     ->delete();
-                
+
                 $inspirationFile = $request->file($fileKey);
                 $orderFiles[] = [
                     'order_id' => $order->id,
@@ -238,7 +238,7 @@ class OrderController extends Controller
                 ];
             }
         }
-        
+
         // Handle font files
         for ($i = 1; $i <= 5; $i++) {
             $fileKey = "font_file_$i";
@@ -248,7 +248,7 @@ class OrderController extends Controller
                     ->where('file_type', 'font')
                     // ->where('file_name', 'like', "font_file_$i%")
                     ->delete();
-                
+
                 $fontFile = $request->file($fileKey);
                 $orderFiles[] = [
                     'order_id' => $order->id,
@@ -260,16 +260,16 @@ class OrderController extends Controller
                 ];
             }
         }
-        
+
         if (!empty($orderFiles)) {
             \App\Models\OrderFile::insert($orderFiles);
         }
-        
+
         // Reload the model to get fresh data with any relationships
         $order = $order->fresh('files');
-        
+
         return response()->json([
-            'message' => 'Order updated successfully', 
+            'message' => 'Order updated successfully',
             'data' => $order
         ], 200);
     }
