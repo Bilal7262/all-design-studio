@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
         $order = Order::find($request->order_id);
 
-        if ($order->payment_status === 'fully_paid') {
+        if ($order->status === 'fully_paid') {
             return response()->json([
             'status' => 400,
             'message' => 'Order is already fully paid.',
