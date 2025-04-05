@@ -27,4 +27,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/orders', [OrderController::class, 'getOrders']);
     Route::post('/order/{id}', [OrderController::class, 'getOrderById']);
     Route::post('update-order/{id}', [OrderController::class, 'updateOrder']);
+
+    Route::post('delete-file-by-id/{orderId}', [OrderController::class, 'deleteFileById']);
 });

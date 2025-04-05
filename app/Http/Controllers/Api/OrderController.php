@@ -273,5 +273,14 @@ class OrderController extends Controller
             'data' => $order
         ], 200);
     }
+
+    public function deleteFileById($orderId){
+        $order = Order::find($orderId);
+        $files = $order->files();
+        foreach($files as $file){
+            $file->unlink($file->file_url);
+            $file->delete();
+        }
+    }
 }
 
