@@ -19,7 +19,7 @@ class OrderController extends Controller
             'brand_name' => 'required|string',
             'size' => 'nullable|string',
             'body_text' => 'required|string',
-            'design_usage' => 'required|string',
+            'design_usage' => 'nullable|string',
             'file_format' => 'nullable|string',
             'description' => 'nullable|string',
             'inspiration' => 'required|string',
