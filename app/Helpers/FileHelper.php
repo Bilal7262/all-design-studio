@@ -158,7 +158,7 @@ if(!function_exists('getPlanPrices')){
             $response[] = [
                 'days' => $plan->duration_days,
                 'price' => $plan->price,
-                'stripe_price_id' => $plan->stripe_price_id,
+                'stripe_price_id' => $halfPay ? $plan->stripe_half_price_id :$plan->stripe_price_id ,
                 'details' => [
                     $service->label => [$plan->features],
                 ],
