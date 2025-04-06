@@ -30,6 +30,12 @@ class CheckoutController extends Controller
             'message' => 'Order is already fully paid.',
             ]);
         }
+        if($order->user_id != auth()->user()->id ){
+            return response()->json([
+                'status' => 403,
+                'message' => 'Unauthorized access to this order.',
+            ]);
+        }
 
         $servicePlans = getPlanPrices($order->service, $order->additional_service,$request->half_pay);
 
