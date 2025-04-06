@@ -81,7 +81,6 @@ class CheckoutController extends Controller
 
             $order->update([
                 'session_id' => $session->id,
-                'status' => 'checkout_session_initiated',
             ]);
 
             auth()->user()->update([
