@@ -695,6 +695,7 @@ class DesignServicesSeeder extends Seeder
                 $designService = DB::table('design_services')->insertGetId([
                     'name' => $service['name'],
                     'label' => $service['label'],
+                    'slug' => $service['slug'],
                     'heading' => $service['heading'],
                     'stripe_product_id' => $product->id,
                     'created_at' => now(),
@@ -738,7 +739,7 @@ class DesignServicesSeeder extends Seeder
                     }
                 }
             } catch (\Exception $e) {
-                Log::error("Failed to create Stripe product for service {$service->label}: " . $e->getMessage());
+                Log::error("Failed to create Stripe product for service {$service['label']}: " . $e->getMessage());
                 throw $e; // Or handle as needed
             }
         }
