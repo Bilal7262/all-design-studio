@@ -7,26 +7,26 @@ use App\Models\DesignService;
 use Illuminate\Support\Facades\Validator;
 class DesignServiceController extends Controller
 {
-    public function getServicePlans(Request $request)
+    
+    public function getServices(Request $request)
     {
-        // Validate the request payload
-        $validator = Validator::make($request->all(), [
-            'service' => 'required|string|exists:design_services,name',
-            'additional_service' => 'nullable|string|exists:design_services,name|different:design_services',
-        ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'error' => $validator->errors()->first(),
-            ], 400);
-        }
+       $response = DesignService::with('plans')->get();
 
-        $serviceName = $request->input('service');
-        $additionalServiceName = $request->input('additional_service');
+        return response()->json($response, 200);
+    }
 
+    public function getServicePlansByName(Request $request)
+    {
 
-        // Fetch the primary service and its plans
-       $response = getServicePlans($serviceName,$additionalServiceName);
+       $response = DesignService::where('name', $request->service)->with('plans')->first();
+
+        return response()->json($response, 200);
+    }
+    public function getServicePlansBySlug(Request $request)
+    {
+
+       $response = DesignService::where('slug', $request->service)->with('plans')->first();
 
         return response()->json($response, 200);
     }
