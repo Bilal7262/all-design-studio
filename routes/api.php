@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::post('/services', [DesignServiceController::class, 'getServices']);
+Route::get('/services', [DesignServiceController::class, 'getServices']);
 Route::post('/service-plans-by-name', [DesignServiceController::class, 'getServicePlansByName']);
 Route::post('/service-plans-by-slug', [DesignServiceController::class, 'getServicePlansBySlug']);
 Route::post('/signup', [AuthController::class, 'signup']);
