@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Stripe\StripeClient;
+
 class DesignServicesSeeder extends Seeder
 {
     private $stripe;
@@ -14,471 +16,733 @@ class DesignServicesSeeder extends Seeder
     {
         $this->stripe = new StripeClient(config('services.stripe.secret'));
     }
+
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
         $services = [
-            ['name' => 'logo_design', 'label' => 'Logo Design'],
-            ['name' => 'website_design', 'label' => 'Website Design'],
-            ['name' => 'ecommerce_website_design', 'label' => 'Ecommerce Website Design'],
-            ['name' => 'real_estate_website_design', 'label' => 'Real Estate Website Design'],
-            ['name' => 'healthcare_website_design', 'label' => 'Healthcare Website Design'],
-            ['name' => 'landing_page_design', 'label' => 'Landing Page Design'],
-            ['name' => 'design_icon', 'label' => 'Design Icon'],
-            ['name' => 'dashboard_design', 'label' => 'Dashboard Design'],
-            ['name' => 'infographic_design', 'label' => 'Infographic Design'],
-            ['name' => 'footer_design', 'label' => 'Footer Design'],
-            ['name' => 'website_header_design', 'label' => 'Website Header Design'],
-            ['name' => 'ui_ux_design', 'label' => 'UI/UX Design'],
-            ['name' => 'ux_design', 'label' => 'UX Design'],
-            ['name' => 'ui_design', 'label' => 'UI Design'],
-            ['name' => 'mobile_app_design', 'label' => 'Mobile App Design'],
-            ['name' => 'ios_app_design', 'label' => 'Ios App Design'],
-            ['name' => 'android_app_design', 'label' => 'Android App Design'],
-            ['name' => 'business_card_design', 'label' => 'Business Card Design'],
-            ['name' => 'birthday_card_design', 'label' => 'Birthday Card Design'],
-            ['name' => 'greeting_card_design', 'label' => 'Greeting Card Design'],
-            ['name' => 'wedding_invitation_design', 'label' => 'Wedding Invitation Design'],
-            ['name' => 'postcard_design', 'label' => 'Postcard Design'],
-            ['name' => 'packaging_design', 'label' => 'Packaging Design'],
-            ['name' => 'box_design', 'label' => 'Box Design'],
-            ['name' => 'label_design', 'label' => 'Label Design'],
-            ['name' => 'food_packaging_design', 'label' => 'Food Packaging Design'],
-            ['name' => 't_shirt_design', 'label' => 'T Shirt Design'],
-            ['name' => 'hoodie_design', 'label' => 'Hoodie Design'],
-            ['name' => 'jersey_design', 'label' => 'Jersey Design'],
-            ['name' => 'custom_design_polo', 'label' => 'Custom Design Polo'],
-            ['name' => 'tote_bag_design', 'label' => 'Tote Bag Design'],
-            ['name' => 'cup_design', 'label' => 'Cup Design'],
-            ['name' => 'mug_design', 'label' => 'Mug Design'],
-            ['name' => 'cap_design', 'label' => 'Cap Design'],
-            ['name' => 'flyer_design', 'label' => 'Flyer Design'],
-            ['name' => 'poster_design', 'label' => 'Poster Design'],
-            ['name' => 'magazine_design', 'label' => 'Magazine Design'],
-            ['name' => 'brochure_design', 'label' => 'Brochure Design'],
-            ['name' => 'pamphlet_design', 'label' => 'Pamphlet Design'],
-            ['name' => 'banner_design', 'label' => 'Banner Design'],
-            ['name' => 'sticker_design', 'label' => 'Sticker Design'],
-            ['name' => 'envelope_design', 'label' => 'Envelope Design'],
-            ['name' => 'magazine_cover_design', 'label' => 'Magazine Cover Design'],
-            ['name' => 'ebook_cover_design', 'label' => 'Ebook Cover Design'],
-            ['name' => 'book_design', 'label' => 'Book Design'],
-            ['name' => 'book_cover_design', 'label' => 'Book Cover Design'],
-            ['name' => 'booklet_design', 'label' => 'Booklet Design'],
-            ['name' => 'album_cover_design', 'label' => 'Album Cover Design'],
-            ['name' => 'letter_design', 'label' => 'Letter Design'],
-            ['name' => 'menu_design', 'label' => 'Menu Design'],
-            ['name' => 'powerpoint_design', 'label' => 'Powerpoint Design'],
-            ['name' => 'timeline_design', 'label' => 'Timeline Design'],
-            ['name' => 'resume_design', 'label' => 'Resume Design'],
-            ['name' => 'portfolio_design', 'label' => 'Portfolio Design'],
-            ['name' => 'billboard_design', 'label' => 'Billboard Design'],
-            ['name' => 'artwork_design', 'label' => 'Artwork Design'],
-            ['name' => 'design_quotes', 'label' => 'Design Quotes'],
-            ['name' => 'graffiti_design', 'label' => 'Graffiti Design'],
-            ['name' => 'tattoo_design', 'label' => 'Tattoo Design'],
+            [
+                'name' => 'logo_design', 'label' => 'Logo Design', 'heading' => 'Custom Logo Design Pricing',
+                'plans' => [
+                    // Logo Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 210.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 5 custom logos\n✅ Up to 5 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 160.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Multiple unique logo concepts\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 130.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 99.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                ]
+                ],
+            [
+                'name' => 'website_design', 'label' => 'Website Design', 'heading' => 'Website Design Pricing',
+                'plans' => [
+                    // Website Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                ]
+            ],
+            [
+                'name' => 'ecommerce_website_design', 'label' => 'Ecommerce Website Design', 'heading' => 'Ecommerce Website Design Pricing',
+                'plans' => [
+                    // Ecommerce Website Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                ]
+            ],
+            [
+                'name' => 'real_estate_website_design', 'label' => 'Real Estate Website Design', 'heading' => 'Real Estate Website Design Pricing',
+                'plans' => [
+                    // Real Estate Website Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+
+                ]
+            ],
+            [
+                'name' => 'healthcare_website_design', 'label' => 'Healthcare Website Design', 'heading' => 'Healthcare Website Design Pricing',
+                'plans' => [
+                                // Healthcare Website Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+  
+                    
+                ]
+            ],
+            [
+                'name' => 'landing_page_design', 'label' => 'Landing Page Design', 'heading' => 'Landing Page Design Pricing',
+                'plans' => [
+                    // Landing Page Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ Up to 3 revisions\n✅ Custom, high-converting landing page design"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 99.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 79.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 59.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
+
+                ]
+            ],
+            [
+                'name' => 'design_icon', 'label' => 'Design Icon', 'heading' => 'Design Icon Pricing',
+                'plans' => [
+                        // Design Icon
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 10 flat icons\n✅ 5 3D icons"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 249.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 15 flat icons\n✅ 5 3D icons"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 20 flat icons\n✅ 10 3D icons"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 149.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 25 flat icons\n✅ 15 3D icons"],
+
+                ]
+            ],
+            [
+                'name' => 'dashboard_design', 'label' => 'Dashboard Design', 'heading' => 'Dashboard Design Pricing',
+                'plans' => [
+                            // Dashboard Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 699.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Advanced design\n✅ UI/UX optimization"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 499.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Basic design\n✅ UI/UX optimization\n✅ Prototyping included"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 25, 'price' => 399.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 25 days\n✅ Basic design\n✅ UI/UX optimization\n✅ Prototyping included"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 25, 'price' => 299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 25 days\n✅ Advanced design\n✅ UI/UX optimization"],
+
+                ]
+            ],
+            [
+                'name' => 'infographic_design', 'label' => 'Infographic Design', 'heading' => 'Infographic Design Pricing',
+                'plans' => [
+                    // Infographic Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 8, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 6 infographics\n✅ Up to 6 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 3 infographics\n✅ Up to 6 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 infographics\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 1, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 1 infographic\n✅ Up to 2 revisions"],
+ 
+                ]
+            ],
+            [
+                'name' => 'footer_design', 'label' => 'Footer Design', 'heading' => 'Footer Design Pricing',
+                'plans' => [
+                     // Footer Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 140.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 6 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 9 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 9, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 9 days\n✅ Up to 12 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'website_header_design', 'label' => 'Website Header Design', 'heading' => 'Website Header Design Pricing',
+                'plans' => [
+                     // Website Header Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 140.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 6 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 9 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 9, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 9 days\n✅ Up to 12 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'ui/ux_design', 'label' => 'UI/UX Design', 'heading' => 'UI/UX Design Pricing',
+                'plans' => [
+                     // UI/UX Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+
+                ]
+            ],
+            [
+                'name' => 'ux_design', 'label' => 'UX Design', 'heading' => 'UX Design Pricing',
+                'plans' => [
+                    // UX Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+
+                ]
+            ],
+            [
+                'name' => 'ui_design', 'label' => 'UI Design', 'heading' => 'UI Design Pricing',
+                'plans' => [
+                    // UI Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+
+                ]
+            ],
+            [
+                'name' => 'mobile_app_design', 'label' => 'Mobile App Design', 'heading' => 'Mobile App Design Pricing',
+                'plans' => [
+                    // Mobile App Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 5000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Complete app design"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete app design"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic layout design"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic layout design"],
+
+                ]
+            ],
+            [
+                'name' => 'ios_app_design', 'label' => 'Ios App Design', 'heading' => 'iOS App Design Pricing',
+                'plans' => [
+                    // iOS App Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 5000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Complete iOS app design"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete iOS app design"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic iOS layout design"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic iOS layout design"],
+
+                ]
+            ],
+            [
+                'name' => 'android_app_design', 'label' => 'Android App Design', 'heading' => 'Android App Design Pricing',
+                'plans' => [
+                    // Android App Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 5000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Complete Android app design"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete Android app design"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic Android layout design"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic Android layout design"],
+
+                ]
+            ],
+            [
+                'name' => 'business_card_design', 'label' => 'Business Card Design', 'heading' => 'Business Card Design Pricing',
+                'plans' => [
+                    // Business Card Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'birthday_card_design', 'label' => 'Birthday Card Design', 'heading' => 'Birthday Card Design Pricing',
+                'plans' => [
+                    // Birthday Card Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'greeting_card_design', 'label' => 'Greeting Card Design', 'heading' => 'Greeting Card Design Pricing',
+                'plans' => [
+                     // Greeting Card Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'wedding_invitation_design', 'label' => 'Wedding Invitation Design', 'heading' => 'Wedding Invitation Design Pricing',
+                'plans' => [
+                    // Wedding Invitation Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ Custom design\n✅ Up to 5 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Custom design\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ Custom design\n✅ Up to 3 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'postcard_design', 'label' => 'Postcard Design', 'heading' => 'Postcard Design Pricing',
+                'plans' => [
+                    // Postcard Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ Custom design\n✅ Up to 5 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Custom design\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ Custom design\n✅ Up to 3 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'packaging_design', 'label' => 'Packaging Design', 'heading' => 'Packaging Design Pricing',
+                'plans' => [
+                    // Packaging Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'box_design', 'label' => 'Box Design', 'heading' => 'Box Design Pricing',
+                'plans' => [
+                    // Box Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'label_design', 'label' => 'Label Design', 'heading' => 'Label Design Pricing',
+                'plans' => [
+                    // Label Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'food_packaging_design', 'label' => 'Food Packaging Design', 'heading' => 'Food Packaging Design Pricing',
+                'plans' => [
+                     // Food Packaging Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 't_shirt_design', 'label' => 'T Shirt Design', 'heading' => 'T-Shirt Design Pricing',
+                'plans' => [
+                    // T-Shirt Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'hoodie_design', 'label' => 'Hoodie Design', 'heading' => 'Hoodie Design Pricing',
+                'plans' => [
+                    // Hoodie Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'jersey_design', 'label' => 'Jersey Design', 'heading' => 'Jersey Design Pricing',
+                'plans' => [
+                    // Jersey Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'custom_design_polo', 'label' => 'Custom Design Polo', 'heading' => 'Custom Design Polo Pricing',
+                'plans' => [
+                    // Custom Design Polo
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'tote_bag_design', 'label' => 'Tote Bag Design', 'heading' => 'Tote Bag Design Pricing',
+                'plans' => [
+                    // Tote Bag Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+  
+                ]
+            ],
+            [
+                'name' => 'cup_design', 'label' => 'Cup Design', 'heading' => 'Cup Design Pricing',
+                'plans' => [
+                      // Cup Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'mug_design', 'label' => 'Mug Design', 'heading' => 'Mug Design Pricing',
+                'plans' => [
+                    // Mug Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'cap_design', 'label' => 'Cap Design', 'heading' => 'Cap Design Pricing',
+                'plans' => [
+                    // Cap Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'flyer_design', 'label' => 'Flyer Design', 'heading' => 'Flyer Design Pricing',
+                'plans' => [
+                    // Flyer Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'poster_design', 'label' => 'Poster Design', 'heading' => 'Poster Design Pricing',
+                'plans' => [
+                    // Poster Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+
+                ]
+            ],
+            [
+                'name' => 'magazine_design', 'label' => 'Magazine Design', 'heading' => 'Magazine Design Pricing',
+                'plans' => [
+                    // Magazine Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 50 pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 30 pages\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'brochure_design', 'label' => 'Brochure Design', 'heading' => 'Brochure Design Pricing',
+                'plans' => [
+                    // Brochure Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'pamphlet_design', 'label' => 'Pamphlet Design', 'heading' => 'Pamphlet Design Pricing',
+                'plans' => [
+                    // Pamphlet Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 20 pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'banner_design', 'label' => 'Banner Design', 'heading' => 'Banner Design Pricing',
+                'plans' => [
+                    // Banner Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'sticker_design', 'label' => 'Sticker Design', 'heading' => 'Sticker Design Pricing',
+                'plans' => [
+                    // Sticker Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 90.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 10.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'envelope_design', 'label' => 'Envelope Design', 'heading' => 'Envelope Design Pricing',
+                'plans' => [
+                    // Envelope Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 90.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'magazine_cover_design', 'label' => 'Magazine Cover Design', 'heading' => 'Magazine Cover Design Pricing',
+                'plans' => [
+                    // Magazine Cover Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'ebook_cover_design', 'label' => 'Ebook Cover Design', 'heading' => 'Ebook Cover Design Pricing',
+                'plans' => [
+                     // Ebook Cover Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'book_design', 'label' => 'Book Design', 'heading' => 'Book Design Pricing',
+                'plans' => [
+                    // Book Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 50 pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 30 pages\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'book_cover_design', 'label' => 'Book Cover Design', 'heading' => 'Book Cover Design Pricing',
+                'plans' => [
+                    // Book Cover Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'booklet_design', 'label' => 'Booklet Design', 'heading' => 'Booklet Design Pricing',
+                'plans' => [
+                    // Booklet Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 20 pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'album_cover_design', 'label' => 'Album Cover Design', 'heading' => 'Album Cover Design Pricing',
+                'plans' => [
+                    // Album Cover Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'letter_design', 'label' => 'Letter Design', 'heading' => 'Letter Design Pricing',
+                'plans' => [
+                    // Letter Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'menu_design', 'label' => 'Menu Design', 'heading' => 'Menu Design Pricing',
+                'plans' => [
+                    // Menu Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'powerpoint_design', 'label' => 'Powerpoint Design', 'heading' => 'PowerPoint Design Pricing',
+                'plans' => [
+                    // PowerPoint Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 20 slides\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ Up to 20 slides\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 7, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Up to 15 slides\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Up to 10 slides\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'timeline_design', 'label' => 'Timeline Design', 'heading' => 'Timeline Design Pricing',
+                'plans' => [
+                    // Timeline Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'resume_design', 'label' => 'Resume Design', 'heading' => 'Resume Design Pricing',
+                'plans' => [
+                    // Resume Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 7, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'portfolio_design', 'label' => 'Portfolio Design', 'heading' => 'Portfolio Design Pricing',
+                'plans' => [
+                    // Portfolio Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Up to 20 pages\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Up to 20 pages\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 14, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Up to 15 pages\n✅ Up to 2 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 21, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 21 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'billboard_design', 'label' => 'Billboard Design', 'heading' => 'Billboard Design Pricing',
+                'plans' => [
+                    // Billboard Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 7, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'artwork_design', 'label' => 'Artwork Design', 'heading' => 'Artwork Design Pricing',
+                'plans' => [
+                    // Artwork Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 15, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'design_quotes', 'label' => 'Design Quotes', 'heading' => 'Design Quotes Pricing',
+                'plans' => [
+                    // Design Quotes
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 7, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'graffiti_design', 'label' => 'Graffiti Design', 'heading' => 'Graffiti Design Pricing',
+                'plans' => [
+                    // Graffiti Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 15, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+
+                ]
+            ],
+            [
+                'name' => 'tattoo_design', 'label' => 'Tattoo Design', 'heading' => 'Tattoo Design Pricing',
+                'plans' => [
+                    // Tattoo Design
+                    [ 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 15, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"]
+
+                ]
+            ],
         ];
 
-        DB::table('design_services')->insert($services);
+
+        // DB::table('design_services')->insert($services);
 
         // Insert Service Plans
-        $servicePlans = [
-            // Logo Design
-            ['design_service_id' => 1, 'duration_days' => 1, 'price' => 210, 'features' => '1 day + 5 logos + 5 revisions'],
-            ['design_service_id' => 1, 'duration_days' => 3, 'price' => 160, 'features' => '3 days + 10 logos + 10 revisions'],
-            ['design_service_id' => 1, 'duration_days' => 6, 'price' => 130, 'features' => '6 days + 10 logos + 10 revisions'],
-            ['design_service_id' => 1, 'duration_days' => 10, 'price' => 99, 'features' => '10 days + 10 logos + 10 revisions'],
-
-            // Website Design
-            ['design_service_id' => 2, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 2, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 2, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 2, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // Ecommerce Website Design
-            ['design_service_id' => 3, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 3, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 3, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 3, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // Real Estate Website Design
-            ['design_service_id' => 4, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 4, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 4, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 4, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // Healthcare Website Design
-            ['design_service_id' => 5, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 5, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 5, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 5, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // Landing Page Design
-            ['design_service_id' => 6, 'duration_days' => 1, 'price' => 110, 'features' => '1 day, 3 revisions'],
-            ['design_service_id' => 6, 'duration_days' => 3, 'price' => 99, 'features' => '3 days, 10 revisions'],
-            ['design_service_id' => 6, 'duration_days' => 6, 'price' => 79, 'features' => '6 days, 10 revisions'],
-            ['design_service_id' => 6, 'duration_days' => 10, 'price' => 59, 'features' => '10 days, 10 revisions'],
-
-            // Design Icon
-            ['design_service_id' => 7, 'duration_days' => 1, 'price' => 299, 'features' => '1 day, 10 flat icons, 5 3D icons'],
-            ['design_service_id' => 7, 'duration_days' => 3, 'price' => 249, 'features' => '3 days, 15 flat icons, 5 3D icons'],
-            ['design_service_id' => 7, 'duration_days' => 6, 'price' => 199, 'features' => '6 days, 20 flat icons, 10 3D icons'],
-            ['design_service_id' => 7, 'duration_days' => 10, 'price' => 149, 'features' => '10 days, 25 flat icons, 15 3D icons'],
-
-            // Dashboard Design
-            ['design_service_id' => 8, 'duration_days' => 7, 'price' => 699, 'features' => '7 days, advanced design, UI/UX optimization'],
-            ['design_service_id' => 8, 'duration_days' => 14, 'price' => 499, 'features' => '14 days, Basic design, UI/UX optimization, prototyping'],
-            ['design_service_id' => 8, 'duration_days' => 25, 'price' => 399, 'features' => '25 days, basic design, UI/UX optimization, prototyping'],
-            ['design_service_id' => 8, 'duration_days' => 25, 'price' => 299, 'features' => '25 days, advanced design, UI/UX optimization'],
-
-            // Infographic Design
-            ['design_service_id' => 9, 'duration_days' => 8, 'price' => 150, 'features' => '8 days + 6 infographics + 6 revisions'],
-            ['design_service_id' => 9, 'duration_days' => 6, 'price' => 120, 'features' => '6 days + 3 infographics + 6 revisions'],
-            ['design_service_id' => 9, 'duration_days' => 4, 'price' => 80, 'features' => '4 days + 2 infographics + 4 revisions'],
-            ['design_service_id' => 9, 'duration_days' => 1, 'price' => 40, 'features' => '1 day + 1 infographic + 2 revisions'],
-
-            // Footer Design
-            ['design_service_id' => 10, 'duration_days' => 1, 'price' => 140, 'features' => '1 day, 3 revisions'],
-            ['design_service_id' => 10, 'duration_days' => 3, 'price' => 110, 'features' => '3 days, 6 revisions'],
-            ['design_service_id' => 10, 'duration_days' => 6, 'price' => 80, 'features' => '6 days, 9 revisions'],
-            ['design_service_id' => 10, 'duration_days' => 9, 'price' => 60, 'features' => '9 days, 12 revisions'],
-
-            // Website Header Design
-            ['design_service_id' => 11, 'duration_days' => 1, 'price' => 140, 'features' => '1 day, 3 revisions'],
-            ['design_service_id' => 11, 'duration_days' => 3, 'price' => 110, 'features' => '3 days, 6 revisions'],
-            ['design_service_id' => 11, 'duration_days' => 6, 'price' => 80, 'features' => '6 days, 9 revisions'],
-            ['design_service_id' => 11, 'duration_days' => 9, 'price' => 60, 'features' => '9 days, 12 revisions'],
-
-            // UI/UX Design
-            ['design_service_id' => 12, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 12, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 12, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 12, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // UX Design
-            ['design_service_id' => 13, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 13, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 13, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 13, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // UI Design
-            ['design_service_id' => 14, 'duration_days' => 30, 'price' => 2299, 'features' => 'Advanced design + 20-30 pages + prototyping + 30 days'],
-            ['design_service_id' => 14, 'duration_days' => 20, 'price' => 1799, 'features' => 'Advanced design + 10-20 pages + prototyping + 20 days'],
-            ['design_service_id' => 14, 'duration_days' => 30, 'price' => 1199, 'features' => 'Basic design + 20-30 pages + 30 days'],
-            ['design_service_id' => 14, 'duration_days' => 20, 'price' => 999, 'features' => 'Basic design + 10-20 pages + 20 days'],
-
-            // Mobile App Design
-            ['design_service_id' => 15, 'duration_days' => 30, 'price' => 5000, 'features' => 'Complete app, 1 month'],
-            ['design_service_id' => 15, 'duration_days' => 60, 'price' => 3000, 'features' => 'Complete app, 2 months'],
-            ['design_service_id' => 15, 'duration_days' => 30, 'price' => 1500, 'features' => 'Basic Layout Design, 1 month'],
-            ['design_service_id' => 15, 'duration_days' => 60, 'price' => 1200, 'features' => 'Basic Layout Design, 2 months'],
-
-            // iOS App Design
-            ['design_service_id' => 16, 'duration_days' => 30, 'price' => 5000, 'features' => 'Complete app, 1 month'],
-            ['design_service_id' => 16, 'duration_days' => 60, 'price' => 3000, 'features' => 'Complete app, 2 months'],
-            ['design_service_id' => 16, 'duration_days' => 30, 'price' => 1500, 'features' => 'Basic Layout Design, 1 month'],
-            ['design_service_id' => 16, 'duration_days' => 60, 'price' => 1200, 'features' => 'Basic Layout Design, 2 months'],
-
-            // Android App Design
-            ['design_service_id' => 17, 'duration_days' => 30, 'price' => 5000, 'features' => 'Complete app, 1 month'],
-            ['design_service_id' => 17, 'duration_days' => 60, 'price' => 3000, 'features' => 'Complete app, 2 months'],
-            ['design_service_id' => 17, 'duration_days' => 30, 'price' => 1500, 'features' => 'Basic Layout Design, 1 month'],
-            ['design_service_id' => 17, 'duration_days' => 60, 'price' => 1200, 'features' => 'Basic Layout Design, 2 months'],
-
-            // Business Card Design
-            ['design_service_id' => 18, 'duration_days' => 2, 'price' => 50, 'features' => '3 design variations, 2 days, 3 variations'],
-            ['design_service_id' => 18, 'duration_days' => 4, 'price' => 40, 'features' => '3 design variations, 4 days, 3 revisions'],
-            ['design_service_id' => 18, 'duration_days' => 4, 'price' => 30, 'features' => '2 design variations, 4 days, 2 revisions'],
-            ['design_service_id' => 18, 'duration_days' => 6, 'price' => 25, 'features' => '2 design variations, 6 days, 2 revisions'],
-
-            // Birthday Card Design
-            ['design_service_id' => 19, 'duration_days' => 2, 'price' => 50, 'features' => '3 design variations, 2 days, 3 variations'],
-            ['design_service_id' => 19, 'duration_days' => 4, 'price' => 40, 'features' => '3 design variations, 4 days, 3 revisions'],
-            ['design_service_id' => 19, 'duration_days' => 4, 'price' => 30, 'features' => '2 design variations, 4 days, 2 revisions'],
-            ['design_service_id' => 19, 'duration_days' => 6, 'price' => 25, 'features' => '2 design variations, 6 days, 2 revisions'],
-
-            // Greeting Card Design
-            ['design_service_id' => 20, 'duration_days' => 2, 'price' => 50, 'features' => '3 design variations, 2 days, 3 variations'],
-            ['design_service_id' => 20, 'duration_days' => 4, 'price' => 40, 'features' => '3 design variations, 4 days, 3 revisions'],
-            ['design_service_id' => 20, 'duration_days' => 4, 'price' => 30, 'features' => '2 design variations, 4 days, 2 revisions'],
-            ['design_service_id' => 20, 'duration_days' => 6, 'price' => 25, 'features' => '2 design variations, 6 days, 2 revisions'],
-
-            // Wedding Invitation Design
-            ['design_service_id' => 21, 'duration_days' => 2, 'price' => 80, 'features' => 'Custom design, 2 days, 5 revisions'],
-            ['design_service_id' => 21, 'duration_days' => 4, 'price' => 60, 'features' => 'Custom design, 4 days, 3 revisions'],
-            ['design_service_id' => 21, 'duration_days' => 6, 'price' => 50, 'features' => 'Custom design, 6 days, 4 revisions'],
-            ['design_service_id' => 21, 'duration_days' => 8, 'price' => 40, 'features' => 'Custom design, 8 days, 3 revisions'],
-
-            // Postcard Design
-            ['design_service_id' => 22, 'duration_days' => 2, 'price' => 80, 'features' => 'Custom design, 2 days, 5 revisions'],
-            ['design_service_id' => 22, 'duration_days' => 4, 'price' => 60, 'features' => 'Custom design, 4 days, 3 revisions'],
-            ['design_service_id' => 22, 'duration_days' => 6, 'price' => 50, 'features' => 'Custom design, 6 days, 4 revisions'],
-            ['design_service_id' => 22, 'duration_days' => 8, 'price' => 40, 'features' => 'Custom design, 8 days, 3 revisions'],
-
-            // Packaging Design
-            ['design_service_id' => 23, 'duration_days' => 4, 'price' => 1200, 'features' => '4 days, custom design, 6 revisions'],
-            ['design_service_id' => 23, 'duration_days' => 6, 'price' => 1000, 'features' => '6 days, premium design, 8 revisions'],
-            ['design_service_id' => 23, 'duration_days' => 10, 'price' => 800, 'features' => '10 days, premium design, 10 revisions'],
-            ['design_service_id' => 23, 'duration_days' => 10, 'price' => 600, 'features' => '10 days, custom design, 5 revisions'],
-
-            // Box Design
-            ['design_service_id' => 24, 'duration_days' => 4, 'price' => 1200, 'features' => '4 days, custom design, 6 revisions'],
-            ['design_service_id' => 24, 'duration_days' => 6, 'price' => 1000, 'features' => '6 days, premium design, 8 revisions'],
-            ['design_service_id' => 24, 'duration_days' => 10, 'price' => 800, 'features' => '10 days, premium design, 10 revisions'],
-            ['design_service_id' => 24, 'duration_days' => 10, 'price' => 600, 'features' => '10 days, custom design, 5 revisions'],
-
-            // Label Design
-            ['design_service_id' => 25, 'duration_days' => 4, 'price' => 1200, 'features' => '4 days, custom design, 6 revisions'],
-            ['design_service_id' => 25, 'duration_days' => 6, 'price' => 1000, 'features' => '6 days, premium design, 8 revisions'],
-            ['design_service_id' => 25, 'duration_days' => 10, 'price' => 800, 'features' => '10 days, premium design, 10 revisions'],
-            ['design_service_id' => 25, 'duration_days' => 10, 'price' => 600, 'features' => '10 days, custom design, 5 revisions'],
-
-            // Food Packaging Design
-            ['design_service_id' => 26, 'duration_days' => 4, 'price' => 1200, 'features' => '4 days, custom design, 6 revisions'],
-            ['design_service_id' => 26, 'duration_days' => 6, 'price' => 1000, 'features' => '6 days, premium design, 8 revisions'],
-            ['design_service_id' => 26, 'duration_days' => 10, 'price' => 800, 'features' => '10 days, premium design, 10 revisions'],
-            ['design_service_id' => 26, 'duration_days' => 10, 'price' => 600, 'features' => '10 days, custom design, 5 revisions'],
-
-            // T-Shirt Design
-            ['design_service_id' => 27, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 27, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 27, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 27, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Hoodie Design
-            ['design_service_id' => 28, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 28, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 28, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 28, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Jersey Design
-            ['design_service_id' => 29, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 29, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 29, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 29, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Custom Design Polo
-            ['design_service_id' => 30, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 30, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 30, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 30, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Tote Bag Design
-            ['design_service_id' => 31, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 31, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 31, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 31, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Cup Design
-            ['design_service_id' => 32, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 32, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 32, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 32, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Mug Design
-            ['design_service_id' => 33, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 33, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 33, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 33, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Cap Design
-            ['design_service_id' => 34, 'duration_days' => 5, 'price' => 300, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 34, 'duration_days' => 10, 'price' => 200, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 34, 'duration_days' => 5, 'price' => 150, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 34, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Flyer Design
-            ['design_service_id' => 35, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 35, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 35, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 35, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Poster Design
-            ['design_service_id' => 36, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 36, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 36, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 36, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Magazine Design
-            ['design_service_id' => 37, 'duration_days' => 7, 'price' => 500, 'features' => 'Unlimited pages, 7 days, 2 revisions'],
-            ['design_service_id' => 37, 'duration_days' => 14, 'price' => 400, 'features' => 'Unlimited pages, 14 days, 2 revisions'],
-            ['design_service_id' => 37, 'duration_days' => 30, 'price' => 300, 'features' => 'Upto 50 pages, 30 days, 2 revisions'],
-            ['design_service_id' => 37, 'duration_days' => 30, 'price' => 200, 'features' => 'Upto 30 pages, 30 days, 2 revisions'],
-
-            // Brochure Design
-            ['design_service_id' => 38, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 38, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 38, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 38, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Pamphlet Design
-            ['design_service_id' => 39, 'duration_days' => 7, 'price' => 300, 'features' => 'Unlimited pages, 7 days, 2 revisions'],
-            ['design_service_id' => 39, 'duration_days' => 14, 'price' => 250, 'features' => 'Unlimited pages, 14 days, 2 revisions'],
-            ['design_service_id' => 39, 'duration_days' => 30, 'price' => 200, 'features' => 'Upto 20 pages, 30 days, 2 revisions'],
-            ['design_service_id' => 39, 'duration_days' => 30, 'price' => 150, 'features' => 'Upto 10 pages, 30 days, 2 revisions'],
-
-            // Banner Design
-            ['design_service_id' => 40, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 40, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 40, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 40, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Sticker Design
-            ['design_service_id' => 41, 'duration_days' => 5, 'price' => 150, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 41, 'duration_days' => 10, 'price' => 120, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 41, 'duration_days' => 5, 'price' => 90, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 41, 'duration_days' => 2, 'price' => 10, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Envelope Design
-            ['design_service_id' => 42, 'duration_days' => 5, 'price' => 150, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 42, 'duration_days' => 10, 'price' => 120, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 42, 'duration_days' => 5, 'price' => 90, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 42, 'duration_days' => 2, 'price' => 20, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Magazine Cover Design
-            ['design_service_id' => 43, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 43, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 43, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 43, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Ebook Cover Design
-            ['design_service_id' => 44, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 44, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 44, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 44, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Book Design
-            ['design_service_id' => 45, 'duration_days' => 7, 'price' => 2000, 'features' => 'Unlimited pages, 7 days, 2 revisions'],
-            ['design_service_id' => 45, 'duration_days' => 14, 'price' => 1500, 'features' => 'Unlimited pages, 14 days, 2 revisions'],
-            ['design_service_id' => 45, 'duration_days' => 30, 'price' => 1200, 'features' => 'Upto 50 pages, 30 days, 2 revisions'],
-            ['design_service_id' => 45, 'duration_days' => 30, 'price' => 900, 'features' => 'Upto 30 pages, 30 days, 2 revisions'],
-
-            // Book Cover Design
-            ['design_service_id' => 46, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 46, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 46, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 46, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Booklet Design
-            ['design_service_id' => 47, 'duration_days' => 7, 'price' => 300, 'features' => 'Unlimited pages, 7 days, 2 revisions'],
-            ['design_service_id' => 47, 'duration_days' => 14, 'price' => 250, 'features' => 'Unlimited pages, 14 days, 2 revisions'],
-            ['design_service_id' => 47, 'duration_days' => 30, 'price' => 200, 'features' => 'Upto 20 pages, 30 days, 2 revisions'],
-            ['design_service_id' => 47, 'duration_days' => 30, 'price' => 150, 'features' => 'Upto 10 pages, 30 days, 2 revisions'],
-
-            // Album Cover Design
-            ['design_service_id' => 48, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 48, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 48, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 48, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Letter Design
-            ['design_service_id' => 49, 'duration_days' => 5, 'price' => 150, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 49, 'duration_days' => 10, 'price' => 120, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 49, 'duration_days' => 5, 'price' => 90, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 49, 'duration_days' => 2, 'price' => 10, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Menu Design
-            ['design_service_id' => 50, 'duration_days' => 5, 'price' => 300, 'features' => 'Unlimited page menu + Menu board + 5 days'],
-            ['design_service_id' => 50, 'duration_days' => 7, 'price' => 240, 'features' => 'Unlimited page menu + 7 days'],
-            ['design_service_id' => 50, 'duration_days' => 7, 'price' => 200, 'features' => 'Upto 6 page menu + Menu board + 7 days'],
-            ['design_service_id' => 50, 'duration_days' => 14, 'price' => 100, 'features' => 'Upto 3 page menu + 14 days'],
-
-            // PowerPoint Design
-            ['design_service_id' => 51, 'duration_days' => 7, 'price' => 300, 'features' => 'Unlimited slides, 7 days, 2 revisions'],
-            ['design_service_id' => 51, 'duration_days' => 14, 'price' => 250, 'features' => 'Unlimited slides, 14 days, 2 revisions'],
-            ['design_service_id' => 51, 'duration_days' => 30, 'price' => 200, 'features' => 'Upto 20 slides, 30 days, 2 revisions'],
-            ['design_service_id' => 51, 'duration_days' => 30, 'price' => 150, 'features' => 'Upto 10 slides, 30 days, 2 revisions'],
-
-            // Timeline Design
-            ['design_service_id' => 52, 'duration_days' => 7, 'price' => 150, 'features' => '2 timelines + graphs and charts + 7 days + 4 revisions'],
-            ['design_service_id' => 52, 'duration_days' => 14, 'price' => 120, 'features' => '2 timelines + 14 days + 2 revisions'],
-            ['design_service_id' => 52, 'duration_days' => 14, 'price' => 90, 'features' => '1 design + graphs and charts + 2 revisions + 14 days'],
-            ['design_service_id' => 52, 'duration_days' => 20, 'price' => 50, 'features' => '1 design + 2 revisions + 20 days'],
-
-            // Resume Design
-            ['design_service_id' => 53, 'duration_days' => 3, 'price' => 100, 'features' => 'Upto 6 pages + 3 revisions + 3 days'],
-            ['design_service_id' => 53, 'duration_days' => 5, 'price' => 80, 'features' => 'Upto 6 pages + 2 revisions + 5 days'],
-            ['design_service_id' => 53, 'duration_days' => 7, 'price' => 60, 'features' => 'Upto 3 pages + 2 revisions + 7 days'],
-            ['design_service_id' => 53, 'duration_days' => 6, 'price' => 30, 'features' => '/page + 1 revison/page + 1day/page'],
-
-            // Portfolio Design
-            ['design_service_id' => 54, 'duration_days' => 3, 'price' => 100, 'features' => 'Upto 6 pages + 3 revisions + 3 days'],
-            ['design_service_id' => 54, 'duration_days' => 5, 'price' => 80, 'features' => 'Upto 6 pages + 2 revisions + 5 days'],
-            ['design_service_id' => 54, 'duration_days' => 7, 'price' => 60, 'features' => 'Upto 3 pages + 2 revisions + 7 days'],
-            ['design_service_id' => 54, 'duration_days' => 6, 'price' => 30, 'features' => '/page + 1 revison/page + 1day/page'],
-
-            // Billboard Design
-            ['design_service_id' => 55, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 55, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 55, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 55, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Artwork Design
-            ['design_service_id' => 56, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 56, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 56, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 56, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Design Quotes
-            ['design_service_id' => 57, 'duration_days' => 5, 'price' => 150, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 57, 'duration_days' => 10, 'price' => 120, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 57, 'duration_days' => 5, 'price' => 90, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 57, 'duration_days' => 2, 'price' => 10, 'features' => '1 unique design, 2 days, 2 revisions'],
-
-            // Graffiti Design
-            ['design_service_id' => 58, 'duration_days' => 2, 'price' => 150, 'features' => '1 concept, 2 days, 2 revisions'],
-            ['design_service_id' => 58, 'duration_days' => 4, 'price' => 120, 'features' => '1 concept, 4 days, 2 revisions'],
-            ['design_service_id' => 58, 'duration_days' => 4, 'price' => 100, 'features' => '2 concepts, 4 days, 4 revisions'],
-            ['design_service_id' => 58, 'duration_days' => 8, 'price' => 70, 'features' => '2 concepts, 8 days, 2 revisions'],
-
-            // Tattoo Design
-            ['design_service_id' => 59, 'duration_days' => 5, 'price' => 150, 'features' => '10 unique designs, 5 days, 10 revisions'],
-            ['design_service_id' => 59, 'duration_days' => 10, 'price' => 120, 'features' => '10 unique designs, 10 days, 10 revisions'],
-            ['design_service_id' => 59, 'duration_days' => 5, 'price' => 90, 'features' => '5 unique designs, 5 days, 5 revisions'],
-            ['design_service_id' => 59, 'duration_days' => 2, 'price' => 10, 'features' => '1 unique design, 2 days, 2 revisions'],
-        ];
+        
 
 
         // Create Stripe products and prices, then insert with price IDs
-        foreach ($servicePlans as &$plan) {
+        foreach ($services as $service) {
+            // \Log::info("Creating Stripe product for service: " . $service);
+            // break;
             try {
-                // Get the service name for the product
-                $service = $services[$plan['design_service_id'] - 1];
-                $productName = $service['label'] . ' - ' . $plan['features'];
-
-                // Create Stripe Product
                 $product = $this->stripe->products->create([
-                    'name' => $productName,
-                    'description' => "Design service: {$service['label']} ({$plan['duration_days']} days)",
+                    'name' => $service['label'],
+                    'description' => "Design service for " . $service['label'],
                 ]);
-
-                // Create Stripe Price
-                $price = $this->stripe->prices->create([
-                    'product' => $product->id,
-                    'unit_amount' => $plan['price'] * 100, // Convert to cents
-                    'currency' => 'usd',
-                    // 'recurring' => 'day', // One-time payment
+                
+                // Insert into design_services
+                $designService = DB::table('design_services')->insertGetId([
+                    'name' => $service['name'],
+                    'label' => $service['label'],
+                    'heading' => $service['heading'],
+                    'stripe_product_id' => $product->id,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]);
+            
+                foreach ($service['plans'] as $plan) {
+                    try {
+                        $price = $this->stripe->prices->create([
+                            'product' => $product->id,
+                            'unit_amount' => $plan['price'] * 100, // Convert to cents
+                            'currency' => 'usd',
+                        ]);
+            
+                        $half_price = $this->stripe->prices->create([
+                            'product' => $product->id,
+                            'unit_amount' => ($plan['price'] * 100) / 2, // Convert to cents
+                            'currency' => 'usd',
+                        ]);
+            
+                        $servicePlan = [
+                            'design_service_id' => $designService, // Use the inserted ID
+                            'name' => $plan['name'],
+                            'label' => $plan['label'],
+                            'duration_days' => $plan['duration_days'],
+                            'stripe_price_id' => $price->id,
+                            'stripe_half_price_id' => $half_price->id,
+                            'price' => $plan['price'],
+                            'currency' => $plan['currency'],
+                            'symbol' => $plan['symbol'],
+                            'features' => $plan['features'],
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ];
 
-                $half_price = $this->stripe->prices->create([
-                    'product' => $product->id,
-                    'unit_amount' => ($plan['price'] * 100)/2, // Convert to cents
-                    'currency' => 'usd',
-                    // 'recurring' => 'day', // One-time payment
-                ]);
-                // Add the Stripe price ID to the plan
-                $plan['stripe_price_id'] = $price->id;
-                $plan['stripe_half_price_id']=$half_price->id;
-
+                        DB::table('design_service_plans')->insert($servicePlan);
+                    } catch (\Exception $e) {
+                        // Log the error and continue with the next plan
+                        Log::error("Failed to create Stripe price for plan {$plan['name']}: " . $e->getMessage());
+                        continue;
+                    }
+                }
             } catch (\Exception $e) {
-                // Log the error and continue with next plan
-                \Log::error("Failed to create Stripe price for plan {$plan['features']}: " . $e->getMessage());
-                $plan['stripe_price_id'] = null;
+                Log::error("Failed to create Stripe product for service {$service->label}: " . $e->getMessage());
+                throw $e; // Or handle as needed
             }
         }
 
-        DB::table('design_service_plans')->insert($servicePlans);
+        
     }
 }
