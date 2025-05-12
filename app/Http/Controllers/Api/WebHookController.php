@@ -60,13 +60,13 @@ class WebHookController extends Controller
                 return response()->json(['error' => 'Order is already fully paid'], 400);
             }
             if($session->payment_status === 'paid'){
-                if($order->price === ($amountInDollars / 2)){
+                if($order->price == ($amountInDollars / 2)){
                     $paymentStatus = 'half_paid';
                     if($order->status == 'half_paid'){
                         $paymentStatus = 'fully_paid';
                     }
                 }
-                elseif($order->price === $amountInDollars){
+                elseif($order->price == $amountInDollars){
                     $paymentStatus = 'fully_paid';
                 }
                 else{
