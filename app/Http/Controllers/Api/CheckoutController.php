@@ -37,40 +37,39 @@ class CheckoutController extends Controller
             ]);
         }
 
-        $servicePlans = getPlanPrices($order->service, $order->additional_service,$request->half_pay);
+        // $servicePlans = getPlanPrices($order->service, $order->additional_service,$request->half_pay);
 
         // Find the plan that matches the order price
         $selectedPlan = null;
-        foreach ($servicePlans as $plan) {
-            if ($plan['price'] == $order->price) {
-                $selectedPlan = $plan;
-                break;
-            }
-        }
+        $selectedPlan = DesignServicePlan::where('service_id', $order->service)->first();
         if (!$selectedPlan) {
-            return back()->with('error', 'No matching plan found for the order price');
+            return response()->json([
+                'status' => 404,
+                'message' => 'Service plan not found.',
+            ]);
         }
-
+        // foreach ($servicePlans as $plan) {
+        //     if ($plan['price'] == $order->price) {
+        //         $selectedPlan = $plan;
+        //         break;
+        //     }
+        // }
         try {
             // Create line items using the price IDs from the selected plan
             $lineItems = [];
 
             // If there's an additional service, we'll have two price IDs
-            if ($order->additional_service) {
+            if ($selectedPlan && $request->half_pay) {
                 $lineItems = [
                     [
-                        'price' => $selectedPlan['stripe_price_ids'][$order->service], // Primary service price ID
-                        'quantity' => 1,
-                    ],
-                    [
-                        'price' => $selectedPlan['stripe_price_ids'][$order->additional_service], // Additional service price ID
+                        'price' => $selectedPlan->stripe_half_price_id, // Primary service price ID
                         'quantity' => 1,
                     ],
                 ];
             } else {
                 $lineItems = [
                     [
-                        'price' => $selectedPlan['stripe_price_id'], // Single service price ID
+                        'price' => $selectedPlan->stripe_half_price, // Single service price ID
                         'quantity' => 1,
                     ],
                 ];
