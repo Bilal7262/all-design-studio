@@ -56,6 +56,9 @@ class WebHookController extends Controller
             if (!$order) {
                 return response()->json(['error' => 'Order not found'], 404);
             }
+            elseif($order->status === 'fully_paid'){
+                return response()->json(['error' => 'Order is already fully paid'], 400);
+            }
             if($session->payment_status === 'paid'){
                 if($amountInDollars === ($amountTotal / 2)){
                     $paymentStatus = 'half_paid';
