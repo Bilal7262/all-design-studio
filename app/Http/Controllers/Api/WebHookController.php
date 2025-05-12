@@ -59,6 +59,9 @@ class WebHookController extends Controller
             if($session->payment_status === 'paid'){
                 if($amountInDollars === ($amountTotal / 2)){
                     $paymentStatus = 'half_paid';
+                    if($order->status == 'half_paid'){
+                        $paymentStatus = 'fully_paid';
+                    }
                 }
                 elseif($amountInDollars === $amountTotal){
                     $paymentStatus = 'fully_paid';
@@ -73,7 +76,7 @@ class WebHookController extends Controller
                 [
                     'session_id' => $checkoutSessionId,
                     'status' => $paymentStatus,
-                    'paid_amount' => $amountInDollars,
+                    'paid_amount' => $order->paid_amount + $amountInDollars,
                     'updated_at' => now()
                 ]
             );
