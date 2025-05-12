@@ -48,7 +48,7 @@ class CheckoutController extends Controller
                 'message' => 'Service plan not found.',
             ]);
         }
-        return $selectedPlan;
+        
         // foreach ($servicePlans as $plan) {
         //     if ($plan['price'] == $order->price) {
         //         $selectedPlan = $plan;
