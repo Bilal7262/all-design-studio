@@ -70,7 +70,7 @@ class CheckoutController extends Controller
             } else {
                 $lineItems = [
                     [
-                        'price' => $selectedPlan->stripe_half_price, // Single service price ID
+                        'price' => $selectedPlan->stripe_price_id, // Single service price ID
                         'quantity' => 1,
                     ],
                 ];
