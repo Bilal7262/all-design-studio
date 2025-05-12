@@ -74,7 +74,7 @@ class WebHookController extends Controller
                 }
             }
 
-            $paymentStatus = $amountInDollars < $order->price ? 'half_paid' : 'fully_paid';
+            // $paymentStatus = $amountInDollars < $order->price ? 'half_paid' : 'fully_paid';
             $order->update(
                 [
                     'session_id' => $checkoutSessionId,
