@@ -119,7 +119,7 @@ class WebHookController extends Controller
         }
 
         if (abs($amountInDollars - $halfPrice) < 0.01) {
-            return $order->status === 'half_paid' ? 'fully_paid' : 'half_paid';
+            return $order->status == 'half_paid' ? 'fully_paid' : 'half_paid';
         }
 
         return 'unrecognized_payment';
