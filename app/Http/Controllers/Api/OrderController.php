@@ -11,7 +11,7 @@ class OrderController extends Controller
     {
         $rules = [
             'service' => 'required|string|exists:design_services,name',
-            'additional_service' => 'nullable|string|exists:design_services,name|different:service',
+            // 'additional_service' => 'nullable|string|exists:design_services,name|different:service',
             'delivery' => 'required|integer',
             'price' => 'required|numeric',
             'purpose' => 'required|string',
@@ -38,14 +38,16 @@ class OrderController extends Controller
         $orderData['user_id'] = auth()->user()->id;
         $orderData['status'] = 'pending';
         if($request->price){
-            $flag = false;
-            $servicePlans = getServicePlans($request->service,$request->additional_service);
-            foreach($servicePlans as $servicePlan){
-                if($servicePlan['price'] == $request->price){
-                    $flag = true;
-                    break;
-                }
-            }
+            $flag = DesignServicePlan::where('service_name', $request->service)
+                ->where('price', $request->price)
+                ->first();
+            // $servicePlans = getServicePlans($request->service,$request->additional_service);
+            // foreach($servicePlans as $servicePlan){
+            //     if($servicePlan['price'] == $request->price){
+            //         $flag = true;
+            //         break;
+            //     }
+            // }
             if(!$flag){
                 return response()->json([
                     'error' => 'Invalid price',
