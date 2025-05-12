@@ -38,7 +38,7 @@ class OrderController extends Controller
         $orderData['user_id'] = auth()->user()->id;
         $orderData['status'] = 'pending';
         if($request->price){
-            $flag = DesignServicePlan::where('service_name', $request->service)
+            $flag = DesignServicePlan::where('name', $request->service)
                 ->where('price', $request->price)
                 ->first();
             // $servicePlans = getServicePlans($request->service,$request->additional_service);
