@@ -3,107 +3,135 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Stripe\Exception\SignatureVerificationException;
+use Stripe\Webhook;
+
 class WebHookController extends Controller
 {
-    public function checkoutSessionWebhookHandling(Request $request)
-{
-    // Get the raw payload and signature header
-    $payload = $request->getContent();
-    $sigHeader = $request->header('Stripe-Signature');
-    $webhookSecret = env('STRIPE_WEBHOOK_SECRET');
+    private const HANDLED_EVENT = 'checkout.session.completed';
+    private const CENTS_TO_DOLLARS = 100;
 
-    // Add debugging logs
-    \Log::debug('Webhook received', [
-        'payload' => $payload,
-        'signature' => $sigHeader,
-        'webhook_secret' => $webhookSecret ? 'set' : 'not set'
-    ]);
+    public function checkoutSessionWebhookHandling(Request $request): JsonResponse
+    {
+        $payload = $request->getContent();
+        $sigHeader = $request->header('Stripe-Signature');
+        $webhookSecret = env('STRIPE_WEBHOOK_SECRET');
 
-    if (!$sigHeader) {
-        \Log::error('No Stripe-Signature header present');
-        return response()->json(['error' => 'Missing signature header'], 400);
+        // Early validation
+        if (!$sigHeader) {
+            \Log::error('Missing Stripe-Signature header');
+            return $this->errorResponse('Missing signature header', 400);
+        }
+
+        if (!$webhookSecret) {
+            \Log::error('Webhook secret not configured');
+            return $this->errorResponse('Webhook secret not configured', 400);
+        }
+
+        try {
+            // Verify webhook signature
+            $event = Webhook::constructEvent($payload, $sigHeader, $webhookSecret);
+
+            // Handle only checkout.session.completed events
+            if ($event->type !== self::HANDLED_EVENT) {
+                return $this->successResponse('event_not_handled');
+            }
+
+            return $this->handleCheckoutSession($event->data->object);
+
+        } catch (SignatureVerificationException $e) {
+            \Log::error('Webhook signature verification failed', ['error' => $e->getMessage()]);
+            return $this->errorResponse('Invalid signature', 400);
+        } catch (\Exception $e) {
+            \Log::error('Webhook processing failed', ['error' => $e->getMessage()]);
+            return $this->errorResponse('Webhook processing failed', 400);
+        }
     }
 
-    if (!$webhookSecret) {
-        \Log::error('Webhook secret not configured');
-        return response()->json(['error' => 'Webhook secret not configured'], 400);
-    }
-
-    try {
-        // Verify webhook signature
-        $event = \Stripe\Webhook::constructEvent(
-            $payload,
-            $sigHeader,
-            $webhookSecret
-        );
-
-        // Handle only checkout.session.completed events
-        if ($event->type === 'checkout.session.completed') {
-            $session = $event->data->object;
-
-            // Extract relevant data
-            $order_id = $session->metadata->order_id; // Assuming you stored order_id in metadata
-            $user_id = $session->metadata->user_id; // Assuming you stored user_id in metadata
-            $checkoutSessionId = $session->id;
-            $amountTotal = $session->amount_total; // Amount in cents
-            $customerEmail = $session->customer_details->email;
-            // Convert amount from cents to dollars
-            $amountInDollars = $amountTotal / 100;
-            // Find or create your payment record (adjust according to your database schema)
-            $order = Order::where('id', $order_id)->first();
-            if (!$order) {
-                return response()->json(['error' => 'Order not found'], 404);
+    private function handleCheckoutSession(object $session): JsonResponse
+    {
+        try {
+            // Extract and validate metadata
+            $metadata = $this->extractMetadata($session);
+            
+            // Find order
+            $order = Order::findOrFail($metadata['order_id']);
+            
+            // Check if order is already fully paid
+            if ($order->status === 'fully_paid') {
+                return $this->errorResponse('Order is already fully paid', 400);
             }
-            elseif($order->status === 'fully_paid'){
-                return response()->json(['error' => 'Order is already fully paid'], 400);
+
+            // Process payment status
+            if ($session->payment_status !== 'paid') {
+                return $this->successResponse('unprocessed_payment');
             }
-            if($session->payment_status === 'paid'){
-                if($order->price == ($amountInDollars / 2)){
-                    $paymentStatus = 'half_paid';
-                    if($order->status == 'half_paid'){
-                        $paymentStatus = 'fully_paid';
-                    }
-                }
-                elseif($order->price == $amountInDollars){
-                    $paymentStatus = 'fully_paid';
-                }
-                else{
-                    $paymentStatus = 'unrecognized payment';
-                }
-            }
-            $order->update(
-                [
-                    'session_id' => $checkoutSessionId,
+
+            $amountInDollars = $session->amount_total / self::CENTS_TO_DOLLARS;
+            $paymentStatus = $this->determinePaymentStatus($order, $amountInDollars);
+
+            // Update order in a transaction
+            \DB::transaction(function () use ($order, $session, $amountInDollars, $paymentStatus) {
+                $order->update([
+                    'session_id' => $session->id,
                     'status' => $paymentStatus,
                     'paid_amount' => $order->paid_amount + $amountInDollars,
-                    'updated_at' => now()
-                ]
-            );
+                    'updated_at' => now(),
+                ]);
+            });
 
-            // Optional: Log the successful processing
             \Log::info('Webhook processed successfully', [
-                'checkout_session_id' => $checkoutSessionId,
+                'checkout_session_id' => $session->id,
                 'payment_status' => $paymentStatus,
                 'amount' => $amountInDollars
             ]);
 
-            return response()->json(['status' => 'success'], 200);
+            return $this->successResponse('success');
+
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            \Log::error('Order not found', ['order_id' => $metadata['order_id'] ?? 'unknown']);
+            return $this->errorResponse('Order not found', 404);
+        } catch (\Exception $e) {
+            \Log::error('Checkout session processing failed', ['error' => $e->getMessage()]);
+            return $this->errorResponse('Checkout processing failed', 400);
+        }
+    }
+
+    private function extractMetadata(object $session): array
+    {
+        $metadata = $session->metadata ?? new \stdClass();
+        return [
+            'order_id' => $metadata->order_id ?? null,
+            'user_id' => $metadata->user_id ?? null,
+        ];
+    }
+
+    private function determinePaymentStatus(Order $order, float $amountInDollars): string
+    {
+        $halfPrice = $order->price / 2;
+        $fullPrice = $order->price;
+
+        if (abs($amountInDollars - $fullPrice) < 0.01) {
+            return 'fully_paid';
         }
 
-        // Return success for unhandled event types
-        return response()->json(['status' => 'event_not_handled'], 200);
+        if (abs($amountInDollars - $halfPrice) < 0.01) {
+            return $order->status === 'half_paid' ? 'fully_paid' : 'half_paid';
+        }
 
-    } catch (\Stripe\Exception\SignatureVerificationException $e) {
-        // Invalid signature
-        \Log::error('Webhook signature verification failed: ' . $e->getMessage());
-        return response()->json(['error' => 'Invalid signature '.$e->getMessage()], 400);
-
-    } catch (\Exception $e) {
-        // General error handling
-        \Log::error('Webhook processing failed: ' . $e->getMessage());
-        return response()->json(['error' => 'Webhook processing failed'. $e->getMessage()], 400);
+        return 'unrecognized_payment';
     }
-}
+
+    private function successResponse(string $status): JsonResponse
+    {
+        return response()->json(['status' => $status], 200);
+    }
+
+    private function errorResponse(string $message, int $statusCode): JsonResponse
+    {
+        return response()->json(['error' => $message], $statusCode);
+    }
 }
