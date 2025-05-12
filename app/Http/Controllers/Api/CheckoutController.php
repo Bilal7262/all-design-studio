@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
+use App\Models\{Order,DesignServicePlan};
 use Illuminate\Http\Request;
 use App\Services\StripeService;
 class CheckoutController extends Controller
