@@ -15,7 +15,7 @@ return new class extends Migration
             $table->dropColumn('service');
             $table->dropColumn('plain_id');
             $table->dropColumn('additional_service');
-            $table->unsignedBigIntiger('plan_id')->nullable()->after('id');
+            $table->unsignedBigInteger('plan_id')->nullable()->after('id');
             $table->foreign('plan_id')
                 ->references('id')->on('design_service_plans')
                 ->onDelete('cascade');
