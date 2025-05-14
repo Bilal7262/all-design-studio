@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('service');
+            $table->dropColumn('plain_id');
             $table->dropColumn('additional_service');
-            $table->string('plan_id')->nullable()->after('id');
+            $table->unsignedBigIntiger('plan_id')->nullable()->after('id');
             $table->foreign('plan_id')
                 ->references('id')->on('design_service_plans')
                 ->onDelete('cascade');
