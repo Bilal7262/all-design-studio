@@ -11,9 +11,6 @@ class OrderController extends Controller
     {
         $rules = [
             'service' => 'required|string|exists:design_services,name',
-            // 'additional_service' => 'nullable|string|exists:design_services,name|different:service',
-            'delivery' => 'required|integer',
-            'price' => 'required|numeric',
             'purpose' => 'required|string',
             'color_preference' => 'required|string',
             'brand_name' => 'required|string',
@@ -27,33 +24,12 @@ class OrderController extends Controller
             'image_*' => 'nullable|file',
             'inspiration_file_*' => 'nullable|file',
             'font_file_*' => 'nullable|file',
+            'plan_id' => 'required|exists:design_service_plans,id',
         ];
 
-        // $request->validate($rules, [], [
-        //     'service' => 'Design Service',
-        //     'additional_service' => 'Additional Service',
-        // ]);
-        // Create order with validated data
         $orderData = $request->only(array_keys($rules));
         $orderData['user_id'] = auth()->user()->id;
         $orderData['status'] = 'pending';
-        if($request->price){
-            $flag = DesignServicePlan::where('name', $request->service)
-                ->where('price', $request->price)
-                ->first();
-            // $servicePlans = getServicePlans($request->service,$request->additional_service);
-            // foreach($servicePlans as $servicePlan){
-            //     if($servicePlan['price'] == $request->price){
-            //         $flag = true;
-            //         break;
-            //     }
-            // }
-            if(!$flag){
-                return response()->json([
-                    'error' => 'Invalid price',
-                ], 400);
-            }
-        }
         $order = Order::create($orderData);
 
         $orderFiles = [];
