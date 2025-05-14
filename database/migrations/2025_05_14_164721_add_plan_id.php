@@ -12,9 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('service');
-            $table->dropColumn('plain_id');
-            $table->dropColumn('additional_service');
             $table->unsignedBigInteger('plan_id')->nullable()->after('id');
             $table->foreign('plan_id')
                 ->references('id')->on('design_service_plans')
