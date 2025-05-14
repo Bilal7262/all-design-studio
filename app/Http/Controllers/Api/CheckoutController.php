@@ -41,7 +41,7 @@ class CheckoutController extends Controller
 
         // Find the plan that matches the order price
         $selectedPlan = null;
-        $selectedPlan = DesignServicePlan::where('name', $order->service)->first();
+        $selectedPlan = DesignServicePlan::find($order->plan_id);
         if (!$selectedPlan) {
             return response()->json([
                 'status' => 404,
