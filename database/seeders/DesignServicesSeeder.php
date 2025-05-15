@@ -28,9 +28,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Logo Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 210.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 5 custom logos\n✅ Up to 5 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 160.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Multiple unique logo concepts\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 130.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 99.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 3, 'price' => 160.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Multiple unique logo concepts\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 130.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 99.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 custom logos\n✅ Up to 10 revisions\n✅ High-quality, custom logo designs\n✅ Delivered in PNG, JPG, and vector formats\n✅ 100% ownership rights"],
                 ]
                 ],
             [
@@ -38,9 +38,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Website Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly website design\n✅ Responsive design for all devices"],
                 ]
             ],
             [
@@ -48,9 +48,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Ecommerce Website Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly ecommerce design\n✅ Responsive design for all devices"],
                 ]
             ],
             [
@@ -58,9 +58,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Real Estate Website Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly real estate design\n✅ Responsive design for all devices"],
 
                 ]
             ],
@@ -69,9 +69,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                                 // Healthcare Website Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly healthcare design\n✅ Responsive design for all devices"],
   
                     
                 ]
@@ -81,9 +81,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Landing Page Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ Up to 3 revisions\n✅ Custom, high-converting landing page design"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 99.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 79.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 59.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 3, 'price' => 99.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 79.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 59.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Up to 10 revisions\n✅ Custom, high-converting landing page design\n✅ Mobile-friendly and responsive layout"],
 
                 ]
             ],
@@ -92,9 +92,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                         // Design Icon
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 10 flat icons\n✅ 5 3D icons"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 249.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 15 flat icons\n✅ 5 3D icons"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 20 flat icons\n✅ 10 3D icons"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 149.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 25 flat icons\n✅ 15 3D icons"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 3, 'price' => 249.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 15 flat icons\n✅ 5 3D icons"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 20 flat icons\n✅ 10 3D icons"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 149.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 25 flat icons\n✅ 15 3D icons"],
 
                 ]
             ],
@@ -103,9 +103,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                             // Dashboard Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 699.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Advanced design\n✅ UI/UX optimization"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 499.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Basic design\n✅ UI/UX optimization\n✅ Prototyping included"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 25, 'price' => 399.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 25 days\n✅ Basic design\n✅ UI/UX optimization\n✅ Prototyping included"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 25, 'price' => 299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 25 days\n✅ Advanced design\n✅ UI/UX optimization"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 14, 'price' => 499.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Basic design\n✅ UI/UX optimization\n✅ Prototyping included"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 25, 'price' => 399.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 25 days\n✅ Basic design\n✅ UI/UX optimization\n✅ Prototyping included"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 25, 'price' => 299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 25 days\n✅ Advanced design\n✅ UI/UX optimization"],
 
                 ]
             ],
@@ -114,9 +114,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Infographic Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 8, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 6 infographics\n✅ Up to 6 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 3 infographics\n✅ Up to 6 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 infographics\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 1, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 1 infographic\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 6, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 3 infographics\n✅ Up to 6 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 infographics\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 1, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ 1 infographic\n✅ Up to 2 revisions"],
  
                 ]
             ],
@@ -125,9 +125,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                      // Footer Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 140.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 6 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 9 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 9, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 9 days\n✅ Up to 12 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 3, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 6 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 9 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 9, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 9 days\n✅ Up to 12 revisions"],
 
                 ]
             ],
@@ -136,9 +136,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                      // Website Header Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 1, 'price' => 140.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 1 day\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 3, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 6 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 9 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 9, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 9 days\n✅ Up to 12 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 3, 'price' => 110.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 6 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Up to 9 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 9, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 9 days\n✅ Up to 12 revisions"],
 
                 ]
             ],
@@ -147,9 +147,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                      // UI/UX Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UI/UX design\n✅ Responsive design for all devices"],
 
                 ]
             ],
@@ -158,9 +158,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // UX Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UX design\n✅ Responsive design for all devices"],
 
                 ]
             ],
@@ -169,9 +169,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // UI Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 2299.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 20, 'price' => 1799.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Prototyping included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1199.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ 20-30 pages included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 20, 'price' => 999.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 20 days\n✅ 10-20 pages included\n✅ Custom, user-friendly UI design\n✅ Responsive design for all devices"],
 
                 ]
             ],
@@ -180,9 +180,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Mobile App Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 5000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Complete app design"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete app design"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic layout design"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic layout design"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete app design"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic layout design"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic layout design"],
 
                 ]
             ],
@@ -191,9 +191,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // iOS App Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 5000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Complete iOS app design"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete iOS app design"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic iOS layout design"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic iOS layout design"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete iOS app design"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic iOS layout design"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic iOS layout design"],
 
                 ]
             ],
@@ -202,9 +202,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Android App Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 30, 'price' => 5000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Complete Android app design"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete Android app design"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic Android layout design"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic Android layout design"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 60, 'price' => 3000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Complete Android app design"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 1500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Basic Android layout design"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 60, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 60 days\n✅ Basic Android layout design"],
 
                 ]
             ],
@@ -213,9 +213,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Business Card Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -224,9 +224,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Birthday Card Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -235,9 +235,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                      // Greeting Card Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 3 design variations\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 6, 'price' => 25.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ 2 design variations\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -246,9 +246,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Wedding Invitation Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ Custom design\n✅ Up to 5 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Custom design\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ Custom design\n✅ Up to 3 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Custom design\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ Custom design\n✅ Up to 3 revisions"],
 
                 ]
             ],
@@ -257,9 +257,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Postcard Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ Custom design\n✅ Up to 5 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 6, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Custom design\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ Custom design\n✅ Up to 3 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 6, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Custom design\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ Custom design\n✅ Up to 3 revisions"],
 
                 ]
             ],
@@ -268,9 +268,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Packaging Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
 
                 ]
             ],
@@ -279,9 +279,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Box Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
 
                 ]
             ],
@@ -290,9 +290,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Label Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
 
                 ]
             ],
@@ -301,9 +301,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                      // Food Packaging Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 4, 'price' => 1200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ Custom design\n✅ Up to 6 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 6, 'price' => 1000.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 6 days\n✅ Premium design\n✅ Up to 8 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 800.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Premium design\n✅ Up to 10 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Custom design\n✅ Up to 5 revisions"],
 
                 ]
             ],
@@ -312,9 +312,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // T-Shirt Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -323,9 +323,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Hoodie Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -334,9 +334,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Jersey Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -345,9 +345,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Custom Design Polo
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -356,9 +356,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Tote Bag Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
   
                 ]
@@ -368,9 +368,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                       // Cup Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -379,9 +379,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Mug Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -390,9 +390,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Cap Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -401,9 +401,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Flyer Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -412,9 +412,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Poster Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
 
                 ]
@@ -424,9 +424,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Magazine Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 50 pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 30 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 50 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 30 pages\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -435,9 +435,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Brochure Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -446,9 +446,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Pamphlet Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 20 pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 14, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 20 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 30, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -457,9 +457,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Banner Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -468,9 +468,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Sticker Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 90.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 10.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 90.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 10.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -479,9 +479,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Envelope Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 90.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 10 unique designs\n✅ Up to 10 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 90.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 5 unique designs\n✅ Up to 5 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 2, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 unique design\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -490,9 +490,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Magazine Cover Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -501,9 +501,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                      // Ebook Cover Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -512,9 +512,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Book Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 50 pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 30 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 50 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 30 pages\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -523,9 +523,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Book Cover Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -534,9 +534,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Booklet Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 20 pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 30, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 14, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Unlimited pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 30, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 20 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 30, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 30 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -545,9 +545,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Album Cover Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -556,9 +556,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Letter Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 8, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 8, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 8 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -567,9 +567,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Menu Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 5, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -578,9 +578,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // PowerPoint Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ Up to 20 slides\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ Up to 20 slides\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 7, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Up to 15 slides\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Up to 10 slides\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 5, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ Up to 20 slides\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 7, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Up to 15 slides\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ Up to 10 slides\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -589,9 +589,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Timeline Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 5, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 5, 'price' => 120.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 5, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 70.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -600,9 +600,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Resume Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 100.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 7, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 80.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 60.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 7, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -611,9 +611,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Portfolio Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 7, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ Up to 20 pages\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Up to 20 pages\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 14, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Up to 15 pages\n✅ Up to 2 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 21, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 21 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 14, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Up to 20 pages\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 14, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 14 days\n✅ Up to 15 pages\n✅ Up to 2 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 21, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 21 days\n✅ Up to 10 pages\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -622,9 +622,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Billboard Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 3, 'price' => 600.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 3 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 7, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 7, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -633,9 +633,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Artwork Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 15, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 15, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -644,9 +644,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Design Quotes
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 2, 'price' => 50.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 2 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 7, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 4, 'price' => 40.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 1 concept\n✅ Up to 2 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 4, 'price' => 30.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 4 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 7, 'price' => 20.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 7 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -655,9 +655,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Graffiti Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 500.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 15, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 400.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 15, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"],
 
                 ]
             ],
@@ -666,9 +666,9 @@ class DesignServicesSeeder extends Seeder
                 'plans' => [
                     // Tattoo Design
                     [ 'priority' => 4, 'name' => 'priority_design', 'label' => 'Priority Design', 'duration_days' => 5, 'price' => 300.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 5 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 3, 'name' => 'mega_design_pack', 'label' => 'Mega Design Pack', 'duration_days' => 10, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
-                    [ 'priority' => 2, 'name' => 'ultra_design', 'label' => 'Ultra Design', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
-                    [ 'priority' => 1, 'name' => 'fundamental_design', 'label' => 'Fundamental Design', 'duration_days' => 15, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"]
+                    [ 'priority' => 3, 'name' => 'platinum_plan', 'label' => 'Platinum Plan', 'duration_days' => 10, 'price' => 250.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 1 concept\n✅ Up to 3 revisions"],
+                    [ 'priority' => 2, 'name' => 'gold_plan', 'label' => 'Gold Plan', 'duration_days' => 10, 'price' => 200.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 10 days\n✅ 2 concepts\n✅ Up to 4 revisions"],
+                    [ 'priority' => 1, 'name' => 'silver_plan', 'label' => 'Silver Plan', 'duration_days' => 15, 'price' => 150.00, 'currency' => 'USD', 'symbol' => '$', 'features' => "✅ Delivery within 15 days\n✅ 2 concepts\n✅ Up to 2 revisions"]
 
                 ]
             ],
