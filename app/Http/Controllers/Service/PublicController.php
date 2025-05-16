@@ -31,7 +31,7 @@ class PublicController extends Controller
                         $query->orWhere('service_type', 'LIKE', '%'.$type.'%');
                     }
                 });
-            })->where('id', '!=', $page->id)->where('status', 'Active')->get();
+            })->with('snippet')->where('id', '!=', $page->id)->where('status', 'Active')->get();
             return response()->json([
                 'status' => 200,
                 'message' => 'Successfully fetched',
