@@ -11,6 +11,6 @@ class DesignService extends Model
 
     public function plans()
     {
-        return $this->hasMany(DesignServicePlan::class);
+        return $this->hasMany(DesignServicePlan::class)->orderBy('priority', 'asc');
     }
 }
