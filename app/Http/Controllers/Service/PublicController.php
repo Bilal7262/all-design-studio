@@ -23,10 +23,20 @@ class PublicController extends Controller
     public function get_details($slug){
         $page = ServicePage::with('snippet','images','banner','feature','feature_clone','orders','orders_clone','sample','pricing','testimonial','faq','seo','cta','interlinking','design')->where('page_slug', $slug)->where('status', 'Active')->first();
         if($page){
+
+            $service_types = $page->snippet?->service_type ? explode(',', $page->snippet->service_type) : [];
+            $related = ServicePage::whereHas('snippet', function($q) use($service_types){
+                $q->where(function($query) use($service_types) {
+                    foreach($service_types as $type) {
+                        $query->orWhere('service_type', 'LIKE', '%'.$type.'%');
+                    }
+                });
+            })->where('id', '!=', $page->id)->where('status', 'Active')->get();
             return response()->json([
                 'status' => 200,
                 'message' => 'Successfully fetched',
-                'page' => $page
+                'page' => $page,
+                'related' => $related
             ], 200);
         }else{
             return response()->json([
