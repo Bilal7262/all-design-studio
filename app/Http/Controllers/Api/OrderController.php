@@ -27,9 +27,13 @@ class OrderController extends Controller
             'plan_id' => 'required|exists:design_service_plans,id',
         ];
 
+
         $orderData = $request->only(array_keys($rules));
         $orderData['user_id'] = auth()->user()->id;
         $orderData['status'] = 'pending';
+        
+        $plan = DesignServicePlan::where('id', $request->plan_id)->first();
+        $orderData['delivery'] = now()->addDays($plan->delivery_time)->format('Y-m-d H:i:s');
         $order = Order::create($orderData);
 
         $orderFiles = [];
