@@ -34,7 +34,8 @@ class OrderController extends Controller
         
         $plan = DesignServicePlan::where('id', $request->plan_id)->first();
         $orderData['delivery'] = now()->addDays($plan->delivery_time)->format('Y-m-d H:i:s');
-        $orderData['price'] = $plan->amount;
+        $orderData['price'] = $plan->price;
+        //changes
         $order = Order::create($orderData);
 
         $orderFiles = [];
