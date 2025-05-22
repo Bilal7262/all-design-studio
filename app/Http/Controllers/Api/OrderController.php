@@ -163,12 +163,15 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
 
         // Get only the fields that are present and not null in the request
-        if($request->isset('plan_id')){
-            $plan = DesignServicePlan::where('id', $request->plan_id)->first();
-            $request['delivery'] = now()->addDays($plan->delivery_time)->format('Y-m-d H:i:s');
-            $request['price'] = $plan->price;
+        if ($request->has('plan_id')) {
+            $plan = DesignServicePlan::find($request->plan_id);
+            if ($plan) {
+                $request->merge([
+                    'delivery' => now()->addDays($plan->delivery_time)->format('Y-m-d H:i:s'),
+                    'price' => $plan->price,
+                ]);
+            }
         }
-        $request['price']   = $order->price;
         // Filter out file fields from the update data to prevent SQL errors
         $updateData = array_filter($request->except([
             'image_1', 'image_2', 'image_3', 'image_4', 'image_5',
